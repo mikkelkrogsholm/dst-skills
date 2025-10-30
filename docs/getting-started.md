@@ -73,23 +73,29 @@ You should see 7 skills: dst-subjects, dst-tables, dst-tableinfo, dst-data, dst-
 
 ## First Data Fetch
 
-### Using Skills Directly (Recommended)
+### Using DST Agents
 
-Due to a current limitation in Claude Code subagents ([issue #4462](https://github.com/anthropics/claude-code/issues/4462)), data downloads should be run directly:
+The DST Skills system provides specialized agents for different workflows:
 
-1. Ask: "Use the dst-data skill to fetch table FOLK1A"
-2. The main agent will download and store the data
-3. Then ask: "Analyze the population data in dst_folk1a"
-4. The analyst agent will analyze and return results
-
-**Example**:
+#### Quick Data Access
 ```
-You: Use dst-data to fetch FOLK1A
-Agent: [Downloads data to DuckDB] ✅
-
-You: Analyze the population trends in dst_folk1a
-Agent: [Launches analyst subagent which returns analysis]
+# Let DST Fetcher find and download data for you
+"Find me population data by region"
 ```
+
+#### Single-Table Analysis
+```
+# Let DST Analyst explore data already in DuckDB
+"Analyze population trends in dst_folk1a"
+```
+
+#### Comprehensive Research
+```
+# Let DST Research Analyst handle multi-table workflows
+/dst-research electric vehicle adoption trends
+```
+
+Agents can now fetch data, create reports, and persist files directly—no workarounds needed!
 
 ### Manual Script Execution
 

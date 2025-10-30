@@ -4,18 +4,22 @@ This project provides Skills and Agents for fetching and analyzing data from Dan
 
 ## Quick Start Workflow
 
-Due to a current Claude Code limitation, use this two-step workflow:
-
-### 1. Fetch Data (Main Agent + Skills)
+### 1. Fetch Data
 ```
 User: "Use dst-data to fetch FOLK1A"
-→ Main agent downloads data to DuckDB ✅
+→ Downloads data to DuckDB ✅
 ```
 
-### 2. Analyze Data (Subagent)
+### 2. Analyze Data
 ```
 User: "Analyze the population trends in dst_folk1a"
-→ DST Analyst agent reads data and returns analysis ✅
+→ DST Analyst agent analyzes data and returns insights ✅
+```
+
+### 3. Comprehensive Analysis (Optional)
+```
+User: "Provide multi-table analysis of Denmark's population and economic trends"
+→ DST Research Analyst performs deep analysis across multiple datasets ✅
 ```
 
 ## Available Skills
@@ -24,7 +28,7 @@ Invoke skills directly for data operations:
 - `/dst-subjects` - Browse DST topic hierarchy
 - `/dst-tables` - Search for tables by subject/keyword
 - `/dst-tableinfo` - Get table metadata and structure
-- `/dst-data` - Download and store data ⚠️ Use from main agent only
+- `/dst-data` - Download and store data
 - `/dst-list-tables` - List locally stored tables
 - `/dst-check-freshness` - Check data age
 - `/dst-query` - Run SQL queries on stored data
@@ -34,30 +38,47 @@ Invoke skills directly for data operations:
 ### DST Fetcher (Data Researcher)
 **Trigger**: "Find me X data" or "What data is available about X?"
 
-**Role**: Researches DST API, finds relevant tables, recommends what to fetch
+**Role**: Researches DST API, finds relevant tables, and downloads data
 - ✅ Browses subjects and searches for tables
 - ✅ Returns table recommendations with exact fetch commands
-- ❌ Cannot download data (main agent does this)
+- ✅ Downloads and stores data in DuckDB
 
 **Example**:
 ```
-User: "Find electric vehicle data"
-Fetcher: [Searches DST] → "Found BIL707 (registrations). Use: `/dst-data --table-id BIL707`"
+User: "Find and fetch electric vehicle data"
+Fetcher: [Searches DST] → "Found BIL707. Downloading..." → Data stored in DuckDB
 ```
 
 ### DST Analyst
 **Trigger**: "Analyze X" or "What's the trend in X?"
 
-**Role**: Analyzes data already stored in DuckDB
+**Role**: Analyzes data stored in DuckDB and generates insights
 - ✅ Checks data availability and freshness
 - ✅ Runs SQL queries and statistical analysis
 - ✅ Returns formatted analysis as text
-- ❌ Cannot download new data or create files
+- ✅ Can create and save analysis reports
 
 **Example**:
 ```
 User: "Analyze population growth in dst_folk1a"
 Analyst: [Queries data] → Returns trends, statistics, insights
+```
+
+### DST Research Analyst
+**Trigger**: "Provide comprehensive analysis of X" or "Compare multiple datasets on X"
+
+**Role**: Performs deep, multi-table analysis across DST datasets
+- ✅ Researches and fetches multiple relevant tables
+- ✅ Performs cross-table analysis and correlation studies
+- ✅ Generates comprehensive statistical reports
+- ✅ Creates visualizations and detailed analysis documents
+- ✅ Identifies trends and patterns across datasets
+
+**Example**:
+```
+User: "Analyze Denmark's economic and demographic trends"
+Research Analyst: [Fetches population, employment, income data] →
+Performs multi-table analysis → Generates comprehensive report with insights
 ```
 
 ## Complete Example
@@ -80,11 +101,11 @@ Analyst: [Returns comprehensive analysis with trends and insights]
 
 ## Key Points
 
-- ⚠️ **Always use main agent for data downloads** (subagents can't persist data due to bug #4462)
 - ✅ Table naming: DST table "FOLK1A" becomes `dst_folk1a` in DuckDB
 - ✅ Data stored in `data/dst.db`
 - ✅ Check freshness before re-fetching: `/dst-check-freshness --table-id FOLK1A`
 - ✅ Agents work best when you're specific: table IDs > topic names
+- ✅ All agents can persist and access data across sessions
 
 ## Common Tasks
 

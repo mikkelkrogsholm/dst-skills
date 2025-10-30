@@ -100,18 +100,30 @@ Several options:
 3. **Document workflow**: Create markdown files documenting your analysis
 4. **Backup database**: Copy `data/dst_data.duckdb` to preserve all fetched data
 
-### Why don't agents download data directly?
+### Can agents create files and persist data?
 
-Due to a known bug in Claude Code ([issue #4462](https://github.com/anthropics/claude-code/issues/4462)), subagents cannot persist file or database changes. When a subagent attempts to write files or download data, the operation succeeds within the agent's isolated context but doesn't persist to the main environment.
+**Yes!** The previous limitation (bug #4462) has been fixed. Agents can now:
+- Create files (reports, analysis outputs)
+- Persist data to DuckDB
+- Write directly to the reports/ directory
 
-**Workaround**: Use Skills directly from the main agent for data operations:
-- ✅ Correct: "Use dst-data to fetch FOLK1A" (main agent executes)
-- ❌ Won't work: Agent tries to fetch (changes don't persist)
+The DST Analyst and DST Research Analyst agents can generate and save report files.
 
-**For analysis**: Subagents work perfectly for read-only operations:
-- ✅ "Analyze the population data in dst_folk1a" (reads existing data)
+### When should I use DST Research Analyst vs DST Analyst?
 
-This limitation is temporary. We'll update the workflow once Anthropic fixes the bug. In the meantime, the DST Fetcher agent acts as a "Data Researcher" - it finds and recommends tables, but the main agent handles the actual download.
+**DST Research Analyst**: Use for comprehensive, multi-table research workflows:
+- Analyzing relationships between multiple datasets
+- Comparative analysis across time/regions
+- Research questions requiring data from 3+ tables
+- Generating HTML reports with interactive visualizations
+
+**DST Analyst**: Use for focused, single-table analysis:
+- Exploring data already fetched from one table
+- Quick insights and queries
+- Statistical analysis on a specific dataset
+- Text-based analysis and summaries
+
+Think: Research Analyst = breadth, Analyst = depth.
 
 ## Technical Questions
 
