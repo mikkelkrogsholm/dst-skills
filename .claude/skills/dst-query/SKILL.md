@@ -9,6 +9,67 @@ description: Execute SQL queries on Danmarks Statistik data stored in DuckDB. Us
 
 Execute SQL queries to analyze DST data stored in DuckDB. This is the core skill for data analysis - enabling filtering, aggregation, joins, and extracting insights from stored statistical data.
 
+## DST Data Patterns
+
+### Handling Suppressed Values
+DST uses `".."` for suppressed/confidential data. Must handle before numeric operations.
+
+**Filter approach:**
+```sql
+SELECT * FROM dst_table
+WHERE INDHOLD != '..'  -- Filter out suppressed
+```
+
+**Safe casting approach:**
+```sql
+SELECT
+  TID,
+  CASE
+    WHEN INDHOLD != '..' THEN CAST(INDHOLD AS INTEGER)
+    ELSE NULL
+  END as value
+FROM dst_table
+```
+
+**Using helpers:**
+```python
+from scripts.db.helpers import safe_numeric_cast
+
+query = f"SELECT TID, {safe_numeric_cast('INDHOLD')} as value FROM dst_table"
+```
+
+### Aggregate Codes
+DST uses special codes for totals/aggregates:
+- `"TOT"` - Total
+- `"I alt"` - Total (Danish)
+- `"Drivmidler i alt"` - All fuel types
+- `"IALT"` - Total (alternative)
+
+**Filter them out when analyzing details:**
+```sql
+SELECT * FROM dst_table
+WHERE fuel_type NOT IN ('Drivmidler i alt', 'I alt')
+  AND gender NOT IN ('TOT', 'IALT')
+```
+
+### Time Format Handling
+DST time codes as strings don't sort chronologically:
+- `"2024K1"` - Quarter 1, 2024
+- `"2024M01"` - January 2024
+- `"2024"` - Year 2024
+
+**Extract for proper sorting:**
+```sql
+-- For quarters
+SELECT
+  TID,
+  CAST(SUBSTRING(TID, 1, 4) AS INTEGER) as year,
+  CAST(SUBSTRING(TID, 6, 1) AS INTEGER) as quarter
+FROM dst_table
+WHERE TID LIKE '%K%'
+ORDER BY year, quarter
+```
+
 ## When to Use
 
 - User asks analytical questions about the data

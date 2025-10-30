@@ -9,6 +9,62 @@ description: Fetch actual data from Danmarks Statistik API and store in DuckDB. 
 
 Fetch statistical data from Danmarks Statistik API and persist it in the local DuckDB database for analysis. This is the final step in the data acquisition workflow, transforming remote API data into queryable local tables.
 
+## Critical API Quirks
+
+### BULK Format Requirements
+DST's BULK format (unlimited streaming) has a critical requirement:
+
+**ALL variables must be specified in filters** - no auto-elimination like other formats.
+
+**Error:** "Der skal vælges værdier for variabel: [VAR_NAME]"
+
+**Solution:**
+1. Get all variables from tableinfo
+2. Specify each in filters: `{"VAR1":["*"], "VAR2":["*"], ...}`
+3. Use wildcard `"*"` to get all values for a variable
+
+### Suppressed Values ("..")
+DST uses `".."` to indicate suppressed/confidential data.
+
+**Impact:**
+- Causes errors when casting to numeric: `CAST('..' AS INTEGER)` fails
+- Common in small population cells, rare events
+- Must be filtered before numeric operations
+
+**Solutions:**
+- Filter in SQL: `WHERE column != '..'`
+- Safe casting: `CASE WHEN column != '..' THEN CAST(column AS INTEGER) END`
+- Use helpers: `safe_numeric_cast(column)` from scripts/db/helpers.py
+
+### Cell Limits
+- **CSV/JSON formats:** 1,000,000 cell maximum
+- **BULK format:** Unlimited (streaming)
+- **Calculation:** cells = var1_count × var2_count × ... × varN_count
+
+**Error:** "Forespørgslen returnerer for mange observationer" (REQUEST-LIMIT)
+
+**Solution:** Use BULK format automatically (done by fetch_and_store.py)
+
+## Common Error Codes
+
+### EXTRACT-NOTALLOWED
+**Message:** "Der skal vælges værdier for variabel: X"
+**Cause:** BULK format missing variable in filters
+**Fix:** Add variable to filters with at least one value
+
+### EXTRACT-NOTFOUND
+**Messages:**
+- "Tabellen blev ikke fundet" (table not found)
+- "Variablen blev ikke fundet" (variable not found)
+- "Værdien blev ikke fundet" (value not found)
+
+**Fix:** Verify IDs against tableinfo output
+
+### REQUEST-LIMIT
+**Message:** "Forespørgslen returnerer for mange observationer"
+**Cause:** Request exceeds 1M cells (non-BULK formats)
+**Fix:** Use BULK format or add more filters
+
 ## When to Use
 
 - User requests specific table data to be downloaded

@@ -1,44 +1,47 @@
 ---
 name: dst-research
-description: |
-  Launch comprehensive research workflow across multiple DST tables.
-  Discovers relevant tables, guides data fetching, performs multi-dimensional
-  analysis, and generates HTML reports with visualizations.
+description: Comprehensive DST research workflow (orchestrates other commands)
 args:
   - name: topic
     description: Research topic or question (e.g., "electric vehicles", "population aging")
     required: true
 ---
 
-Research Danmarks Statistik data comprehensively on: {{topic}}
+Perform comprehensive research on: {{topic}}
 
-You are now acting as the DST Research Analyst. Follow this workflow:
+This command orchestrates a complete research workflow by calling other commands.
 
-1. **Discovery Phase**
-   - Use dst-subjects and dst-tables to find relevant tables
-   - Present findings and get user confirmation on which tables to analyze
+## Workflow
 
-2. **Data Availability Check**
-   - Use dst-list-tables to see what's already stored
-   - Use dst-check-freshness for existing tables
+**Phase 1: Discovery**
+Execute: /dst-discover {{topic}}
+- Review recommended tables
+- Get user confirmation on which tables to fetch
 
-3. **Data Fetching Instructions**
-   - **CRITICAL**: You cannot fetch data directly due to Claude Code bug #4462
-   - Provide explicit commands for user to run in main agent:
-     - "Use dst-data to fetch [TABLE_ID]"
-   - Wait for user confirmation that data is fetched
+**Phase 2: Data Acquisition**
+Execute: /dst-fetch {{approved_table_ids}}
+- Review validation report
+- Confirm data is ready for analysis
 
-4. **Analysis Phase**
-   - Use dst-join-analysis if multiple tables need combining
-   - Use dst-query for data extraction and calculations
+**Phase 3: Analysis**
+Execute: /dst-analyze "{{research_question}}" --tables {{table_ids}}
+- Review findings and metrics
+- Identify key insights
 
-5. **Visualization Phase**
-   - Use dst-visualize to create line/bar charts
-   - Focus on trend analysis and comparisons
+**Phase 4: Visualization**
+Execute: /dst-visualize {{topic}} --data {{analysis_summary}}
+- Preview generated charts
+- Confirm visualizations capture key insights
 
-6. **Reporting Phase**
-   - Use dst-report to generate HTML output
-   - Decide: single comprehensive report OR multiple focused reports
-   - Save to reports/ directory with timestamp
+**Phase 5: Reporting**
+Execute: /dst-report {{topic}} --analysis {{results}} --viz {{charts}}
+- Review final report
+- Return path to HTML report
+
+## Important
+- Present results at end of each phase
+- Get user confirmation before proceeding to next phase
+- Each phase uses specialized capabilities via command composition
+- Final output: Comprehensive HTML report in organized subfolder
 
 Begin the research on: {{topic}}

@@ -18,6 +18,7 @@ import argparse
 from pathlib import Path
 import csv
 from io import StringIO
+import re
 
 # Add parent directory to path for imports
 sys.path.insert(0, str(Path(__file__).parent.parent))
@@ -28,7 +29,10 @@ from utils import setup_logger
 
 def validate_query(sql):
     """
-    Validate that query is safe (SELECT only).
+    Validate that query is read-only.
+
+    Allows: SELECT, WITH, CASE, subqueries
+    Blocks: INSERT, UPDATE, DELETE, DROP, CREATE, ALTER, TRUNCATE, GRANT, REVOKE
 
     Args:
         sql: SQL query string
@@ -36,17 +40,27 @@ def validate_query(sql):
     Returns:
         tuple: (is_valid, error_message)
     """
-    sql_upper = sql.strip().upper()
+    sql_upper = sql.upper().strip()
 
-    # Check if it's a SELECT query
-    if not sql_upper.startswith('SELECT'):
-        return False, "Only SELECT queries are allowed (read-only)"
+    # Remove comments
+    sql_clean = re.sub(r'--.*$', '', sql_upper, flags=re.MULTILINE)
+    sql_clean = re.sub(r'/\*.*?\*/', '', sql_clean, flags=re.DOTALL)
 
-    # Check for dangerous keywords
-    dangerous_keywords = ['DROP', 'DELETE', 'INSERT', 'UPDATE', 'ALTER', 'CREATE', 'TRUNCATE']
-    for keyword in dangerous_keywords:
-        if keyword in sql_upper:
-            return False, f"Query contains prohibited keyword: {keyword}"
+    # Blocked keywords (write operations)
+    blocked = [
+        'INSERT', 'UPDATE', 'DELETE', 'DROP', 'CREATE', 'ALTER',
+        'TRUNCATE', 'GRANT', 'REVOKE', 'EXEC', 'EXECUTE'
+    ]
+
+    for keyword in blocked:
+        # Check for keyword as standalone word (not part of longer word)
+        pattern = r'\b' + keyword + r'\b'
+        if re.search(pattern, sql_clean):
+            return False, f"Query blocked: {keyword} operations not allowed (read-only)"
+
+    # Must start with SELECT or WITH
+    if not (sql_clean.startswith('SELECT') or sql_clean.startswith('WITH')):
+        return False, "Query must start with SELECT or WITH"
 
     return True, None
 

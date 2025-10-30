@@ -1,137 +1,155 @@
-# DST Skills - Danmarks Statistik Data Analysis
+# DST Skills - Command Composition Architecture
 
-This project provides Skills and Agents for fetching and analyzing data from Danmarks Statistik (DST) API, storing it in DuckDB for SQL analysis.
+This project provides composable commands and specialized agents for fetching and analyzing data from Danmarks Statistik (DST).
+
+## Architecture Overview
+
+**Command Composition:** Commands call other commands for complex workflows
+**Agent Delegation:** Commands invoke specialized agents via Task tool
+**Progressive Disclosure:** Skills provide documentation loaded on-demand
 
 ## Quick Start Workflow
 
-### 1. Fetch Data
+### Simple Analysis
 ```
-User: "Use dst-data to fetch FOLK1A"
-→ Downloads data to DuckDB ✅
+/dst-discover "electric vehicles"
+→ Recommends BIL10, BIL52 tables
+
+/dst-fetch "BIL10,BIL52"
+→ Downloads and validates data
+
+/dst-analyze "EV share trends" --tables "BIL10"
+→ Calculates trends and metrics
 ```
 
-### 2. Analyze Data
+### Comprehensive Research
 ```
-User: "Analyze the population trends in dst_folk1a"
-→ DST Analyst agent analyzes data and returns insights ✅
+/dst-research "Denmark's electric vehicle adoption trends"
+
+This orchestrates:
+1. /dst-discover → finds relevant tables
+2. /dst-fetch → downloads with validation
+3. /dst-analyze → calculates insights
+4. /dst-visualize → creates charts
+5. /dst-report → generates HTML report
+
+Output: reports/{topic}_{timestamp}/report.html
 ```
 
-### 3. Comprehensive Analysis (Optional)
-```
-User: "Provide multi-table analysis of Denmark's population and economic trends"
-→ DST Research Analyst performs deep analysis across multiple datasets ✅
-```
+## Available Commands
+
+### Core Workflow Commands
+- `/dst-discover {query}` - Find relevant DST tables
+- `/dst-fetch {table_ids}` - Download and validate data
+- `/dst-analyze {question}` - Query and analyze data
+- `/dst-visualize {topic}` - Create Chart.js visualizations
+- `/dst-report {topic}` - Generate HTML report
+
+### Orchestration
+- `/dst-research {topic}` - Complete workflow (calls all above)
+
+## Specialized Agents
+
+Commands invoke agents via Task tool:
+
+- **DST Fetcher** - Data discovery and acquisition
+- **DST Analyst** - SQL queries and statistical analysis
+- **DST Visualizer** - Chart.js visualization creation
+- **DST Reporter** - HTML report generation
 
 ## Available Skills
 
-Invoke skills directly for data operations:
-- `/dst-subjects` - Browse DST topic hierarchy
-- `/dst-tables` - Search for tables by subject/keyword
-- `/dst-tableinfo` - Get table metadata and structure
-- `/dst-data` - Download and store data
-- `/dst-list-tables` - List locally stored tables
-- `/dst-check-freshness` - Check data age
-- `/dst-query` - Run SQL queries on stored data
+Skills provide documentation and templates:
 
-## Agents
+- `dst-subjects` - Browse DST hierarchy
+- `dst-tables` - Search for tables
+- `dst-tableinfo` - Get table metadata
+- `dst-data` - API quirks (BULK format, suppressed values)
+- `dst-query` - SQL patterns for DST data
+- `dst-visualize` - Chart.js templates
+- `dst-report` - HTML report templates
+- `dst-list-tables` - List local data
+- `dst-check-freshness` - Validate data age
 
-### DST Fetcher (Data Researcher)
-**Trigger**: "Find me X data" or "What data is available about X?"
+## Key Conventions
 
-**Role**: Researches DST API, finds relevant tables, and downloads data
-- ✅ Browses subjects and searches for tables
-- ✅ Returns table recommendations with exact fetch commands
-- ✅ Downloads and stores data in DuckDB
+- **Table naming:** DST `BIL10` → `dst_bil10` in DuckDB
+- **Data location:** `data/dst.db`
+- **Reports:** `reports/{topic}_{timestamp}/`
+- **BULK format:** Requires ALL variables specified
+- **Suppressed values:** `".."` = confidential data
 
-**Example**:
-```
-User: "Find and fetch electric vehicle data"
-Fetcher: [Searches DST] → "Found BIL707. Downloading..." → Data stored in DuckDB
-```
-
-### DST Analyst
-**Trigger**: "Analyze X" or "What's the trend in X?"
-
-**Role**: Analyzes data stored in DuckDB and generates insights
-- ✅ Checks data availability and freshness
-- ✅ Runs SQL queries and statistical analysis
-- ✅ Returns formatted analysis as text
-- ✅ Can create and save analysis reports
-
-**Example**:
-```
-User: "Analyze population growth in dst_folk1a"
-Analyst: [Queries data] → Returns trends, statistics, insights
-```
-
-### DST Research Analyst
-**Trigger**: "Provide comprehensive analysis of X" or "Compare multiple datasets on X"
-
-**Role**: Performs deep, multi-table analysis across DST datasets
-- ✅ Researches and fetches multiple relevant tables
-- ✅ Performs cross-table analysis and correlation studies
-- ✅ Generates comprehensive statistical reports
-- ✅ Creates visualizations and detailed analysis documents
-- ✅ Identifies trends and patterns across datasets
-
-**Example**:
-```
-User: "Analyze Denmark's economic and demographic trends"
-Research Analyst: [Fetches population, employment, income data] →
-Performs multi-table analysis → Generates comprehensive report with insights
-```
-
-## Complete Example
+## Example: Complete Analysis
 
 ```
-User: "I need to analyze Denmark's population by region"
+User: /dst-research "Share of electric vehicles in Denmark's car fleet"
 
-# Step 1: Research what's available
-You: "Find population data by region"
-Fetcher: "Found FOLK1A (population by region). Use: `/dst-data --table-id FOLK1A`"
+Phase 1 - Discovery:
+  /dst-discover → Finds BIL10 (1993-2025 annual stock data)
+  Agent presents: "BIL10 recommended - 33 years, fuel type breakdown"
+  User: "Yes, fetch it"
 
-# Step 2: Fetch the data
-You: "Use dst-data to fetch FOLK1A"
-Main Agent: [Downloads] ✅ Stored as dst_folk1a
+Phase 2 - Acquisition:
+  /dst-fetch "BIL10"
+  Agent: Fetches 5,940 records, validates, reports: "✓ Ready for analysis"
 
-# Step 3: Analyze
-You: "Analyze regional population trends in dst_folk1a"
-Analyst: [Returns comprehensive analysis with trends and insights]
+Phase 3 - Analysis:
+  /dst-analyze "Calculate EV share 1993-2025" --tables "BIL10"
+  Agent: Queries data, calculates trends, returns metrics
+
+Phase 4 - Visualization:
+  /dst-visualize "EV adoption" --data {analysis_results}
+  Agent: Creates 3 charts (share %, absolute numbers, BEV vs PHEV)
+
+Phase 5 - Reporting:
+  /dst-report "EV adoption" --analysis {results} --viz {charts}
+  Agent: Generates comprehensive HTML in reports/ev_adoption_20251030/
+
+Output: reports/ev_adoption_20251030_235658/report.html
 ```
-
-## Key Points
-
-- ✅ Table naming: DST table "FOLK1A" becomes `dst_folk1a` in DuckDB
-- ✅ Data stored in `data/dst.db`
-- ✅ Check freshness before re-fetching: `/dst-check-freshness --table-id FOLK1A`
-- ✅ Agents work best when you're specific: table IDs > topic names
-- ✅ All agents can persist and access data across sessions
 
 ## Common Tasks
 
-**Browse available data**:
+**Browse available data:**
 ```
-"Use dst-subjects to browse transport data"
-```
-
-**Download specific table**:
-```
-"Use dst-data to fetch BIL707"
+/dst-discover "population trends"
 ```
 
-**Quick analysis**:
+**Download specific table:**
 ```
-"Use dst-query on dst_bil707 to show latest electric vehicle registrations"
+/dst-fetch "FOLK1A"
 ```
 
-**Complex analysis**:
+**Quick analysis:**
 ```
-"Analyze the percentage of electric vehicles in Denmark's fleet over time"
-→ Analyst will check available tables, run queries, calculate trends
+/dst-analyze "Latest population by region" --tables "FOLK1A"
+```
+
+**Full research workflow:**
+```
+/dst-research "Denmark's population aging trends"
 ```
 
 ## Documentation
 
-- `docs/getting-started.md` - Full setup instructions
-- `docs/faq.md` - Common questions and troubleshooting
-- `.claude/dev/scratchpads/` - Investigation reports and examples
+- `docs/getting-started.md` - Setup and first analysis
+- `docs/architecture.md` - Design decisions explained
+- `docs/faq.md` - Common questions and solutions
+- `.claude/skills/*/SKILL.md` - Detailed skill documentation
+
+## Infrastructure
+
+- **Validation:** Auto-validates fetches (record counts, suppressed values)
+- **Caching:** Caches tableinfo (24hr TTL)
+- **Error handling:** Helpful messages for BULK format, API errors
+- **Organization:** Each research in separate subfolder
+
+## Key Features
+
+✅ Command composition - modular, testable workflows
+✅ Agent delegation - specialized capabilities
+✅ Organized outputs - subfolders per research topic
+✅ Data validation - automatic quality checks
+✅ Error recovery - helpful messages and suggestions
+✅ Template-based - consistent visualizations and reports
+✅ Caching - faster repeated operations
