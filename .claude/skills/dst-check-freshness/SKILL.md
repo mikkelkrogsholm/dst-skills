@@ -24,14 +24,14 @@ Verify data freshness and determine if a refresh is needed. This is essential fo
 
 Check how old the data is:
 ```bash
-python /home/user/dst-skills/scripts/db/query_metadata.py --table-id <TABLE_ID> --check-freshness
+python scripts/db/query_metadata.py --table-id <TABLE_ID> --check-freshness
 ```
 
 ### Check Against Threshold
 
 Determine if data is fresh or stale using a specific age threshold:
 ```bash
-python /home/user/dst-skills/scripts/db/query_metadata.py --table-id <TABLE_ID> --check-freshness --max-age-days <N>
+python scripts/db/query_metadata.py --table-id <TABLE_ID> --check-freshness --max-age-days <N>
 ```
 
 ## Expected Output
@@ -136,8 +136,8 @@ Choose threshold based on how often DST updates the source data:
 ### If Fresh → Continue Analysis
 ```bash
 # Proceed with query or analysis
-python /home/user/dst-skills/scripts/db/table_summary.py --table-id <TABLE_ID>
-python /home/user/dst-skills/scripts/db/query_data.py --sql "SELECT * FROM dst_<table_id> LIMIT 10"
+python scripts/db/table_summary.py --table-id <TABLE_ID>
+python scripts/db/query_data.py --sql "SELECT * FROM dst_<table_id> LIMIT 10"
 ```
 
 ### If Stale → Inform User
@@ -148,7 +148,7 @@ Present findings to user:
 
 ### If Refresh Needed → Switch to Fetcher
 ```bash
-python /home/user/dst-skills/scripts/fetch_and_store.py --table-id <TABLE_ID> --overwrite
+python scripts/fetch_and_store.py --table-id <TABLE_ID> --overwrite
 ```
 
 ### If Acceptable → Proceed with Disclaimer
@@ -160,22 +160,22 @@ Continue analysis but note data age in results:
 
 ### Example 1: Basic freshness check
 ```bash
-python /home/user/dst-skills/scripts/db/query_metadata.py --table-id FOLK1A --check-freshness
+python scripts/db/query_metadata.py --table-id FOLK1A --check-freshness
 ```
 
 ### Example 2: Check with 30-day threshold
 ```bash
-python /home/user/dst-skills/scripts/db/query_metadata.py --table-id FOLK1A --check-freshness --max-age-days 30
+python scripts/db/query_metadata.py --table-id FOLK1A --check-freshness --max-age-days 30
 ```
 
 ### Example 3: Strict 7-day threshold for daily data
 ```bash
-python /home/user/dst-skills/scripts/db/query_metadata.py --table-id DAILY_STATS --check-freshness --max-age-days 7
+python scripts/db/query_metadata.py --table-id DAILY_STATS --check-freshness --max-age-days 7
 ```
 
 ### Example 4: Lenient 90-day threshold for quarterly data
 ```bash
-python /home/user/dst-skills/scripts/db/query_metadata.py --table-id QUARTERLY_FIN --check-freshness --max-age-days 90
+python scripts/db/query_metadata.py --table-id QUARTERLY_FIN --check-freshness --max-age-days 90
 ```
 
 ## Tips
@@ -205,10 +205,10 @@ python /home/user/dst-skills/scripts/db/query_metadata.py --table-id QUARTERLY_F
 ### Workflow 1: Pre-Analysis Check
 ```bash
 # 1. List available data
-python /home/user/dst-skills/scripts/db/query_metadata.py --list-all
+python scripts/db/query_metadata.py --list-all
 
 # 2. Check freshness
-python /home/user/dst-skills/scripts/db/query_metadata.py --table-id FOLK1A --check-freshness --max-age-days 30
+python scripts/db/query_metadata.py --table-id FOLK1A --check-freshness --max-age-days 30
 
 # 3. If fresh → analyze
 # 4. If stale → refresh first
@@ -217,10 +217,10 @@ python /home/user/dst-skills/scripts/db/query_metadata.py --table-id FOLK1A --ch
 ### Workflow 2: Conditional Refresh
 ```bash
 # 1. Check freshness
-python /home/user/dst-skills/scripts/db/query_metadata.py --table-id FOLK1A --check-freshness --max-age-days 7
+python scripts/db/query_metadata.py --table-id FOLK1A --check-freshness --max-age-days 7
 
 # 2. If stale → refresh
-python /home/user/dst-skills/scripts/fetch_and_store.py --table-id FOLK1A --overwrite
+python scripts/fetch_and_store.py --table-id FOLK1A --overwrite
 
 # 3. Proceed with fresh data
 ```
@@ -228,8 +228,8 @@ python /home/user/dst-skills/scripts/fetch_and_store.py --table-id FOLK1A --over
 ### Workflow 3: Multiple Tables
 ```bash
 # Check freshness of all tables needed for analysis
-python /home/user/dst-skills/scripts/db/query_metadata.py --table-id TABLE1 --check-freshness --max-age-days 30
-python /home/user/dst-skills/scripts/db/query_metadata.py --table-id TABLE2 --check-freshness --max-age-days 30
+python scripts/db/query_metadata.py --table-id TABLE1 --check-freshness --max-age-days 30
+python scripts/db/query_metadata.py --table-id TABLE2 --check-freshness --max-age-days 30
 
 # Refresh any stale tables
 # Then proceed with analysis

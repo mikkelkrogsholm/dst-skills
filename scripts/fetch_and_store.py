@@ -17,17 +17,28 @@ import json
 import argparse
 from pathlib import Path
 from datetime import datetime, timedelta
+from typing import Dict, List, Optional, Tuple, Any
+import duckdb
 
 # Add scripts directory to path for imports
 sys.path.insert(0, str(Path(__file__).parent))
 
 from api.client import DSTAPIClient
 from api import fetch_data
+from api.exceptions import (
+    DSTAPIError,
+    TableNotFoundError,
+    VariableNotFoundError,
+    CellLimitExceededError,
+    parse_dst_error
+)
+from api.validator import validate_request
+from api.helpers import get_cached_tableinfo, build_variable_spec
 from db import db_utils, store_data
 from utils import setup_logger
 
 
-def check_data_freshness(conn, table_id, max_age_days=30):
+def check_data_freshness(conn: duckdb.DuckDBPyConnection, table_id: str, max_age_days: int = 30) -> Tuple[bool, Optional[Dict[str, Any]]]:
     """
     Check if locally stored data is fresh enough.
 
@@ -37,7 +48,7 @@ def check_data_freshness(conn, table_id, max_age_days=30):
         max_age_days: Maximum acceptable age in days
 
     Returns:
-        tuple: (is_fresh, metadata_dict)
+        Tuple of (is_fresh, metadata_dict)
     """
     logger = setup_logger(__name__)
 
@@ -77,7 +88,7 @@ def check_data_freshness(conn, table_id, max_age_days=30):
         return False, None
 
 
-def fetch_and_store(table_id, filters=None, overwrite=False, skip_if_fresh=False, max_age_days=30):
+def fetch_and_store(table_id: str, filters: Optional[Dict[str, List[str]]] = None, overwrite: bool = False, skip_if_fresh: bool = False, max_age_days: int = 30) -> Dict[str, Any]:
     """
     Fetch data from DST API and store in DuckDB.
 
@@ -89,7 +100,7 @@ def fetch_and_store(table_id, filters=None, overwrite=False, skip_if_fresh=False
         max_age_days: Freshness threshold in days
 
     Returns:
-        dict: Result statistics
+        Result statistics
 
     Raises:
         Exception: If any step fails
@@ -165,7 +176,7 @@ def fetch_and_store(table_id, filters=None, overwrite=False, skip_if_fresh=False
         raise
 
 
-def main():
+def main() -> None:
     """Main entry point for CLI."""
     parser = argparse.ArgumentParser(
         description="Fetch DST data and store in DuckDB (combined workflow)",
@@ -258,6 +269,27 @@ Examples:
         else:
             print(f"✗ Unknown status: {result['status']}", file=sys.stderr)
             sys.exit(1)
+
+    except TableNotFoundError as e:
+        print(f"✗ Table Error: Table '{e.table_id}' not found in DST database", file=sys.stderr)
+        print(f"  Hint: Check table ID spelling or search available tables", file=sys.stderr)
+        sys.exit(1)
+
+    except VariableNotFoundError as e:
+        print(f"✗ Variable Error: Variable '{e.variable_code}' not found", file=sys.stderr)
+        if e.table_id:
+            print(f"  in table '{e.table_id}'", file=sys.stderr)
+        print(f"  Hint: Use tableinfo to see available variables", file=sys.stderr)
+        sys.exit(1)
+
+    except CellLimitExceededError as e:
+        print(f"✗ Cell Limit Error: {e.message}", file=sys.stderr)
+        print(f"  Hint: Add more specific filters to reduce data size", file=sys.stderr)
+        sys.exit(1)
+
+    except DSTAPIError as e:
+        print(f"✗ DST API Error [{e.error_code}]: {e.message}", file=sys.stderr)
+        sys.exit(1)
 
     except Exception as e:
         print(f"✗ Error: {e}", file=sys.stderr)

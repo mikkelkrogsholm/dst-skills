@@ -1,0 +1,253 @@
+{
+  "rate_limiting": [],
+  "cell_limits": [
+    {
+      "timestamp": "2025-10-30T21:46:39.008479",
+      "test": "folk1a_dimensions",
+      "result": {
+        "status": "analyzed",
+        "dimensions": [
+          {
+            "id": "OMRÅDE",
+            "text": "område",
+            "value_count": 105
+          },
+          {
+            "id": "KØN",
+            "text": "køn",
+            "value_count": 3
+          },
+          {
+            "id": "ALDER",
+            "text": "alder",
+            "value_count": 127
+          },
+          {
+            "id": "CIVILSTAND",
+            "text": "civilstand",
+            "value_count": 5
+          },
+          {
+            "id": "Tid",
+            "text": "tid",
+            "value_count": 71
+          }
+        ],
+        "total_possible_cells": 14201775
+      }
+    },
+    {
+      "timestamp": "2025-10-30T21:46:39.247732",
+      "test": "full_table_jsonstat",
+      "result": {
+        "status_code": 200,
+        "success": true,
+        "response_size_bytes": 661,
+        "error": null
+      }
+    },
+    {
+      "timestamp": "2025-10-30T21:46:39.485600",
+      "test": "subset_bulk",
+      "result": {
+        "status_code": 200,
+        "success": true,
+        "expected_cells": 18,
+        "response_size_bytes": 973,
+        "first_200_chars": "OMRÅDE;KØN;ALDER;CIVILSTAND;TID;INDHOLD\r\nHele landet;Mænd;Alder i alt;I alt;2020K1;2896918\r\nHele landet;Kvinder;Alder i alt;I alt;2020K1;2925845\r\nHele landet;I alt;Alder i alt;I alt;2020K1;5822763\r\nKø"
+      }
+    },
+    {
+      "timestamp": "2025-10-30T21:46:42.516945",
+      "test": "subset_jsonstat",
+      "result": {
+        "status_code": 200,
+        "success": true,
+        "expected_cells": 27,
+        "response_size_bytes": 1446
+      }
+    }
+  ],
+  "error_types": [
+    {
+      "timestamp": "2025-10-30T21:46:42.645342",
+      "test": "invalid_table_id",
+      "result": {
+        "status_code": 400,
+        "response": "{\"errorTypeCode\":\"EXTRACT-NOTFOUND\",\"message\":\"Tabel findes ikke: INVALIDTABLE999\"}",
+        "json": {
+          "errorTypeCode": "EXTRACT-NOTFOUND",
+          "message": "Tabel findes ikke: INVALIDTABLE999"
+        }
+      }
+    },
+    {
+      "timestamp": "2025-10-30T21:46:42.789360",
+      "test": "invalid_format",
+      "result": {
+        "status_code": 400,
+        "response": "{\"errorTypeCode\":\"REQUEST-MISSING\",\"message\":\"Format ikke angivet, eller ikke gyldigt.\"}",
+        "json": {
+          "errorTypeCode": "REQUEST-MISSING",
+          "message": "Format ikke angivet, eller ikke gyldigt."
+        }
+      }
+    },
+    {
+      "timestamp": "2025-10-30T21:46:42.917870",
+      "test": "missing_table_param",
+      "result": {
+        "status_code": 400,
+        "response": "{\"errorTypeCode\":\"REQUEST-MISSING\",\"message\":\"Der er ikke angivet nogen tabel-id.\"}",
+        "json": {
+          "errorTypeCode": "REQUEST-MISSING",
+          "message": "Der er ikke angivet nogen tabel-id."
+        }
+      }
+    },
+    {
+      "timestamp": "2025-10-30T21:46:43.163825",
+      "test": "invalid_variable_code",
+      "result": {
+        "status_code": 400,
+        "response": "{\"errorTypeCode\":\"EXTRACT-NOTFOUND\",\"message\":\"Kan ikke finde variablen: INVALIDVAR\"}",
+        "json": {
+          "errorTypeCode": "EXTRACT-NOTFOUND",
+          "message": "Kan ikke finde variablen: INVALIDVAR"
+        }
+      }
+    },
+    {
+      "timestamp": "2025-10-30T21:46:43.412852",
+      "test": "invalid_value_code",
+      "result": {
+        "status_code": 400,
+        "response": "{\"errorTypeCode\":\"EXTRACT-NOTFOUND\",\"message\":\"Kan ikke finde værdien: 999999 (OMRÅDE)\"}",
+        "json": {
+          "errorTypeCode": "EXTRACT-NOTFOUND",
+          "message": "Kan ikke finde værdien: 999999 (OMRÅDE)"
+        }
+      }
+    },
+    {
+      "timestamp": "2025-10-30T21:46:43.542469",
+      "test": "malformed_json",
+      "result": {
+        "status_code": 400,
+        "response": "{\"errorTypeCode\":\"REQUEST-EMPTY\",\"message\":\"Medsend gyldigt JSON-objekt når der postes. / Supply valid JSON-object when posting.\"}",
+        "json": {
+          "errorTypeCode": "REQUEST-EMPTY",
+          "message": "Medsend gyldigt JSON-objekt når der postes. / Supply valid JSON-object when posting."
+        }
+      }
+    },
+    {
+      "timestamp": "2025-10-30T21:46:43.677808",
+      "test": "wrong_http_method",
+      "result": {
+        "status_code": 400,
+        "response": "{\"errorTypeCode\":\"REQUEST-MISSING\",\"message\":\"Format ikke angivet, eller ikke gyldigt.\"}"
+      }
+    },
+    {
+      "timestamp": "2025-10-30T21:46:43.801574",
+      "test": "nonexistent_endpoint",
+      "result": {
+        "status_code": 404,
+        "response": "{\"errorTypeCode\":\"REQUEST-NOTFOUND\",\"message\":\"Siden kan ikke findes. / Page not found.\"}",
+        "json": {
+          "errorTypeCode": "REQUEST-NOTFOUND",
+          "message": "Siden kan ikke findes. / Page not found."
+        }
+      }
+    },
+    {
+      "timestamp": "2025-10-30T21:46:43.927669",
+      "test": "empty_post_body",
+      "result": {
+        "status_code": 400,
+        "response": "{\"errorTypeCode\":\"REQUEST-MISSING\",\"message\":\"Format ikke angivet, eller ikke gyldigt.\"}",
+        "json": {
+          "errorTypeCode": "REQUEST-MISSING",
+          "message": "Format ikke angivet, eller ikke gyldigt."
+        }
+      }
+    }
+  ],
+  "timeouts": [
+    {
+      "timestamp": "2025-10-30T21:46:44.162767",
+      "test": "small_request",
+      "result": {
+        "status_code": 200,
+        "elapsed_seconds": 0.23505830764770508,
+        "response_size_bytes": 1446
+      }
+    },
+    {
+      "timestamp": "2025-10-30T21:46:44.408726",
+      "test": "medium_request",
+      "result": {
+        "status_code": 400,
+        "elapsed_seconds": 0.24591302871704102,
+        "response_size_bytes": 87
+      }
+    },
+    {
+      "timestamp": "2025-10-30T21:46:47.438673",
+      "test": "large_request",
+      "result": {
+        "status_code": 200,
+        "elapsed_seconds": 3.029890775680542,
+        "response_size_bytes": 2397
+      }
+    },
+    {
+      "timestamp": "2025-10-30T21:46:47.732193",
+      "test": "tableinfo_request",
+      "result": {
+        "status_code": 200,
+        "elapsed_seconds": 0.29346728324890137,
+        "response_size_bytes": 10342
+      }
+    }
+  ],
+  "encoding": [
+    {
+      "timestamp": "2025-10-30T21:46:47.853037",
+      "test": "danish_chars_in_subjects",
+      "result": {
+        "status": "analyzed",
+        "total_subjects": 10,
+        "subjects_with_danish": 0,
+        "examples": []
+      }
+    },
+    {
+      "timestamp": "2025-10-30T21:46:48.085030",
+      "test": "danish_chars_in_metadata",
+      "result": {
+        "status": "analyzed",
+        "text_fields": {
+          "title": "Befolkningen den 1. i kvartalet",
+          "description": "Befolkningen den 1. i kvartalet efter område, køn, alder, civilstand og tid",
+          "unit": "Antal"
+        },
+        "has_danish_chars": {
+          "title": false,
+          "description": true,
+          "unit": false
+        }
+      }
+    },
+    {
+      "timestamp": "2025-10-30T21:46:51.124254",
+      "test": "data_with_danish_chars",
+      "result": {
+        "status_code": 200,
+        "success": true,
+        "response_size_bytes": 1163
+      }
+    }
+  ]
+}

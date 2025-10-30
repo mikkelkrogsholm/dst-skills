@@ -8,6 +8,7 @@ This module provides a client for interacting with the DST API (Statistics Denma
 import sys
 import time
 from pathlib import Path
+from typing import Dict, List, Optional, Union, Any
 import httpx
 
 # Add parent directory to path for imports
@@ -25,7 +26,7 @@ class DSTAPIClient:
     and logging for all API interactions.
     """
 
-    def __init__(self, base_url=None, timeout=30, max_retries=3):
+    def __init__(self, base_url: Optional[str] = None, timeout: int = 30, max_retries: int = 3) -> None:
         """
         Initialize the DST API client.
 
@@ -53,7 +54,7 @@ class DSTAPIClient:
 
         self.logger.info(f"Initialized DST API Client with base URL: {self.base_url}")
 
-    def _rate_limit(self):
+    def _rate_limit(self) -> None:
         """
         Implement rate limiting to avoid overwhelming the API.
 
@@ -68,7 +69,63 @@ class DSTAPIClient:
 
         self.last_request_time = time.time()
 
-    def _make_request(self, endpoint, params=None, method='GET'):
+    def _parse_response(self, response: httpx.Response) -> Union[Dict[str, Any], str]:
+        """
+        Parse API response, handling both JSON and text formats.
+
+        Args:
+            response: httpx Response object
+
+        Returns:
+            Parsed response data (dict for JSON, str for text)
+
+        Raises:
+            ValueError: If JSON parsing fails for JSON content-type
+        """
+        content_type = response.headers.get('content-type', '')
+
+        # Check for JSON content type (both application/json and text/json)
+        if 'json' in content_type.lower():
+            # Parse JSON
+            try:
+                data = response.json()
+                self.logger.debug(f"Response data type: {type(data)}")
+                return data
+            except ValueError as e:
+                self.logger.error(f"Invalid JSON in response: {e}")
+                self.logger.debug(f"Response text: {response.text[:500]}")
+                raise ValueError(f"Invalid JSON response: {e}")
+        else:
+            # Return text for CSV/BULK formats
+            self.logger.debug(f"Response content-type: {content_type}, returning text")
+            return response.text
+
+    def _handle_request_errors(self, response: Optional[httpx.Response], error: Exception) -> None:
+        """
+        Handle common HTTP request errors with consistent logging.
+
+        Args:
+            response: httpx Response object (may be None)
+            error: Exception that occurred
+
+        Raises:
+            The original exception after logging
+        """
+        if isinstance(error, httpx.HTTPStatusError):
+            self.logger.error(f"HTTP error occurred: {error}")
+            if response:
+                self.logger.error(f"Response status code: {response.status_code}")
+                self.logger.error(f"Response text: {response.text[:500]}")
+        elif isinstance(error, httpx.TimeoutException):
+            self.logger.error(f"Request timeout after {self.timeout} seconds: {error}")
+        elif isinstance(error, httpx.ConnectError):
+            self.logger.error(f"Connection error: {error}")
+        else:
+            self.logger.error(f"Unexpected error during request: {error}")
+
+        raise error
+
+    def _make_request(self, endpoint: str, params: Optional[Dict[str, str]] = None, method: str = 'GET') -> Union[Dict[str, Any], str]:
         """
         Make a generic HTTP request to the API.
 
@@ -78,7 +135,7 @@ class DSTAPIClient:
             method: HTTP method (GET, POST, etc.)
 
         Returns:
-            dict: Parsed JSON response
+            Parsed response data (dict for JSON, str for text)
 
         Raises:
             httpx.HTTPStatusError: For HTTP errors
@@ -94,6 +151,7 @@ class DSTAPIClient:
 
         self.logger.info(f"Making {method} request to: {url}")
 
+        response = None
         try:
             # Make request
             response = self.client.request(
@@ -107,35 +165,59 @@ class DSTAPIClient:
             # Raise exception for bad status codes
             response.raise_for_status()
 
-            # Parse JSON response
-            try:
-                data = response.json()
-                self.logger.debug(f"Response data type: {type(data)}")
-                return data
-            except ValueError as e:
-                self.logger.error(f"Invalid JSON in response: {e}")
-                self.logger.debug(f"Response text: {response.text[:500]}")
-                raise ValueError(f"Invalid JSON response: {e}")
-
-        except httpx.HTTPStatusError as e:
-            self.logger.error(f"HTTP error occurred: {e}")
-            self.logger.error(f"Response status code: {response.status_code}")
-            self.logger.error(f"Response text: {response.text[:500]}")
-            raise
-
-        except httpx.TimeoutException as e:
-            self.logger.error(f"Request timeout after {self.timeout} seconds: {e}")
-            raise
-
-        except httpx.ConnectError as e:
-            self.logger.error(f"Connection error: {e}")
-            raise
+            # Parse and return response
+            return self._parse_response(response)
 
         except Exception as e:
-            self.logger.error(f"Unexpected error during request: {e}")
-            raise
+            self._handle_request_errors(response, e)
 
-    def get_subjects(self, recursive=False):
+    def _make_post_request(self, endpoint: str, json_data: Dict[str, Any]) -> Union[Dict[str, Any], str]:
+        """
+        Make a POST request with JSON body to the API.
+
+        Args:
+            endpoint: API endpoint path or name
+            json_data: Dictionary to send as JSON body
+
+        Returns:
+            Parsed response data (dict for JSON, str for text)
+
+        Raises:
+            httpx.HTTPStatusError: For HTTP errors
+            httpx.TimeoutException: For timeout errors
+            httpx.ConnectError: For connection errors
+            ValueError: For invalid JSON responses
+        """
+        # Apply rate limiting
+        self._rate_limit()
+
+        # Build full URL (no query params for POST)
+        url = get_api_url(endpoint)
+
+        self.logger.info(f"Making POST request to: {url}")
+        self.logger.debug(f"JSON payload: {json_data}")
+
+        response = None
+        try:
+            # Make POST request with JSON body
+            response = self.client.post(
+                url=url,
+                json=json_data
+            )
+
+            # Log response status
+            self.logger.info(f"Response status: {response.status_code}")
+
+            # Raise exception for bad status codes
+            response.raise_for_status()
+
+            # Parse and return response
+            return self._parse_response(response)
+
+        except Exception as e:
+            self._handle_request_errors(response, e)
+
+    def get_subjects(self, recursive: bool = False) -> List[Dict[str, Any]]:
         """
         Get list of all subjects from DST API.
 
@@ -143,7 +225,7 @@ class DSTAPIClient:
             recursive: If True, include all sub-subjects recursively
 
         Returns:
-            list: List of subject objects
+            List of subject objects
         """
         params = {}
         if recursive:
@@ -152,7 +234,7 @@ class DSTAPIClient:
         self.logger.info(f"Fetching subjects (recursive={recursive})")
         return self._make_request('subjects', params)
 
-    def get_tables(self, subjects=None):
+    def get_tables(self, subjects: Optional[Union[str, List[str]]] = None) -> List[Dict[str, Any]]:
         """
         Get list of tables, optionally filtered by subject.
 
@@ -160,7 +242,7 @@ class DSTAPIClient:
             subjects: Optional subject ID or list of subject IDs
 
         Returns:
-            list: List of table objects
+            List of table objects
         """
         params = {}
         if subjects:
@@ -172,7 +254,7 @@ class DSTAPIClient:
         self.logger.info(f"Fetching tables for subjects: {subjects}")
         return self._make_request('tables', params)
 
-    def get_table_info(self, table_id):
+    def get_table_info(self, table_id: str) -> Dict[str, Any]:
         """
         Get detailed information about a specific table.
 
@@ -180,38 +262,61 @@ class DSTAPIClient:
             table_id: ID of the table
 
         Returns:
-            dict: Table information including columns and metadata
+            Table information including columns and metadata
         """
         self.logger.info(f"Fetching table info for: {table_id}")
         return self._make_request('tableinfo', {'id': table_id})
 
-    def get_data(self, table_id, **kwargs):
+    def get_data(self, table_id: str, **kwargs: Any) -> Union[Dict[str, Any], str]:
         """
         Get data from a specific table.
 
         Args:
             table_id: ID of the table
             **kwargs: Additional parameters for the data request
+                     (format, variables, etc.)
 
         Returns:
-            dict: Table data response
+            Table data response (dict for JSON, str for CSV/BULK)
         """
-        params = {'id': table_id}
-        params.update(kwargs)
+        # DST API requires POST with JSON body for data requests
+        # Build JSON payload
+        # Note: Valid formats are CSV, JSONSTAT, BULK, XLSX, etc.
+        # BULK returns semicolon-separated CSV (easy to parse, no cell limit)
+        payload = {
+            'table': table_id,
+            'format': kwargs.get('format', 'BULK')
+        }
+
+        # Add optional parameters
+        if 'variables' in kwargs:
+            payload['variables'] = kwargs['variables']
+        if 'filters' in kwargs:
+            # Convert filters dict to variables format
+            variables = []
+            for var_code, values in kwargs['filters'].items():
+                variables.append({
+                    'code': var_code,
+                    'values': values
+                })
+            payload['variables'] = variables
 
         self.logger.info(f"Fetching data for table: {table_id}")
-        return self._make_request('data', params)
+        self.logger.debug(f"Request payload: {payload}")
 
-    def close(self):
+        # Use POST request for data endpoint
+        return self._make_post_request('data', payload)
+
+    def close(self) -> None:
         """Close the client."""
         self.client.close()
         self.logger.info("API client closed")
 
-    def __enter__(self):
+    def __enter__(self) -> 'DSTAPIClient':
         """Support context manager protocol."""
         return self
 
-    def __exit__(self, exc_type, exc_val, exc_tb):
+    def __exit__(self, exc_type: Any, exc_val: Any, exc_tb: Any) -> None:
         """Support context manager protocol."""
         self.close()
 

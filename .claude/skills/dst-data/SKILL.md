@@ -25,14 +25,14 @@ The `fetch_and_store.py` script combines fetching and storing in one command. Th
 
 Fetch and store a complete table:
 ```bash
-python /home/user/dst-skills/scripts/fetch_and_store.py --table-id <TABLE_ID>
+python scripts/fetch_and_store.py --table-id <TABLE_ID>
 ```
 
 ### With Filters
 
 Fetch only specific data using filters:
 ```bash
-python /home/user/dst-skills/scripts/fetch_and_store.py --table-id <TABLE_ID> --filters '<JSON>'
+python scripts/fetch_and_store.py --table-id <TABLE_ID> --filters '<JSON>'
 ```
 
 Example filters:
@@ -51,14 +51,14 @@ Example filters:
 
 Replace existing table:
 ```bash
-python /home/user/dst-skills/scripts/fetch_and_store.py --table-id <TABLE_ID> --overwrite
+python scripts/fetch_and_store.py --table-id <TABLE_ID> --overwrite
 ```
 
 ### Skip if Fresh
 
 Only fetch if data is older than threshold:
 ```bash
-python /home/user/dst-skills/scripts/fetch_and_store.py --table-id <TABLE_ID> --skip-if-fresh --max-age-days 30
+python scripts/fetch_and_store.py --table-id <TABLE_ID> --skip-if-fresh --max-age-days 30
 ```
 
 ## How to Use - Advanced (Separate Steps)
@@ -69,14 +69,14 @@ For advanced users who need more control, fetch and store can be done separately
 
 Download data from API:
 ```bash
-python /home/user/dst-skills/scripts/api/fetch_data.py --table-id <TABLE_ID> --output data.json
+python scripts/api/fetch_data.py --table-id <TABLE_ID> --output data.json
 ```
 
 ### Step 2: Store Data
 
 Save to DuckDB:
 ```bash
-python /home/user/dst-skills/scripts/db/store_data.py --table-id <TABLE_ID> --data-file data.json
+python scripts/db/store_data.py --table-id <TABLE_ID> --data-file data.json
 ```
 
 ## Expected Output
@@ -103,10 +103,20 @@ Exit codes:
 
 ## Important Considerations
 
-### Data Size
+### Data Format
+- **Default format: BULK** - Streaming CSV with no cell limit
+- Semicolon-separated (`;`) not comma
+- UTF-8 encoding with BOM
+- Alternative formats: CSV, JSONSTAT, XLSX (1M cell limit)
+- **BULK requires ALL variables specified** - no auto-elimination
+
+### Cell Limits & Size
+- **Non-streaming formats**: 1,000,000 cell limit (CSV, JSONSTAT, XLSX)
+- **BULK format**: Unlimited cells (streaming)
 - Large tables may take significant time to download
-- Check table info first to estimate size
+- Check table info first to estimate size: cells = var1_count × var2_count × ... × varN_count
 - Use filters to limit data volume when possible
+- Error if exceeded: "Forespørgslen returnerer for mange observationer" (REQUEST-LIMIT)
 
 ### Existing Data
 - Default behavior: Fail if table already exists
@@ -116,13 +126,16 @@ Exit codes:
 ### Network and Time
 - Requires stable internet connection
 - Large downloads may timeout - retry if needed
-- API may have rate limits
+- Recommended: 4-5 requests/second maximum (self-imposed limit)
+- Timeout recommendations: 30s (small), 60s (medium), 120s+ (large)
 
 ### Filters Format
 - Filters must be valid JSON
 - Keys are variable IDs from table info
 - Values are arrays of allowed values
-- Use wildcards where supported (e.g., "2024*")
+- Wildcard patterns: `*` (all), `prefix*`, `*suffix`, `>=value`, `<=value`
+- Time patterns: `(1)` (latest), `(-n+5)` (last 5), `2024*` (year match)
+- **BULK format validation**: Must specify all variables, check with tableinfo first
 
 ## Verification Steps
 
@@ -130,12 +143,12 @@ After storing data, verify success:
 
 ### 1. Check Metadata
 ```bash
-python /home/user/dst-skills/scripts/db/query_metadata.py --table-id <TABLE_ID>
+python scripts/db/query_metadata.py --table-id <TABLE_ID>
 ```
 
 ### 2. Spot Check Data
 ```bash
-python /home/user/dst-skills/scripts/db/query_data.py --sql "SELECT * FROM dst_<table_id> LIMIT 5"
+python scripts/db/query_data.py --sql "SELECT * FROM dst_<table_id> LIMIT 5"
 ```
 
 ### 3. Verify Record Count
@@ -152,43 +165,43 @@ After successfully storing data:
 
 Example:
 ```bash
-python /home/user/dst-skills/scripts/db/table_summary.py --table-id FOLK1A
+python scripts/db/table_summary.py --table-id FOLK1A
 ```
 
 ## Examples
 
 ### Example 1: Simple fetch and store
 ```bash
-python /home/user/dst-skills/scripts/fetch_and_store.py --table-id FOLK1A
+python scripts/fetch_and_store.py --table-id FOLK1A
 ```
 
 ### Example 2: Overwrite existing data
 ```bash
-python /home/user/dst-skills/scripts/fetch_and_store.py --table-id FOLK1A --overwrite
+python scripts/fetch_and_store.py --table-id FOLK1A --overwrite
 ```
 
 ### Example 3: Fetch with regional filter
 ```bash
-python /home/user/dst-skills/scripts/fetch_and_store.py --table-id FOLK1A --filters '{"OMRÅDE":["000","101"]}'
+python scripts/fetch_and_store.py --table-id FOLK1A --filters '{"OMRÅDE":["000","101"]}'
 ```
 
 ### Example 4: Skip if recently fetched
 ```bash
-python /home/user/dst-skills/scripts/fetch_and_store.py --table-id FOLK1A --skip-if-fresh --max-age-days 7
+python scripts/fetch_and_store.py --table-id FOLK1A --skip-if-fresh --max-age-days 7
 ```
 
 ### Example 5: Advanced - separate steps
 ```bash
 # Step 1: Fetch
-python /home/user/dst-skills/scripts/api/fetch_data.py --table-id FOLK1A --output folk1a.json
+python scripts/api/fetch_data.py --table-id FOLK1A --output folk1a.json
 
 # Step 2: Store
-python /home/user/dst-skills/scripts/db/store_data.py --table-id FOLK1A --data-file folk1a.json
+python scripts/db/store_data.py --table-id FOLK1A --data-file folk1a.json
 ```
 
 ### Example 6: Export to CSV
 ```bash
-python /home/user/dst-skills/scripts/api/fetch_data.py --table-id FOLK1A --format csv --output data.csv
+python scripts/api/fetch_data.py --table-id FOLK1A --format csv --output data.csv
 ```
 
 ## Tips
@@ -217,14 +230,26 @@ python /home/user/dst-skills/scripts/api/fetch_data.py --table-id FOLK1A --forma
 
 ### Time Filters
 ```bash
+# Latest period (recommended for current data)
+--filters '{"Tid":["(1)"]}'
+
+# Last 5 periods
+--filters '{"Tid":["(-n+5)"]}'
+
 # Specific year
---filters '{"TID":["2024"]}'
+--filters '{"Tid":["2024"]}'
 
 # Year range (wildcard)
---filters '{"TID":["202*"]}'
+--filters '{"Tid":["202*"]}'
 
-# Specific quarters
---filters '{"TID":["2024Q1","2024Q2"]}'
+# Specific quarters (K=Kvartal)
+--filters '{"Tid":["2024K1","2024K2"]}'
+
+# All Q1 quarters
+--filters '{"Tid":["*K1"]}'
+
+# Range operator
+--filters '{"Tid":[">=2023K1<=2024K4"]}'
 ```
 
 ### Geographic Filters
@@ -235,13 +260,30 @@ python /home/user/dst-skills/scripts/api/fetch_data.py --table-id FOLK1A --forma
 # Specific regions
 --filters '{"OMRÅDE":["101","147"]}'
 
-# Region codes: 000=Denmark, 101=Copenhagen, etc.
+# All regions (wildcard)
+--filters '{"OMRÅDE":["*"]}'
+
+# Region codes: 000=Denmark, 101=Copenhagen, 147=Frederiksberg
 ```
 
 ### Combined Filters
 ```bash
---filters '{"OMRÅDE":["000"],"TID":["202*"],"KØN":["M","K"]}'
+# Multiple dimensions with patterns
+--filters '{"OMRÅDE":["000"],"Tid":["(1)"],"KØN":["*"]}'
+
+# Complex filtering
+--filters '{"OMRÅDE":["101","147"],"Tid":[">=2020"],"KØN":["1","2"]}'
 ```
+
+### Pattern Reference
+- `*` - All values
+- `prefix*` - Starts with prefix
+- `*suffix` - Ends with suffix
+- `(1)` - Latest period (nth-rule)
+- `(-n+N)` - Last N periods
+- `>=value` - From value onwards
+- `<=value` - Up to value
+- `>=A<=B` - Between A and B
 
 ## Troubleshooting
 
@@ -251,20 +293,51 @@ python /home/user/dst-skills/scripts/api/fetch_data.py --table-id FOLK1A --forma
 
 ### "Network timeout"
 - Large table - try with filters to reduce size
+- Increase timeout in script if needed (120s+ for large datasets)
 - Retry the operation
 - Check internet connection
 
+### "REQUEST-LIMIT: Too many cells"
+Error message: "Forespørgslen returnerer for mange observationer"
+- **Solution**: Script should use BULK format automatically for large requests
+- Verify format=BULK is being used
+- Add more filters to reduce cell count
+- Cell limit: 1,000,000 for non-streaming formats
+
+### "EXTRACT-NOTALLOWED: Missing variable"
+Error message: "Der skal vælges værdier for variabel: [VARIABLE_NAME]"
+- **BULK format requires ALL variables specified**
+- Check tableinfo to get all variable IDs
+- Ensure every variable has a value selection
+- Cannot rely on auto-elimination with BULK
+
+### "EXTRACT-NOTFOUND: Invalid code"
+Error messages: "Tabellen blev ikke fundet" / "Variablen blev ikke fundet" / "Værdien blev ikke fundet"
+- Verify table ID is correct (case-insensitive)
+- Check variable IDs match tableinfo exactly
+- Verify value codes exist in tableinfo
+- Run tableinfo first to validate codes
+
 ### "Invalid filters"
-- Verify JSON syntax is correct
-- Check variable IDs match table info
+- Verify JSON syntax is correct (use single quotes around JSON, double quotes inside)
+- Check variable IDs match table info exactly
 - Ensure values exist in table info
+- Test patterns: wildcards need asterisk `*`, ranges need `>=`/`<=`
 
 ### "No data returned"
 - Filters may be too restrictive
 - Verify table has data for requested filters
 - Check table info for available values
+- Try with fewer/broader filters first
+
+### "Cannot sort time for streaming formats"
+Error message: "Der kan ikke vælges sortering af tid for streamede formater"
+- **BULK format does not support time sorting**
+- Sort after data is stored in DuckDB
+- Or use CSV format instead (if under 1M cells)
 
 ### Disk Space Issues
 - Monitor available space before large downloads
 - Clean up old/unused tables
 - Use filters to limit data volume
+- Check estimated size: run tableinfo and calculate cells

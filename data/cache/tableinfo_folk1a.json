@@ -1,0 +1,1308 @@
+{
+  "id": "FOLK1A",
+  "text": "Befolkningen den 1. i kvartalet",
+  "description": "Befolkningen den 1. i kvartalet efter område, køn, alder, civilstand og tid",
+  "unit": "Antal",
+  "suppressedDataValue": "0",
+  "updated": "2025-08-11T08:00:00",
+  "active": true,
+  "contacts": [
+    {
+      "name": "Dorthe Larsen",
+      "phone": "+4523498326",
+      "mail": "dla@dst.dk"
+    }
+  ],
+  "documentation": {
+    "id": "4a12721d-a8b0-4bde-82d7-1d1c6f319de3",
+    "url": "https://www.dst.dk/statistikdokumentation/4a12721d-a8b0-4bde-82d7-1d1c6f319de3"
+  },
+  "footnote": null,
+  "variables": [
+    {
+      "id": "OMRÅDE",
+      "text": "område",
+      "elimination": true,
+      "time": false,
+      "map": "Denmark_municipality_07",
+      "values": [
+        {
+          "id": "000",
+          "text": "Hele landet"
+        },
+        {
+          "id": "084",
+          "text": "Region Hovedstaden"
+        },
+        {
+          "id": "101",
+          "text": "København"
+        },
+        {
+          "id": "147",
+          "text": "Frederiksberg"
+        },
+        {
+          "id": "155",
+          "text": "Dragør"
+        },
+        {
+          "id": "185",
+          "text": "Tårnby"
+        },
+        {
+          "id": "165",
+          "text": "Albertslund"
+        },
+        {
+          "id": "151",
+          "text": "Ballerup"
+        },
+        {
+          "id": "153",
+          "text": "Brøndby"
+        },
+        {
+          "id": "157",
+          "text": "Gentofte"
+        },
+        {
+          "id": "159",
+          "text": "Gladsaxe"
+        },
+        {
+          "id": "161",
+          "text": "Glostrup"
+        },
+        {
+          "id": "163",
+          "text": "Herlev"
+        },
+        {
+          "id": "167",
+          "text": "Hvidovre"
+        },
+        {
+          "id": "169",
+          "text": "Høje-Taastrup"
+        },
+        {
+          "id": "183",
+          "text": "Ishøj"
+        },
+        {
+          "id": "173",
+          "text": "Lyngby-Taarbæk"
+        },
+        {
+          "id": "175",
+          "text": "Rødovre"
+        },
+        {
+          "id": "187",
+          "text": "Vallensbæk"
+        },
+        {
+          "id": "201",
+          "text": "Allerød"
+        },
+        {
+          "id": "240",
+          "text": "Egedal"
+        },
+        {
+          "id": "210",
+          "text": "Fredensborg"
+        },
+        {
+          "id": "250",
+          "text": "Frederikssund"
+        },
+        {
+          "id": "190",
+          "text": "Furesø"
+        },
+        {
+          "id": "270",
+          "text": "Gribskov"
+        },
+        {
+          "id": "260",
+          "text": "Halsnæs"
+        },
+        {
+          "id": "217",
+          "text": "Helsingør"
+        },
+        {
+          "id": "219",
+          "text": "Hillerød"
+        },
+        {
+          "id": "223",
+          "text": "Hørsholm"
+        },
+        {
+          "id": "230",
+          "text": "Rudersdal"
+        },
+        {
+          "id": "400",
+          "text": "Bornholm"
+        },
+        {
+          "id": "411",
+          "text": "Christiansø"
+        },
+        {
+          "id": "085",
+          "text": "Region Sjælland"
+        },
+        {
+          "id": "253",
+          "text": "Greve"
+        },
+        {
+          "id": "259",
+          "text": "Køge"
+        },
+        {
+          "id": "350",
+          "text": "Lejre"
+        },
+        {
+          "id": "265",
+          "text": "Roskilde"
+        },
+        {
+          "id": "269",
+          "text": "Solrød"
+        },
+        {
+          "id": "320",
+          "text": "Faxe"
+        },
+        {
+          "id": "376",
+          "text": "Guldborgsund"
+        },
+        {
+          "id": "316",
+          "text": "Holbæk"
+        },
+        {
+          "id": "326",
+          "text": "Kalundborg"
+        },
+        {
+          "id": "360",
+          "text": "Lolland"
+        },
+        {
+          "id": "370",
+          "text": "Næstved"
+        },
+        {
+          "id": "306",
+          "text": "Odsherred"
+        },
+        {
+          "id": "329",
+          "text": "Ringsted"
+        },
+        {
+          "id": "330",
+          "text": "Slagelse"
+        },
+        {
+          "id": "340",
+          "text": "Sorø"
+        },
+        {
+          "id": "336",
+          "text": "Stevns"
+        },
+        {
+          "id": "390",
+          "text": "Vordingborg"
+        },
+        {
+          "id": "083",
+          "text": "Region Syddanmark"
+        },
+        {
+          "id": "420",
+          "text": "Assens"
+        },
+        {
+          "id": "430",
+          "text": "Faaborg-Midtfyn"
+        },
+        {
+          "id": "440",
+          "text": "Kerteminde"
+        },
+        {
+          "id": "482",
+          "text": "Langeland"
+        },
+        {
+          "id": "410",
+          "text": "Middelfart"
+        },
+        {
+          "id": "480",
+          "text": "Nordfyns"
+        },
+        {
+          "id": "450",
+          "text": "Nyborg"
+        },
+        {
+          "id": "461",
+          "text": "Odense"
+        },
+        {
+          "id": "479",
+          "text": "Svendborg"
+        },
+        {
+          "id": "492",
+          "text": "Ærø"
+        },
+        {
+          "id": "530",
+          "text": "Billund"
+        },
+        {
+          "id": "561",
+          "text": "Esbjerg"
+        },
+        {
+          "id": "563",
+          "text": "Fanø"
+        },
+        {
+          "id": "607",
+          "text": "Fredericia"
+        },
+        {
+          "id": "510",
+          "text": "Haderslev"
+        },
+        {
+          "id": "621",
+          "text": "Kolding"
+        },
+        {
+          "id": "540",
+          "text": "Sønderborg"
+        },
+        {
+          "id": "550",
+          "text": "Tønder"
+        },
+        {
+          "id": "573",
+          "text": "Varde"
+        },
+        {
+          "id": "575",
+          "text": "Vejen"
+        },
+        {
+          "id": "630",
+          "text": "Vejle"
+        },
+        {
+          "id": "580",
+          "text": "Aabenraa"
+        },
+        {
+          "id": "082",
+          "text": "Region Midtjylland"
+        },
+        {
+          "id": "710",
+          "text": "Favrskov"
+        },
+        {
+          "id": "766",
+          "text": "Hedensted"
+        },
+        {
+          "id": "615",
+          "text": "Horsens"
+        },
+        {
+          "id": "707",
+          "text": "Norddjurs"
+        },
+        {
+          "id": "727",
+          "text": "Odder"
+        },
+        {
+          "id": "730",
+          "text": "Randers"
+        },
+        {
+          "id": "741",
+          "text": "Samsø"
+        },
+        {
+          "id": "740",
+          "text": "Silkeborg"
+        },
+        {
+          "id": "746",
+          "text": "Skanderborg"
+        },
+        {
+          "id": "706",
+          "text": "Syddjurs"
+        },
+        {
+          "id": "751",
+          "text": "Aarhus"
+        },
+        {
+          "id": "657",
+          "text": "Herning"
+        },
+        {
+          "id": "661",
+          "text": "Holstebro"
+        },
+        {
+          "id": "756",
+          "text": "Ikast-Brande"
+        },
+        {
+          "id": "665",
+          "text": "Lemvig"
+        },
+        {
+          "id": "760",
+          "text": "Ringkøbing-Skjern"
+        },
+        {
+          "id": "779",
+          "text": "Skive"
+        },
+        {
+          "id": "671",
+          "text": "Struer"
+        },
+        {
+          "id": "791",
+          "text": "Viborg"
+        },
+        {
+          "id": "081",
+          "text": "Region Nordjylland"
+        },
+        {
+          "id": "810",
+          "text": "Brønderslev"
+        },
+        {
+          "id": "813",
+          "text": "Frederikshavn"
+        },
+        {
+          "id": "860",
+          "text": "Hjørring"
+        },
+        {
+          "id": "849",
+          "text": "Jammerbugt"
+        },
+        {
+          "id": "825",
+          "text": "Læsø"
+        },
+        {
+          "id": "846",
+          "text": "Mariagerfjord"
+        },
+        {
+          "id": "773",
+          "text": "Morsø"
+        },
+        {
+          "id": "840",
+          "text": "Rebild"
+        },
+        {
+          "id": "787",
+          "text": "Thisted"
+        },
+        {
+          "id": "820",
+          "text": "Vesthimmerlands"
+        },
+        {
+          "id": "851",
+          "text": "Aalborg"
+        }
+      ]
+    },
+    {
+      "id": "KØN",
+      "text": "køn",
+      "elimination": true,
+      "time": false,
+      "values": [
+        {
+          "id": "TOT",
+          "text": "I alt"
+        },
+        {
+          "id": "1",
+          "text": "Mænd"
+        },
+        {
+          "id": "2",
+          "text": "Kvinder"
+        }
+      ]
+    },
+    {
+      "id": "ALDER",
+      "text": "alder",
+      "elimination": true,
+      "time": false,
+      "values": [
+        {
+          "id": "IALT",
+          "text": "Alder i alt"
+        },
+        {
+          "id": "0",
+          "text": "0 år"
+        },
+        {
+          "id": "1",
+          "text": "1 år"
+        },
+        {
+          "id": "2",
+          "text": "2 år"
+        },
+        {
+          "id": "3",
+          "text": "3 år"
+        },
+        {
+          "id": "4",
+          "text": "4 år"
+        },
+        {
+          "id": "5",
+          "text": "5 år"
+        },
+        {
+          "id": "6",
+          "text": "6 år"
+        },
+        {
+          "id": "7",
+          "text": "7 år"
+        },
+        {
+          "id": "8",
+          "text": "8 år"
+        },
+        {
+          "id": "9",
+          "text": "9 år"
+        },
+        {
+          "id": "10",
+          "text": "10 år"
+        },
+        {
+          "id": "11",
+          "text": "11 år"
+        },
+        {
+          "id": "12",
+          "text": "12 år"
+        },
+        {
+          "id": "13",
+          "text": "13 år"
+        },
+        {
+          "id": "14",
+          "text": "14 år"
+        },
+        {
+          "id": "15",
+          "text": "15 år"
+        },
+        {
+          "id": "16",
+          "text": "16 år"
+        },
+        {
+          "id": "17",
+          "text": "17 år"
+        },
+        {
+          "id": "18",
+          "text": "18 år"
+        },
+        {
+          "id": "19",
+          "text": "19 år"
+        },
+        {
+          "id": "20",
+          "text": "20 år"
+        },
+        {
+          "id": "21",
+          "text": "21 år"
+        },
+        {
+          "id": "22",
+          "text": "22 år"
+        },
+        {
+          "id": "23",
+          "text": "23 år"
+        },
+        {
+          "id": "24",
+          "text": "24 år"
+        },
+        {
+          "id": "25",
+          "text": "25 år"
+        },
+        {
+          "id": "26",
+          "text": "26 år"
+        },
+        {
+          "id": "27",
+          "text": "27 år"
+        },
+        {
+          "id": "28",
+          "text": "28 år"
+        },
+        {
+          "id": "29",
+          "text": "29 år"
+        },
+        {
+          "id": "30",
+          "text": "30 år"
+        },
+        {
+          "id": "31",
+          "text": "31 år"
+        },
+        {
+          "id": "32",
+          "text": "32 år"
+        },
+        {
+          "id": "33",
+          "text": "33 år"
+        },
+        {
+          "id": "34",
+          "text": "34 år"
+        },
+        {
+          "id": "35",
+          "text": "35 år"
+        },
+        {
+          "id": "36",
+          "text": "36 år"
+        },
+        {
+          "id": "37",
+          "text": "37 år"
+        },
+        {
+          "id": "38",
+          "text": "38 år"
+        },
+        {
+          "id": "39",
+          "text": "39 år"
+        },
+        {
+          "id": "40",
+          "text": "40 år"
+        },
+        {
+          "id": "41",
+          "text": "41 år"
+        },
+        {
+          "id": "42",
+          "text": "42 år"
+        },
+        {
+          "id": "43",
+          "text": "43 år"
+        },
+        {
+          "id": "44",
+          "text": "44 år"
+        },
+        {
+          "id": "45",
+          "text": "45 år"
+        },
+        {
+          "id": "46",
+          "text": "46 år"
+        },
+        {
+          "id": "47",
+          "text": "47 år"
+        },
+        {
+          "id": "48",
+          "text": "48 år"
+        },
+        {
+          "id": "49",
+          "text": "49 år"
+        },
+        {
+          "id": "50",
+          "text": "50 år"
+        },
+        {
+          "id": "51",
+          "text": "51 år"
+        },
+        {
+          "id": "52",
+          "text": "52 år"
+        },
+        {
+          "id": "53",
+          "text": "53 år"
+        },
+        {
+          "id": "54",
+          "text": "54 år"
+        },
+        {
+          "id": "55",
+          "text": "55 år"
+        },
+        {
+          "id": "56",
+          "text": "56 år"
+        },
+        {
+          "id": "57",
+          "text": "57 år"
+        },
+        {
+          "id": "58",
+          "text": "58 år"
+        },
+        {
+          "id": "59",
+          "text": "59 år"
+        },
+        {
+          "id": "60",
+          "text": "60 år"
+        },
+        {
+          "id": "61",
+          "text": "61 år"
+        },
+        {
+          "id": "62",
+          "text": "62 år"
+        },
+        {
+          "id": "63",
+          "text": "63 år"
+        },
+        {
+          "id": "64",
+          "text": "64 år"
+        },
+        {
+          "id": "65",
+          "text": "65 år"
+        },
+        {
+          "id": "66",
+          "text": "66 år"
+        },
+        {
+          "id": "67",
+          "text": "67 år"
+        },
+        {
+          "id": "68",
+          "text": "68 år"
+        },
+        {
+          "id": "69",
+          "text": "69 år"
+        },
+        {
+          "id": "70",
+          "text": "70 år"
+        },
+        {
+          "id": "71",
+          "text": "71 år"
+        },
+        {
+          "id": "72",
+          "text": "72 år"
+        },
+        {
+          "id": "73",
+          "text": "73 år"
+        },
+        {
+          "id": "74",
+          "text": "74 år"
+        },
+        {
+          "id": "75",
+          "text": "75 år"
+        },
+        {
+          "id": "76",
+          "text": "76 år"
+        },
+        {
+          "id": "77",
+          "text": "77 år"
+        },
+        {
+          "id": "78",
+          "text": "78 år"
+        },
+        {
+          "id": "79",
+          "text": "79 år"
+        },
+        {
+          "id": "80",
+          "text": "80 år"
+        },
+        {
+          "id": "81",
+          "text": "81 år"
+        },
+        {
+          "id": "82",
+          "text": "82 år"
+        },
+        {
+          "id": "83",
+          "text": "83 år"
+        },
+        {
+          "id": "84",
+          "text": "84 år"
+        },
+        {
+          "id": "85",
+          "text": "85 år"
+        },
+        {
+          "id": "86",
+          "text": "86 år"
+        },
+        {
+          "id": "87",
+          "text": "87 år"
+        },
+        {
+          "id": "88",
+          "text": "88 år"
+        },
+        {
+          "id": "89",
+          "text": "89 år"
+        },
+        {
+          "id": "90",
+          "text": "90 år"
+        },
+        {
+          "id": "91",
+          "text": "91 år"
+        },
+        {
+          "id": "92",
+          "text": "92 år"
+        },
+        {
+          "id": "93",
+          "text": "93 år"
+        },
+        {
+          "id": "94",
+          "text": "94 år"
+        },
+        {
+          "id": "95",
+          "text": "95 år"
+        },
+        {
+          "id": "96",
+          "text": "96 år"
+        },
+        {
+          "id": "97",
+          "text": "97 år"
+        },
+        {
+          "id": "98",
+          "text": "98 år"
+        },
+        {
+          "id": "99",
+          "text": "99 år"
+        },
+        {
+          "id": "100",
+          "text": "100 år"
+        },
+        {
+          "id": "101",
+          "text": "101 år"
+        },
+        {
+          "id": "102",
+          "text": "102 år"
+        },
+        {
+          "id": "103",
+          "text": "103 år"
+        },
+        {
+          "id": "104",
+          "text": "104 år"
+        },
+        {
+          "id": "105",
+          "text": "105 år"
+        },
+        {
+          "id": "106",
+          "text": "106 år"
+        },
+        {
+          "id": "107",
+          "text": "107 år"
+        },
+        {
+          "id": "108",
+          "text": "108 år"
+        },
+        {
+          "id": "109",
+          "text": "109 år"
+        },
+        {
+          "id": "110",
+          "text": "110 år"
+        },
+        {
+          "id": "111",
+          "text": "111 år"
+        },
+        {
+          "id": "112",
+          "text": "112 år"
+        },
+        {
+          "id": "113",
+          "text": "113 år"
+        },
+        {
+          "id": "114",
+          "text": "114 år"
+        },
+        {
+          "id": "115",
+          "text": "115 år"
+        },
+        {
+          "id": "116",
+          "text": "116 år"
+        },
+        {
+          "id": "117",
+          "text": "117 år"
+        },
+        {
+          "id": "118",
+          "text": "118 år"
+        },
+        {
+          "id": "119",
+          "text": "119 år"
+        },
+        {
+          "id": "120",
+          "text": "120 år"
+        },
+        {
+          "id": "121",
+          "text": "121 år"
+        },
+        {
+          "id": "122",
+          "text": "122 år"
+        },
+        {
+          "id": "123",
+          "text": "123 år"
+        },
+        {
+          "id": "124",
+          "text": "124 år"
+        },
+        {
+          "id": "125",
+          "text": "125 år"
+        }
+      ]
+    },
+    {
+      "id": "CIVILSTAND",
+      "text": "civilstand",
+      "elimination": true,
+      "time": false,
+      "values": [
+        {
+          "id": "TOT",
+          "text": "I alt"
+        },
+        {
+          "id": "U",
+          "text": "Ugift"
+        },
+        {
+          "id": "G",
+          "text": "Gift/separeret"
+        },
+        {
+          "id": "E",
+          "text": "Enke/enkemand"
+        },
+        {
+          "id": "F",
+          "text": "Fraskilt"
+        }
+      ]
+    },
+    {
+      "id": "Tid",
+      "text": "tid",
+      "elimination": false,
+      "time": true,
+      "values": [
+        {
+          "id": "2008K1",
+          "text": "2008K1"
+        },
+        {
+          "id": "2008K2",
+          "text": "2008K2"
+        },
+        {
+          "id": "2008K3",
+          "text": "2008K3"
+        },
+        {
+          "id": "2008K4",
+          "text": "2008K4"
+        },
+        {
+          "id": "2009K1",
+          "text": "2009K1"
+        },
+        {
+          "id": "2009K2",
+          "text": "2009K2"
+        },
+        {
+          "id": "2009K3",
+          "text": "2009K3"
+        },
+        {
+          "id": "2009K4",
+          "text": "2009K4"
+        },
+        {
+          "id": "2010K1",
+          "text": "2010K1"
+        },
+        {
+          "id": "2010K2",
+          "text": "2010K2"
+        },
+        {
+          "id": "2010K3",
+          "text": "2010K3"
+        },
+        {
+          "id": "2010K4",
+          "text": "2010K4"
+        },
+        {
+          "id": "2011K1",
+          "text": "2011K1"
+        },
+        {
+          "id": "2011K2",
+          "text": "2011K2"
+        },
+        {
+          "id": "2011K3",
+          "text": "2011K3"
+        },
+        {
+          "id": "2011K4",
+          "text": "2011K4"
+        },
+        {
+          "id": "2012K1",
+          "text": "2012K1"
+        },
+        {
+          "id": "2012K2",
+          "text": "2012K2"
+        },
+        {
+          "id": "2012K3",
+          "text": "2012K3"
+        },
+        {
+          "id": "2012K4",
+          "text": "2012K4"
+        },
+        {
+          "id": "2013K1",
+          "text": "2013K1"
+        },
+        {
+          "id": "2013K2",
+          "text": "2013K2"
+        },
+        {
+          "id": "2013K3",
+          "text": "2013K3"
+        },
+        {
+          "id": "2013K4",
+          "text": "2013K4"
+        },
+        {
+          "id": "2014K1",
+          "text": "2014K1"
+        },
+        {
+          "id": "2014K2",
+          "text": "2014K2"
+        },
+        {
+          "id": "2014K3",
+          "text": "2014K3"
+        },
+        {
+          "id": "2014K4",
+          "text": "2014K4"
+        },
+        {
+          "id": "2015K1",
+          "text": "2015K1"
+        },
+        {
+          "id": "2015K2",
+          "text": "2015K2"
+        },
+        {
+          "id": "2015K3",
+          "text": "2015K3"
+        },
+        {
+          "id": "2015K4",
+          "text": "2015K4"
+        },
+        {
+          "id": "2016K1",
+          "text": "2016K1"
+        },
+        {
+          "id": "2016K2",
+          "text": "2016K2"
+        },
+        {
+          "id": "2016K3",
+          "text": "2016K3"
+        },
+        {
+          "id": "2016K4",
+          "text": "2016K4"
+        },
+        {
+          "id": "2017K1",
+          "text": "2017K1"
+        },
+        {
+          "id": "2017K2",
+          "text": "2017K2"
+        },
+        {
+          "id": "2017K3",
+          "text": "2017K3"
+        },
+        {
+          "id": "2017K4",
+          "text": "2017K4"
+        },
+        {
+          "id": "2018K1",
+          "text": "2018K1"
+        },
+        {
+          "id": "2018K2",
+          "text": "2018K2"
+        },
+        {
+          "id": "2018K3",
+          "text": "2018K3"
+        },
+        {
+          "id": "2018K4",
+          "text": "2018K4"
+        },
+        {
+          "id": "2019K1",
+          "text": "2019K1"
+        },
+        {
+          "id": "2019K2",
+          "text": "2019K2"
+        },
+        {
+          "id": "2019K3",
+          "text": "2019K3"
+        },
+        {
+          "id": "2019K4",
+          "text": "2019K4"
+        },
+        {
+          "id": "2020K1",
+          "text": "2020K1"
+        },
+        {
+          "id": "2020K2",
+          "text": "2020K2"
+        },
+        {
+          "id": "2020K3",
+          "text": "2020K3"
+        },
+        {
+          "id": "2020K4",
+          "text": "2020K4"
+        },
+        {
+          "id": "2021K1",
+          "text": "2021K1"
+        },
+        {
+          "id": "2021K2",
+          "text": "2021K2"
+        },
+        {
+          "id": "2021K3",
+          "text": "2021K3"
+        },
+        {
+          "id": "2021K4",
+          "text": "2021K4"
+        },
+        {
+          "id": "2022K1",
+          "text": "2022K1"
+        },
+        {
+          "id": "2022K2",
+          "text": "2022K2"
+        },
+        {
+          "id": "2022K3",
+          "text": "2022K3"
+        },
+        {
+          "id": "2022K4",
+          "text": "2022K4"
+        },
+        {
+          "id": "2023K1",
+          "text": "2023K1"
+        },
+        {
+          "id": "2023K2",
+          "text": "2023K2"
+        },
+        {
+          "id": "2023K3",
+          "text": "2023K3"
+        },
+        {
+          "id": "2023K4",
+          "text": "2023K4"
+        },
+        {
+          "id": "2024K1",
+          "text": "2024K1"
+        },
+        {
+          "id": "2024K2",
+          "text": "2024K2"
+        },
+        {
+          "id": "2024K3",
+          "text": "2024K3"
+        },
+        {
+          "id": "2024K4",
+          "text": "2024K4"
+        },
+        {
+          "id": "2025K1",
+          "text": "2025K1"
+        },
+        {
+          "id": "2025K2",
+          "text": "2025K2"
+        },
+        {
+          "id": "2025K3",
+          "text": "2025K3"
+        }
+      ]
+    }
+  ]
+}

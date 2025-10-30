@@ -8,13 +8,14 @@ This module provides common utility functions including logging configuration.
 import os
 import logging
 from pathlib import Path
+from typing import Optional
 from dotenv import load_dotenv
 
 # Load environment variables
 load_dotenv()
 
 
-def setup_logger(name, level=None):
+def setup_logger(name: str, level: Optional[str] = None) -> logging.Logger:
     """
     Set up and return a configured logger.
 
@@ -26,7 +27,7 @@ def setup_logger(name, level=None):
                If not specified, uses LOG_LEVEL from environment or defaults to INFO
 
     Returns:
-        logging.Logger: Configured logger instance
+        Configured logger instance
 
     Examples:
         >>> logger = setup_logger(__name__)
@@ -82,17 +83,17 @@ def setup_logger(name, level=None):
     return logger
 
 
-def get_project_root():
+def get_project_root() -> Path:
     """
     Get the project root directory.
 
     Returns:
-        Path: Path object pointing to the project root
+        Path object pointing to the project root
     """
     return Path(__file__).parent.parent
 
 
-def ensure_directory(path):
+def ensure_directory(path: str | Path) -> Path:
     """
     Ensure a directory exists, creating it if necessary.
 
@@ -100,7 +101,7 @@ def ensure_directory(path):
         path: Path to the directory (string or Path object)
 
     Returns:
-        Path: Path object pointing to the directory
+        Path object pointing to the directory
 
     Raises:
         Exception: If directory cannot be created

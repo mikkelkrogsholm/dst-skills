@@ -100,6 +100,19 @@ Several options:
 3. **Document workflow**: Create markdown files documenting your analysis
 4. **Backup database**: Copy `data/dst_data.duckdb` to preserve all fetched data
 
+### Why don't agents download data directly?
+
+Due to a known bug in Claude Code ([issue #4462](https://github.com/anthropics/claude-code/issues/4462)), subagents cannot persist file or database changes. When a subagent attempts to write files or download data, the operation succeeds within the agent's isolated context but doesn't persist to the main environment.
+
+**Workaround**: Use Skills directly from the main agent for data operations:
+- ✅ Correct: "Use dst-data to fetch FOLK1A" (main agent executes)
+- ❌ Won't work: Agent tries to fetch (changes don't persist)
+
+**For analysis**: Subagents work perfectly for read-only operations:
+- ✅ "Analyze the population data in dst_folk1a" (reads existing data)
+
+This limitation is temporary. We'll update the workflow once Anthropic fixes the bug. In the meantime, the DST Fetcher agent acts as a "Data Researcher" - it finds and recommends tables, but the main agent handles the actual download.
+
 ## Technical Questions
 
 ### What database does it use?
@@ -232,7 +245,7 @@ python scripts/db/init_db.py
 
 ### Command not found
 - Check you're in the project directory
-- Use absolute paths: `/home/user/dst-skills/scripts/...`
+- Use absolute paths: `./scripts/...`
 - Verify Python is in your PATH
 
 ### "Module not found" error

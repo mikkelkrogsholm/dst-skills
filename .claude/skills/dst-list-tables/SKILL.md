@@ -24,21 +24,21 @@ Discover what DST data is currently stored in the local DuckDB database. This is
 
 Show all tables stored locally:
 ```bash
-python /home/user/dst-skills/scripts/db/query_metadata.py --list-all
+python scripts/db/query_metadata.py --list-all
 ```
 
 ### Get Specific Table Metadata
 
 Get detailed metadata for one table:
 ```bash
-python /home/user/dst-skills/scripts/db/query_metadata.py --table-id <TABLE_ID>
+python scripts/db/query_metadata.py --table-id <TABLE_ID>
 ```
 
 ### JSON Output
 
 Get machine-readable output:
 ```bash
-python /home/user/dst-skills/scripts/db/query_metadata.py --list-all --format json
+python scripts/db/query_metadata.py --list-all --format json
 ```
 
 ## Expected Output
@@ -114,49 +114,49 @@ Data Age:        5 days ago
 Use query and analysis skills:
 ```bash
 # Get table summary
-python /home/user/dst-skills/scripts/db/table_summary.py --table-id <TABLE_ID>
+python scripts/db/table_summary.py --table-id <TABLE_ID>
 
 # Run SQL query
-python /home/user/dst-skills/scripts/db/query_data.py --sql "SELECT * FROM dst_<table_id> LIMIT 10"
+python scripts/db/query_data.py --sql "SELECT * FROM dst_<table_id> LIMIT 10"
 ```
 
 ### If Data Missing
 Switch to Fetcher Agent to download:
 ```bash
-python /home/user/dst-skills/scripts/fetch_and_store.py --table-id <TABLE_ID>
+python scripts/fetch_and_store.py --table-id <TABLE_ID>
 ```
 
 ### If Data Stale
 Use **dst-check-freshness** skill to determine if refresh needed:
 ```bash
-python /home/user/dst-skills/scripts/db/query_metadata.py --table-id <TABLE_ID> --check-freshness --max-age-days 30
+python scripts/db/query_metadata.py --table-id <TABLE_ID> --check-freshness --max-age-days 30
 ```
 
 ## Examples
 
 ### Example 1: List all stored tables
 ```bash
-python /home/user/dst-skills/scripts/db/query_metadata.py --list-all
+python scripts/db/query_metadata.py --list-all
 ```
 
 ### Example 2: Get specific table metadata
 ```bash
-python /home/user/dst-skills/scripts/db/query_metadata.py --table-id FOLK1A
+python scripts/db/query_metadata.py --table-id FOLK1A
 ```
 
 ### Example 3: JSON output for programmatic use
 ```bash
-python /home/user/dst-skills/scripts/db/query_metadata.py --list-all --format json
+python scripts/db/query_metadata.py --list-all --format json
 ```
 
 ### Example 4: Check multiple tables
 ```bash
 # List all
-python /home/user/dst-skills/scripts/db/query_metadata.py --list-all
+python scripts/db/query_metadata.py --list-all
 
 # Get details for each interesting table
-python /home/user/dst-skills/scripts/db/query_metadata.py --table-id FOLK1A
-python /home/user/dst-skills/scripts/db/query_metadata.py --table-id AUP01
+python scripts/db/query_metadata.py --table-id FOLK1A
+python scripts/db/query_metadata.py --table-id AUP01
 ```
 
 ## Tips
@@ -187,25 +187,25 @@ If no tables shown:
 ### Workflow 1: Start Analysis
 ```bash
 # 1. See what's available
-python /home/user/dst-skills/scripts/db/query_metadata.py --list-all
+python scripts/db/query_metadata.py --list-all
 
 # 2. Get details on interesting table
-python /home/user/dst-skills/scripts/db/query_metadata.py --table-id FOLK1A
+python scripts/db/query_metadata.py --table-id FOLK1A
 
 # 3. Check data age
-python /home/user/dst-skills/scripts/db/query_metadata.py --table-id FOLK1A --check-freshness
+python scripts/db/query_metadata.py --table-id FOLK1A --check-freshness
 
 # 4. Proceed with analysis
-python /home/user/dst-skills/scripts/db/table_summary.py --table-id FOLK1A
+python scripts/db/table_summary.py --table-id FOLK1A
 ```
 
 ### Workflow 2: Verify After Fetch
 ```bash
 # 1. Fetch data
-python /home/user/dst-skills/scripts/fetch_and_store.py --table-id FOLK1A
+python scripts/fetch_and_store.py --table-id FOLK1A
 
 # 2. Verify it's there
-python /home/user/dst-skills/scripts/db/query_metadata.py --table-id FOLK1A
+python scripts/db/query_metadata.py --table-id FOLK1A
 
 # 3. Check record count is reasonable
 ```

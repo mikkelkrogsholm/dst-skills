@@ -25,7 +25,7 @@ Get a quick overview of table structure and statistics before detailed querying.
 
 ### Usage
 ```bash
-python /home/user/dst-skills/scripts/db/table_summary.py --table-id <TABLE_ID>
+python scripts/db/table_summary.py --table-id <TABLE_ID>
 ```
 
 ### When to Use
@@ -50,7 +50,7 @@ python /home/user/dst-skills/scripts/db/table_summary.py --table-id <TABLE_ID>
 
 Execute a SQL query:
 ```bash
-python /home/user/dst-skills/scripts/db/query_data.py --sql "<QUERY>"
+python scripts/db/query_data.py --sql "<QUERY>"
 ```
 
 ### Output Formats
@@ -93,6 +93,15 @@ All DST tables in DuckDB follow this pattern:
 
 **Important:** Always use lowercase in queries.
 
+## Data Format in DuckDB
+
+Tables stored from DST API use these conventions:
+- **Separator**: Data was fetched as semicolon-separated CSV (`;`)
+- **Encoding**: UTF-8 with BOM (handled automatically)
+- **Column names**: Based on variable IDs from tableinfo
+- **Value codes**: Exact codes from DST (e.g., "000", "101", "2024K1")
+- **Data types**: DuckDB infers types (usually strings for codes, numeric for values)
+
 ## Common Query Patterns
 
 ### 1. Explore Data
@@ -105,7 +114,16 @@ SELECT * FROM dst_folk1a LIMIT 10
 SELECT COUNT(*) FROM dst_folk1a
 ```
 
-### 3. Aggregation
+### 3. Check Column Structure
+```sql
+-- See what columns exist
+DESCRIBE dst_folk1a;
+
+-- Or use table summary (recommended)
+-- python scripts/db/table_summary.py --table-id FOLK1A
+```
+
+### 4. Aggregation
 ```sql
 SELECT region, SUM(population) as total_pop
 FROM dst_folk1a
@@ -113,51 +131,68 @@ GROUP BY region
 ORDER BY total_pop DESC
 ```
 
-### 4. Time Series
+### 5. Time Series Analysis
 ```sql
-SELECT year, value
+-- Note: Time codes from DST (e.g., "2024K1" for Q1 2024)
+SELECT tid, value
 FROM dst_folk1a
-WHERE region = '000'
-ORDER BY year
+WHERE område = '000'  -- Whole country
+ORDER BY tid
 ```
 
-### 5. Filtering
+### 6. Filtering with DST Codes
 ```sql
+-- Use exact codes from tableinfo
 SELECT *
 FROM dst_folk1a
-WHERE year >= 2020 AND region IN ('000', '101')
+WHERE tid LIKE '2024%'  -- All 2024 periods
+  AND område IN ('000', '101')  -- Denmark and Copenhagen
+  AND køn IN ('1', '2')  -- Men and women (not 'TOT')
 ```
 
-### 6. Multiple Aggregations
+### 7. Multiple Aggregations
 ```sql
 SELECT
-  region,
+  område,
   COUNT(*) as record_count,
-  AVG(value) as avg_value,
-  MAX(value) as max_value
+  AVG(CAST(indhold AS DOUBLE)) as avg_value,
+  MAX(CAST(indhold AS DOUBLE)) as max_value
 FROM dst_folk1a
-GROUP BY region
+GROUP BY område
 ```
 
-### 7. Join Tables
+### 8. Join Tables
 ```sql
 SELECT
-  a.region,
-  a.population,
-  b.employment
+  a.område,
+  a.indhold as population,
+  b.indhold as employment
 FROM dst_folk1a a
-JOIN dst_aup01 b ON a.region = b.region AND a.year = b.year
-WHERE a.year = 2024
+JOIN dst_aup01 b ON a.område = b.område AND a.tid = b.tid
+WHERE a.tid = '2024K1'
 ```
 
-### 8. Percentages
+### 9. Percentages
 ```sql
 SELECT
-  region,
-  value,
-  100.0 * value / SUM(value) OVER () as percentage
+  område,
+  CAST(indhold AS DOUBLE) as value,
+  100.0 * CAST(indhold AS DOUBLE) / SUM(CAST(indhold AS DOUBLE)) OVER () as percentage
 FROM dst_folk1a
-WHERE year = 2024
+WHERE tid = '2024K1' AND køn = 'TOT'
+```
+
+### 10. Latest Period Analysis
+```sql
+-- Find most recent quarter
+WITH latest AS (
+  SELECT MAX(tid) as max_tid FROM dst_folk1a
+)
+SELECT område, SUM(CAST(indhold AS DOUBLE)) as total
+FROM dst_folk1a
+WHERE tid = (SELECT max_tid FROM latest)
+GROUP BY område
+ORDER BY total DESC
 ```
 
 ## Best Practices
@@ -186,41 +221,55 @@ WHERE year = 2024
 - Verify data types before operations
 - Check for duplicates if unexpected
 
+### Understanding Data Freshness
+Before analyzing, check when data was last updated:
+```sql
+SELECT table_id, last_updated, row_count
+FROM dst_metadata
+WHERE table_id = 'FOLK1A'
+```
+
+Recommendations:
+- Check freshness before major analysis
+- Re-fetch if data is stale (use dst-check-freshness skill)
+- Note DST update frequency varies by table
+- Some tables update quarterly, others monthly or annually
+
 ## Examples
 
 ### Example 1: Get table summary
 ```bash
-python /home/user/dst-skills/scripts/db/table_summary.py --table-id FOLK1A
+python scripts/db/table_summary.py --table-id FOLK1A
 ```
 
 ### Example 2: Simple exploration
 ```bash
-python /home/user/dst-skills/scripts/db/query_data.py --sql "SELECT * FROM dst_folk1a LIMIT 5"
+python scripts/db/query_data.py --sql "SELECT * FROM dst_folk1a LIMIT 5"
 ```
 
 ### Example 3: Aggregation by year
 ```bash
-python /home/user/dst-skills/scripts/db/query_data.py --sql "SELECT year, SUM(population) as total FROM dst_folk1a GROUP BY year ORDER BY year"
+python scripts/db/query_data.py --sql "SELECT year, SUM(population) as total FROM dst_folk1a GROUP BY year ORDER BY year"
 ```
 
 ### Example 4: Regional analysis
 ```bash
-python /home/user/dst-skills/scripts/db/query_data.py --sql "SELECT region, AVG(value) as avg_val FROM dst_folk1a WHERE year >= 2020 GROUP BY region"
+python scripts/db/query_data.py --sql "SELECT region, AVG(value) as avg_val FROM dst_folk1a WHERE year >= 2020 GROUP BY region"
 ```
 
 ### Example 5: Export to CSV
 ```bash
-python /home/user/dst-skills/scripts/db/query_data.py --sql "SELECT * FROM dst_folk1a" --format csv --output results.csv
+python scripts/db/query_data.py --sql "SELECT * FROM dst_folk1a" --format csv --output results.csv
 ```
 
 ### Example 6: JSON output
 ```bash
-python /home/user/dst-skills/scripts/db/query_data.py --sql "SELECT * FROM dst_folk1a LIMIT 100" --format json --output data.json
+python scripts/db/query_data.py --sql "SELECT * FROM dst_folk1a LIMIT 100" --format json --output data.json
 ```
 
 ### Example 7: With safety limit
 ```bash
-python /home/user/dst-skills/scripts/db/query_data.py --sql "SELECT * FROM dst_folk1a" --limit 1000
+python scripts/db/query_data.py --sql "SELECT * FROM dst_folk1a" --limit 1000
 ```
 
 ## Advanced Queries
@@ -270,102 +319,139 @@ LIMIT 100
 ## Tips
 
 ### Before Querying
-- Run table summary to see structure
-- Check column names and types
-- Review sample data
-- Verify table has data
+- **Run table summary first** to see structure
+- Check column names and types (often Danish: område, tid, køn, etc.)
+- Review sample data to understand value formats
+- Verify table has data and check last_updated in dst_metadata
+- Note: Column names are lowercase variable IDs from DST
+
+### Working with DST Data Codes
+- **Time codes**: `"2024K1"` (quarterly), `"2024M01"` (monthly), `"2024"` (annual)
+- **Geographic codes**: `"000"` (whole country), `"101"` (Copenhagen), etc.
+- **Aggregate codes**: `"TOT"`, `"IALT"` often represent totals
+- **Use LIKE**: For pattern matching time periods: `tid LIKE '2024%'`
+- **Cast when needed**: Value columns may be strings: `CAST(indhold AS DOUBLE)`
 
 ### Query Writing
 - Use table aliases for clarity (a, b, etc.)
 - Format SQL for readability
 - Comment complex queries
 - Test with LIMIT first
+- Handle Danish characters properly (æ, ø, å)
 
 ### Analysis Workflow
 1. **Understand:** Get table summary
-2. **Explore:** Simple SELECT with LIMIT
-3. **Filter:** Add WHERE clauses
-4. **Aggregate:** Use GROUP BY
-5. **Refine:** Add ORDER BY, calculations
-6. **Export:** Save final results
+2. **Check freshness:** Query dst_metadata for last_updated
+3. **Explore:** Simple SELECT with LIMIT
+4. **Filter:** Add WHERE clauses with exact DST codes
+5. **Aggregate:** Use GROUP BY (cast numeric columns first)
+6. **Refine:** Add ORDER BY, calculations
+7. **Export:** Save final results
 
 ### Performance Tips
 - Filter first, aggregate second
 - Use specific columns, not SELECT *
 - Add LIMIT for large tables
+- Use indexes on commonly filtered columns (advanced)
 - Consider creating views for repeated queries (advanced)
+- Cache results locally if running same query multiple times
 
 ## Troubleshooting
 
 ### "Table not found"
-- Verify table exists: use dst-list-tables
+- Verify table exists: `python scripts/db/list_tables.py` (dst-list-tables skill)
 - Check table name is lowercase
 - Ensure format: dst_{table_id}
+- Example: FOLK1A becomes `dst_folk1a`
 
 ### "Column not found"
-- Run table summary to see columns
-- Check spelling and case
-- Verify column exists in that table
+- Run table summary to see actual column names
+- Column names are lowercase DST variable IDs
+- Common columns: `område` (region), `tid` (time), `køn` (gender), `indhold` (value)
+- Check spelling including Danish characters (æ, ø, å)
+- Verify column exists in that specific table
+
+### Data Type Issues
+- Value columns often stored as strings (e.g., `indhold`)
+- Cast to numeric for calculations: `CAST(indhold AS DOUBLE)`
+- Time codes are strings: use LIKE for patterns
+- Don't assume numeric types without checking
+
+### Unexpected Results
+- **Empty results**: Check if data was actually fetched for that table
+- **Wrong aggregations**: Verify you're filtering out 'TOT' codes if needed
+- **Time ordering issues**: Time codes as strings may not sort chronologically
+  - Solution: Extract year/quarter or use CASE statements
+- **Duplicate rows**: Table may have multiple dimensions - check GROUP BY
 
 ### Large Result Sets
-- Add LIMIT clause
+- Add LIMIT clause for exploration
 - Use aggregation to reduce rows
-- Export to file instead of console
+- Export to file instead of console: `--output results.csv`
+- Check row count first: `SELECT COUNT(*) FROM table`
 
 ### Slow Queries
 - Check WHERE filters are effective
+- Filter by indexed columns (primary keys)
 - Simplify joins
 - Reduce columns selected
 - Check data size with COUNT first
+- Avoid SELECT * on large tables
 
 ### Query Syntax Errors
-- Verify SQL syntax
-- Check quotes and brackets
+- Verify SQL syntax (DuckDB follows PostgreSQL conventions)
+- Check quotes: use single quotes for string literals
+- Danish characters: ensure UTF-8 encoding
 - Test simple version first
 - Review error message carefully
+
+### Character Encoding Issues
+- DuckDB handles UTF-8 automatically
+- If seeing odd characters, verify terminal encoding
+- CSV exports preserve Danish characters (æ, ø, å)
 
 ## Common Workflows
 
 ### Workflow 1: Explore New Table
 ```bash
 # 1. Get summary
-python /home/user/dst-skills/scripts/db/table_summary.py --table-id FOLK1A
+python scripts/db/table_summary.py --table-id FOLK1A
 
 # 2. See sample data
-python /home/user/dst-skills/scripts/db/query_data.py --sql "SELECT * FROM dst_folk1a LIMIT 5"
+python scripts/db/query_data.py --sql "SELECT * FROM dst_folk1a LIMIT 5"
 
 # 3. Check record count
-python /home/user/dst-skills/scripts/db/query_data.py --sql "SELECT COUNT(*) FROM dst_folk1a"
+python scripts/db/query_data.py --sql "SELECT COUNT(*) FROM dst_folk1a"
 
 # 4. Explore key dimensions
-python /home/user/dst-skills/scripts/db/query_data.py --sql "SELECT DISTINCT region FROM dst_folk1a"
+python scripts/db/query_data.py --sql "SELECT DISTINCT region FROM dst_folk1a"
 ```
 
 ### Workflow 2: Trend Analysis
 ```bash
 # 1. Get summary statistics
-python /home/user/dst-skills/scripts/db/table_summary.py --table-id FOLK1A
+python scripts/db/table_summary.py --table-id FOLK1A
 
 # 2. Query time series
-python /home/user/dst-skills/scripts/db/query_data.py --sql "SELECT year, SUM(value) as total FROM dst_folk1a GROUP BY year ORDER BY year"
+python scripts/db/query_data.py --sql "SELECT year, SUM(value) as total FROM dst_folk1a GROUP BY year ORDER BY year"
 
 # 3. Calculate growth
-python /home/user/dst-skills/scripts/db/query_data.py --sql "SELECT year, value, value - LAG(value) OVER (ORDER BY year) as growth FROM dst_folk1a WHERE region = '000'"
+python scripts/db/query_data.py --sql "SELECT year, value, value - LAG(value) OVER (ORDER BY year) as growth FROM dst_folk1a WHERE region = '000'"
 
 # 4. Export results
-python /home/user/dst-skills/scripts/db/query_data.py --sql "..." --format csv --output analysis.csv
+python scripts/db/query_data.py --sql "..." --format csv --output analysis.csv
 ```
 
 ### Workflow 3: Compare Regions
 ```bash
 # 1. Get regional breakdown
-python /home/user/dst-skills/scripts/db/query_data.py --sql "SELECT region, COUNT(*) as records, AVG(value) as avg_value FROM dst_folk1a GROUP BY region ORDER BY avg_value DESC"
+python scripts/db/query_data.py --sql "SELECT region, COUNT(*) as records, AVG(value) as avg_value FROM dst_folk1a GROUP BY region ORDER BY avg_value DESC"
 
 # 2. Top regions
-python /home/user/dst-skills/scripts/db/query_data.py --sql "SELECT region, SUM(value) as total FROM dst_folk1a WHERE year = 2024 GROUP BY region ORDER BY total DESC LIMIT 10"
+python scripts/db/query_data.py --sql "SELECT region, SUM(value) as total FROM dst_folk1a WHERE year = 2024 GROUP BY region ORDER BY total DESC LIMIT 10"
 
 # 3. Compare specific regions
-python /home/user/dst-skills/scripts/db/query_data.py --sql "SELECT year, region, value FROM dst_folk1a WHERE region IN ('000', '101', '147') ORDER BY year, region"
+python scripts/db/query_data.py --sql "SELECT year, region, value FROM dst_folk1a WHERE region IN ('000', '101', '147') ORDER BY year, region"
 ```
 
 ## SQL Reference

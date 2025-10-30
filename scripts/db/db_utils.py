@@ -9,6 +9,7 @@ import os
 import sys
 from pathlib import Path
 from datetime import datetime
+from typing import Optional, Dict, List, Any
 import duckdb
 from dotenv import load_dotenv
 
@@ -16,12 +17,12 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-def get_db_path():
+def get_db_path() -> str:
     """
     Get the database path from environment or use default.
 
     Returns:
-        str: Absolute path to the database file
+        Absolute path to the database file
     """
     db_path = os.getenv('DUCKDB_PATH', './data/dst_data.duckdb')
     # Convert relative path to absolute if needed
@@ -31,12 +32,12 @@ def get_db_path():
     return str(db_path)
 
 
-def get_connection():
+def get_connection() -> duckdb.DuckDBPyConnection:
     """
     Create and return a connection to the DuckDB database.
 
     Returns:
-        duckdb.DuckDBPyConnection: Database connection object
+        Database connection object
 
     Raises:
         Exception: If connection fails
@@ -50,7 +51,7 @@ def get_connection():
         raise
 
 
-def close_connection(conn):
+def close_connection(conn: Optional[duckdb.DuckDBPyConnection]) -> bool:
     """
     Safely close a database connection.
 
@@ -58,7 +59,7 @@ def close_connection(conn):
         conn: DuckDB connection object to close
 
     Returns:
-        bool: True if successful, False otherwise
+        True if successful, False otherwise
     """
     try:
         if conn is not None:
@@ -69,7 +70,7 @@ def close_connection(conn):
         return False
 
 
-def table_exists(conn, table_name):
+def table_exists(conn: duckdb.DuckDBPyConnection, table_name: str) -> bool:
     """
     Check if a table exists in the database.
 
@@ -78,7 +79,7 @@ def table_exists(conn, table_name):
         table_name: Name of the table to check
 
     Returns:
-        bool: True if table exists, False otherwise
+        True if table exists, False otherwise
     """
     try:
         result = conn.execute("""
@@ -93,7 +94,7 @@ def table_exists(conn, table_name):
         return False
 
 
-def get_metadata(conn, table_id):
+def get_metadata(conn: duckdb.DuckDBPyConnection, table_id: str) -> Optional[Dict[str, Any]]:
     """
     Retrieve metadata for a specific DST table.
 
@@ -102,7 +103,7 @@ def get_metadata(conn, table_id):
         table_id: ID of the table to retrieve metadata for
 
     Returns:
-        dict: Dictionary containing metadata fields, or None if not found
+        Dictionary containing metadata fields, or None if not found
 
     Raises:
         Exception: If query fails
@@ -138,7 +139,7 @@ def get_metadata(conn, table_id):
         raise
 
 
-def update_metadata(conn, table_id, **kwargs):
+def update_metadata(conn: duckdb.DuckDBPyConnection, table_id: str, **kwargs: Any) -> bool:
     """
     Update or insert metadata for a DST table.
 
@@ -149,7 +150,7 @@ def update_metadata(conn, table_id, **kwargs):
                   record_count, columns_json, notes)
 
     Returns:
-        bool: True if successful, False otherwise
+        True if successful, False otherwise
 
     Raises:
         Exception: If update fails
@@ -213,7 +214,7 @@ def update_metadata(conn, table_id, **kwargs):
         raise
 
 
-def list_all_tables(conn):
+def list_all_tables(conn: duckdb.DuckDBPyConnection) -> List[Dict[str, Any]]:
     """
     Get a list of all DST tables tracked in metadata.
 
@@ -221,7 +222,7 @@ def list_all_tables(conn):
         conn: DuckDB connection object
 
     Returns:
-        list: List of dictionaries containing table metadata
+        List of dictionaries containing table metadata
     """
     try:
         result = conn.execute("""
@@ -250,7 +251,7 @@ def list_all_tables(conn):
         raise
 
 
-def delete_metadata(conn, table_id):
+def delete_metadata(conn: duckdb.DuckDBPyConnection, table_id: str) -> bool:
     """
     Delete metadata for a specific DST table.
 
@@ -259,7 +260,7 @@ def delete_metadata(conn, table_id):
         table_id: ID of the table to delete metadata for
 
     Returns:
-        bool: True if successful, False otherwise
+        True if successful, False otherwise
     """
     try:
         conn.execute("""

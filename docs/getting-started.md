@@ -17,7 +17,7 @@ All data is stored locally in DuckDB for fast, SQL-based analysis.
 
 ```bash
 # Navigate to project
-cd /home/user/dst-skills
+cd .
 
 # Install Python packages
 pip install -r requirements.txt
@@ -73,22 +73,23 @@ You should see 7 skills: dst-subjects, dst-tables, dst-tableinfo, dst-data, dst-
 
 ## First Data Fetch
 
-Let's fetch your first dataset! Since we can't access the DST API in this environment, here's how you would do it when network is available:
+### Using Skills Directly (Recommended)
 
-### Using the Fetcher Agent
+Due to a current limitation in Claude Code subagents ([issue #4462](https://github.com/anthropics/claude-code/issues/4462)), data downloads should be run directly:
 
-Simply ask in natural language:
+1. Ask: "Use the dst-data skill to fetch table FOLK1A"
+2. The main agent will download and store the data
+3. Then ask: "Analyze the population data in dst_folk1a"
+4. The analyst agent will analyze and return results
 
+**Example**:
 ```
-"Fetch population data from DST"
-```
+You: Use dst-data to fetch FOLK1A
+Agent: [Downloads data to DuckDB] ✅
 
-The Fetcher Agent will:
-1. Browse DST subjects to find population data
-2. Identify relevant tables (e.g., FOLK1A)
-3. Get table metadata
-4. Fetch and store the data
-5. Confirm success with record count
+You: Analyze the population trends in dst_folk1a
+Agent: [Launches analyst subagent which returns analysis]
+```
 
 ### Manual Script Execution
 

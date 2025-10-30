@@ -13,8 +13,12 @@ Usage:
 import sys
 import json
 import argparse
+import io
 from pathlib import Path
 from datetime import datetime
+from typing import Dict, List, Union, Any
+
+import pandas as pd
 
 # Add parent directory to path for imports
 sys.path.insert(0, str(Path(__file__).parent.parent))
@@ -23,18 +27,18 @@ from db import db_utils
 from utils import setup_logger
 
 
-def store_data(table_id, data, overwrite=False, update_metadata=True):
+def store_data(table_id: str, data: Union[str, List[Dict[str, Any]], Dict[str, Any], pd.DataFrame], overwrite: bool = False, update_metadata: bool = True) -> Dict[str, Any]:
     """
     Store data in DuckDB.
 
     Args:
         table_id: The DST table identifier
-        data: Data to store (list of dicts or pandas DataFrame)
+        data: Data to store (str, list of dicts, dict, or pandas DataFrame)
         overwrite: Whether to overwrite existing table
         update_metadata: Whether to update metadata table
 
     Returns:
-        dict: Statistics about storage operation
+        Statistics about storage operation
 
     Raises:
         Exception: If storage fails
@@ -58,25 +62,41 @@ def store_data(table_id, data, overwrite=False, update_metadata=True):
             )
 
         # Convert data to appropriate format for DuckDB
-        if isinstance(data, list):
+        if isinstance(data, str):
+            # CSV/BULK format - parse as CSV with semicolon separator
+            logger.info("Parsing CSV data")
+            df = pd.read_csv(io.StringIO(data), sep=';')
+            logger.info(f"Parsed {len(df)} rows from CSV")
+        elif isinstance(data, list):
             # Assume list of dicts
             if not data:
                 raise ValueError("Cannot store empty data")
-
-            # Use pandas for easier loading
-            import pandas as pd
             df = pd.DataFrame(data)
         elif isinstance(data, dict):
+            # Check if this is JSON-STAT format
+            if 'dataset' in data:
+                logger.info("Detected JSON-STAT format, parsing...")
+                # Import parser from helpers
+                sys.path.insert(0, str(Path(__file__).parent.parent))
+                from api.helpers import parse_jsonstat
+                df = parse_jsonstat(data)
+                if df.empty:
+                    raise ValueError("JSON-STAT parsing resulted in empty dataframe")
+                logger.info(f"Parsed {len(df)} rows from JSON-STAT")
             # Check if data is wrapped in a 'data' key
-            if 'data' in data and isinstance(data['data'], list):
-                import pandas as pd
+            elif 'data' in data and isinstance(data['data'], list):
                 df = pd.DataFrame(data['data'])
             else:
-                # Try to convert dict to dataframe
-                import pandas as pd
+                # Last resort: try to convert dict to dataframe
+                # This will fail with a clear error if the dict structure is invalid
+                logger.warning(f"Attempting to convert dict to dataframe - this may not work correctly")
                 df = pd.DataFrame([data])
         else:
             raise ValueError(f"Unsupported data type: {type(data)}")
+
+        # Validate dataframe is not empty
+        if df.empty:
+            raise ValueError("Cannot store empty dataframe - no data to save")
 
         # Drop table if it exists and overwrite is True
         if table_exists and overwrite:
@@ -154,7 +174,7 @@ def store_data(table_id, data, overwrite=False, update_metadata=True):
         raise
 
 
-def main():
+def main() -> None:
     """Main entry point for CLI."""
     parser = argparse.ArgumentParser(
         description="Store DST data in DuckDB database",
