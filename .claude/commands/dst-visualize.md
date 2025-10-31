@@ -3,21 +3,25 @@ name: dst-visualize
 description: Create Chart.js visualizations
 ---
 
-Create visualizations for: {{topic}}
-Using analysis results: {{data_summary}}
+Use the Task tool to invoke the DST Visualizer agent with this prompt:
 
-Follow this workflow:
-1. Invoke dst-visualize skill for Chart.js templates
-2. Select appropriate chart types:
+"Create visualizations for topic: {{topic}}
+Using these analysis results: {{data_summary}}
+
+Your workflow:
+1. Invoke dst-visualize skill for Chart.js templates and patterns
+2. Select appropriate chart types based on the data:
    - Line charts for time series trends
-   - Bar charts for comparisons
-   - Stacked charts for composition
-3. Use DST color palette:
+   - Bar charts for comparisons across categories
+   - Stacked charts for composition analysis
+3. Apply DST brand color palette consistently:
    - Primary: #1A4D2E (dark green)
    - Secondary: #D4A574 (gold)
-   - Series: #2E7D54, #E8C9A0, #4A9B7F, #C18A3E
-4. Fill templates with data
-5. Create 2-3 key visualizations
+   - Series colors: #2E7D54, #E8C9A0, #4A9B7F, #C18A3E
+4. Fill Chart.js templates with the provided data
+5. Create 2-3 key visualizations that capture the main insights
 6. Save to: reports/{topic}_{timestamp}/visualizations.html
 
-Return: Path to visualization file
+Return: Absolute path to the visualization file"
+
+When the agent completes, present the visualization path to the user.
