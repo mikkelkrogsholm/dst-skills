@@ -7,6 +7,7 @@ with the DST API (Statistics Denmark).
 """
 
 import os
+from typing import Dict, Optional
 from dotenv import load_dotenv
 from urllib.parse import urlencode
 
@@ -20,7 +21,7 @@ API_BASE_URL = os.getenv('DST_API_BASE_URL', 'https://api.statbank.dk/v1')
 DUCKDB_PATH = os.getenv('DUCKDB_PATH', './data/dst_data.duckdb')
 
 # API Endpoints
-API_ENDPOINTS = {
+API_ENDPOINTS: Dict[str, str] = {
     'subjects': '/subjects',
     'tables': '/tables',
     'tableinfo': '/tableinfo',
@@ -28,7 +29,7 @@ API_ENDPOINTS = {
 }
 
 
-def get_api_url(endpoint, params=None):
+def get_api_url(endpoint: str, params: Optional[Dict[str, str]] = None) -> str:
     """
     Construct a full API URL for a given endpoint.
 
@@ -37,7 +38,7 @@ def get_api_url(endpoint, params=None):
         params: Optional dictionary of query parameters
 
     Returns:
-        str: Complete URL with base URL, endpoint, and query parameters
+        Complete URL with base URL, endpoint, and query parameters
 
     Examples:
         >>> get_api_url('subjects')
@@ -67,7 +68,7 @@ def get_api_url(endpoint, params=None):
     return url
 
 
-def get_endpoint_path(endpoint):
+def get_endpoint_path(endpoint: str) -> Optional[str]:
     """
     Get the path for a specific endpoint.
 
@@ -75,17 +76,17 @@ def get_endpoint_path(endpoint):
         endpoint: Name of the endpoint
 
     Returns:
-        str: Endpoint path or None if not found
+        Endpoint path or None if not found
     """
     return API_ENDPOINTS.get(endpoint)
 
 
-def list_endpoints():
+def list_endpoints() -> Dict[str, str]:
     """
     Get a list of all available API endpoints.
 
     Returns:
-        dict: Dictionary of endpoint names and paths
+        Dictionary of endpoint names and paths
     """
     return API_ENDPOINTS.copy()
 

@@ -1,0 +1,653 @@
+{
+  "rate_limiting": [
+    {
+      "timestamp": "2025-10-30T21:45:09.156079",
+      "test": "rapid_20_requests",
+      "result": {
+        "status": "completed",
+        "total_requests": 20,
+        "total_time_seconds": 5.091717958450317,
+        "avg_time_per_request_ms": 254.58589792251584,
+        "responses": [
+          {
+            "request_num": 1,
+            "status_code": 200,
+            "elapsed_ms": 280.66205978393555,
+            "headers": {
+              "cache-control": "no-cache",
+              "pragma": "no-cache",
+              "content-type": "text/json; charset=utf-8",
+              "expires": "-1",
+              "server": "Microsoft-IIS/10.0",
+              "statbankapi-request-id": "aa0089f8-7571-43c4-8834-a6f241f3afc9",
+              "access-control-expose-headers": "StatbankAPI-Request-Id",
+              "x-aspnet-version": "4.0.30319",
+              "x-powered-by": "ASP.NET",
+              "strict-transport-security": "max-age=31536000",
+              "date": "Thu, 30 Oct 2025 20:45:04 GMT",
+              "content-length": "10342"
+            },
+            "has_rate_limit_headers": false
+          },
+          {
+            "request_num": 2,
+            "status_code": 200,
+            "elapsed_ms": 551.8028736114502,
+            "headers": {
+              "cache-control": "no-cache",
+              "pragma": "no-cache",
+              "content-type": "text/json; charset=utf-8",
+              "expires": "-1",
+              "server": "Microsoft-IIS/10.0",
+              "statbankapi-request-id": "ff833274-e700-4c92-ae8b-1b911cd751a5",
+              "access-control-expose-headers": "StatbankAPI-Request-Id",
+              "x-aspnet-version": "4.0.30319",
+              "x-powered-by": "ASP.NET",
+              "strict-transport-security": "max-age=31536000",
+              "date": "Thu, 30 Oct 2025 20:45:04 GMT",
+              "content-length": "10342"
+            },
+            "has_rate_limit_headers": false
+          },
+          {
+            "request_num": 3,
+            "status_code": 200,
+            "elapsed_ms": 814.9809837341309,
+            "headers": {
+              "cache-control": "no-cache",
+              "pragma": "no-cache",
+              "content-type": "text/json; charset=utf-8",
+              "expires": "-1",
+              "server": "Microsoft-IIS/10.0",
+              "statbankapi-request-id": "a7a9f61a-27f5-441d-8679-20da31e5ecaa",
+              "access-control-expose-headers": "StatbankAPI-Request-Id",
+              "x-aspnet-version": "4.0.30319",
+              "x-powered-by": "ASP.NET",
+              "strict-transport-security": "max-age=31536000",
+              "date": "Thu, 30 Oct 2025 20:45:04 GMT",
+              "content-length": "10342"
+            },
+            "has_rate_limit_headers": false
+          },
+          {
+            "request_num": 4,
+            "status_code": 200,
+            "elapsed_ms": 1052.0389080047607,
+            "headers": {
+              "cache-control": "no-cache",
+              "pragma": "no-cache",
+              "content-type": "text/json; charset=utf-8",
+              "expires": "-1",
+              "server": "Microsoft-IIS/10.0",
+              "statbankapi-request-id": "f09864e5-cb26-4362-936d-1b4377f661d9",
+              "access-control-expose-headers": "StatbankAPI-Request-Id",
+              "x-aspnet-version": "4.0.30319",
+              "x-powered-by": "ASP.NET",
+              "strict-transport-security": "max-age=31536000",
+              "date": "Thu, 30 Oct 2025 20:45:04 GMT",
+              "content-length": "10342"
+            },
+            "has_rate_limit_headers": false
+          },
+          {
+            "request_num": 5,
+            "status_code": 200,
+            "elapsed_ms": 1290.3680801391602,
+            "headers": {
+              "cache-control": "no-cache",
+              "pragma": "no-cache",
+              "content-type": "text/json; charset=utf-8",
+              "expires": "-1",
+              "server": "Microsoft-IIS/10.0",
+              "statbankapi-request-id": "e980ba5c-bce6-46a0-a6cb-a6117d3d9b84",
+              "access-control-expose-headers": "StatbankAPI-Request-Id",
+              "x-aspnet-version": "4.0.30319",
+              "x-powered-by": "ASP.NET",
+              "strict-transport-security": "max-age=31536000",
+              "date": "Thu, 30 Oct 2025 20:45:05 GMT",
+              "content-length": "10342"
+            },
+            "has_rate_limit_headers": false
+          },
+          {
+            "request_num": 6,
+            "status_code": 200,
+            "elapsed_ms": 1521.4760303497314,
+            "headers": {
+              "cache-control": "no-cache",
+              "pragma": "no-cache",
+              "content-type": "text/json; charset=utf-8",
+              "expires": "-1",
+              "server": "Microsoft-IIS/10.0",
+              "statbankapi-request-id": "3f0db692-7332-4a55-af20-48ab22002beb",
+              "access-control-expose-headers": "StatbankAPI-Request-Id",
+              "x-aspnet-version": "4.0.30319",
+              "x-powered-by": "ASP.NET",
+              "strict-transport-security": "max-age=31536000",
+              "date": "Thu, 30 Oct 2025 20:45:05 GMT",
+              "content-length": "10342"
+            },
+            "has_rate_limit_headers": false
+          },
+          {
+            "request_num": 7,
+            "status_code": 200,
+            "elapsed_ms": 1752.7580261230469,
+            "headers": {
+              "cache-control": "no-cache",
+              "pragma": "no-cache",
+              "content-type": "text/json; charset=utf-8",
+              "expires": "-1",
+              "server": "Microsoft-IIS/10.0",
+              "statbankapi-request-id": "256e386f-adb5-4032-ac0c-580cab02e405",
+              "access-control-expose-headers": "StatbankAPI-Request-Id",
+              "x-aspnet-version": "4.0.30319",
+              "x-powered-by": "ASP.NET",
+              "strict-transport-security": "max-age=31536000",
+              "date": "Thu, 30 Oct 2025 20:45:05 GMT",
+              "content-length": "10342"
+            },
+            "has_rate_limit_headers": false
+          },
+          {
+            "request_num": 8,
+            "status_code": 200,
+            "elapsed_ms": 2004.4910907745361,
+            "headers": {
+              "cache-control": "no-cache",
+              "pragma": "no-cache",
+              "content-type": "text/json; charset=utf-8",
+              "expires": "-1",
+              "server": "Microsoft-IIS/10.0",
+              "statbankapi-request-id": "0d131ca7-46a8-4e4d-9eef-911ddfffeaa4",
+              "access-control-expose-headers": "StatbankAPI-Request-Id",
+              "x-aspnet-version": "4.0.30319",
+              "x-powered-by": "ASP.NET",
+              "strict-transport-security": "max-age=31536000",
+              "date": "Thu, 30 Oct 2025 20:45:05 GMT",
+              "content-length": "10342"
+            },
+            "has_rate_limit_headers": false
+          },
+          {
+            "request_num": 9,
+            "status_code": 200,
+            "elapsed_ms": 2283.0870151519775,
+            "headers": {
+              "cache-control": "no-cache",
+              "pragma": "no-cache",
+              "content-type": "text/json; charset=utf-8",
+              "expires": "-1",
+              "server": "Microsoft-IIS/10.0",
+              "statbankapi-request-id": "5ce14390-03ad-4c44-b52f-fb8ee267ca5c",
+              "access-control-expose-headers": "StatbankAPI-Request-Id",
+              "x-aspnet-version": "4.0.30319",
+              "x-powered-by": "ASP.NET",
+              "strict-transport-security": "max-age=31536000",
+              "date": "Thu, 30 Oct 2025 20:45:05 GMT",
+              "content-length": "10342"
+            },
+            "has_rate_limit_headers": false
+          },
+          {
+            "request_num": 10,
+            "status_code": 200,
+            "elapsed_ms": 2545.337915420532,
+            "headers": {
+              "cache-control": "no-cache",
+              "pragma": "no-cache",
+              "content-type": "text/json; charset=utf-8",
+              "expires": "-1",
+              "server": "Microsoft-IIS/10.0",
+              "statbankapi-request-id": "67326ed8-9626-481f-9727-d201fefba6a9",
+              "access-control-expose-headers": "StatbankAPI-Request-Id",
+              "x-aspnet-version": "4.0.30319",
+              "x-powered-by": "ASP.NET",
+              "strict-transport-security": "max-age=31536000",
+              "date": "Thu, 30 Oct 2025 20:45:06 GMT",
+              "content-length": "10342"
+            },
+            "has_rate_limit_headers": false
+          },
+          {
+            "request_num": 11,
+            "status_code": 200,
+            "elapsed_ms": 2777.3170471191406,
+            "headers": {
+              "cache-control": "no-cache",
+              "pragma": "no-cache",
+              "content-type": "text/json; charset=utf-8",
+              "expires": "-1",
+              "server": "Microsoft-IIS/10.0",
+              "statbankapi-request-id": "27f74c9b-ea1b-4c10-8556-e64f11df6124",
+              "access-control-expose-headers": "StatbankAPI-Request-Id",
+              "x-aspnet-version": "4.0.30319",
+              "x-powered-by": "ASP.NET",
+              "strict-transport-security": "max-age=31536000",
+              "date": "Thu, 30 Oct 2025 20:45:06 GMT",
+              "content-length": "10342"
+            },
+            "has_rate_limit_headers": false
+          },
+          {
+            "request_num": 12,
+            "status_code": 200,
+            "elapsed_ms": 3025.702953338623,
+            "headers": {
+              "cache-control": "no-cache",
+              "pragma": "no-cache",
+              "content-type": "text/json; charset=utf-8",
+              "expires": "-1",
+              "server": "Microsoft-IIS/10.0",
+              "statbankapi-request-id": "31b29995-5ef8-4c6a-873b-59bb9cf1efbe",
+              "access-control-expose-headers": "StatbankAPI-Request-Id",
+              "x-aspnet-version": "4.0.30319",
+              "x-powered-by": "ASP.NET",
+              "strict-transport-security": "max-age=31536000",
+              "date": "Thu, 30 Oct 2025 20:45:06 GMT",
+              "content-length": "10342"
+            },
+            "has_rate_limit_headers": false
+          },
+          {
+            "request_num": 13,
+            "status_code": 200,
+            "elapsed_ms": 3269.459009170532,
+            "headers": {
+              "cache-control": "no-cache",
+              "pragma": "no-cache",
+              "content-type": "text/json; charset=utf-8",
+              "expires": "-1",
+              "server": "Microsoft-IIS/10.0",
+              "statbankapi-request-id": "6e2b7f9a-c350-47ec-ac12-56336b764e3a",
+              "access-control-expose-headers": "StatbankAPI-Request-Id",
+              "x-aspnet-version": "4.0.30319",
+              "x-powered-by": "ASP.NET",
+              "strict-transport-security": "max-age=31536000",
+              "date": "Thu, 30 Oct 2025 20:45:06 GMT",
+              "content-length": "10342"
+            },
+            "has_rate_limit_headers": false
+          },
+          {
+            "request_num": 14,
+            "status_code": 200,
+            "elapsed_ms": 3509.4830989837646,
+            "headers": {
+              "cache-control": "no-cache",
+              "pragma": "no-cache",
+              "content-type": "text/json; charset=utf-8",
+              "expires": "-1",
+              "server": "Microsoft-IIS/10.0",
+              "statbankapi-request-id": "f9def9fa-1c5a-4a51-8188-c3d148cac8d0",
+              "access-control-expose-headers": "StatbankAPI-Request-Id",
+              "x-aspnet-version": "4.0.30319",
+              "x-powered-by": "ASP.NET",
+              "strict-transport-security": "max-age=31536000",
+              "date": "Thu, 30 Oct 2025 20:45:06 GMT",
+              "content-length": "10342"
+            },
+            "has_rate_limit_headers": false
+          },
+          {
+            "request_num": 15,
+            "status_code": 200,
+            "elapsed_ms": 3808.0999851226807,
+            "headers": {
+              "cache-control": "no-cache",
+              "pragma": "no-cache",
+              "content-type": "text/json; charset=utf-8",
+              "expires": "-1",
+              "server": "Microsoft-IIS/10.0",
+              "statbankapi-request-id": "8de9d4bc-370b-4eb2-96b6-5f137c980264",
+              "access-control-expose-headers": "StatbankAPI-Request-Id",
+              "x-aspnet-version": "4.0.30319",
+              "x-powered-by": "ASP.NET",
+              "strict-transport-security": "max-age=31536000",
+              "date": "Thu, 30 Oct 2025 20:45:07 GMT",
+              "content-length": "10342"
+            },
+            "has_rate_limit_headers": false
+          },
+          {
+            "request_num": 16,
+            "status_code": 200,
+            "elapsed_ms": 4110.534906387329,
+            "headers": {
+              "cache-control": "no-cache",
+              "pragma": "no-cache",
+              "content-type": "text/json; charset=utf-8",
+              "expires": "-1",
+              "server": "Microsoft-IIS/10.0",
+              "statbankapi-request-id": "d9bf3150-b1aa-44c2-90fe-0dfd9f6be574",
+              "access-control-expose-headers": "StatbankAPI-Request-Id",
+              "x-aspnet-version": "4.0.30319",
+              "x-powered-by": "ASP.NET",
+              "strict-transport-security": "max-age=31536000",
+              "date": "Thu, 30 Oct 2025 20:45:07 GMT",
+              "content-length": "10342"
+            },
+            "has_rate_limit_headers": false
+          },
+          {
+            "request_num": 17,
+            "status_code": 200,
+            "elapsed_ms": 4340.564012527466,
+            "headers": {
+              "cache-control": "no-cache",
+              "pragma": "no-cache",
+              "content-type": "text/json; charset=utf-8",
+              "expires": "-1",
+              "server": "Microsoft-IIS/10.0",
+              "statbankapi-request-id": "6de26a4b-7a44-4cc6-b7f2-370b0f000efd",
+              "access-control-expose-headers": "StatbankAPI-Request-Id",
+              "x-aspnet-version": "4.0.30319",
+              "x-powered-by": "ASP.NET",
+              "strict-transport-security": "max-age=31536000",
+              "date": "Thu, 30 Oct 2025 20:45:07 GMT",
+              "content-length": "10342"
+            },
+            "has_rate_limit_headers": false
+          },
+          {
+            "request_num": 18,
+            "status_code": 200,
+            "elapsed_ms": 4588.632106781006,
+            "headers": {
+              "cache-control": "no-cache",
+              "pragma": "no-cache",
+              "content-type": "text/json; charset=utf-8",
+              "expires": "-1",
+              "server": "Microsoft-IIS/10.0",
+              "statbankapi-request-id": "a693d93b-45bc-43a9-8722-03cd23a371ef",
+              "access-control-expose-headers": "StatbankAPI-Request-Id",
+              "x-aspnet-version": "4.0.30319",
+              "x-powered-by": "ASP.NET",
+              "strict-transport-security": "max-age=31536000",
+              "date": "Thu, 30 Oct 2025 20:45:07 GMT",
+              "content-length": "10342"
+            },
+            "has_rate_limit_headers": false
+          },
+          {
+            "request_num": 19,
+            "status_code": 200,
+            "elapsed_ms": 4856.73189163208,
+            "headers": {
+              "cache-control": "no-cache",
+              "pragma": "no-cache",
+              "content-type": "text/json; charset=utf-8",
+              "expires": "-1",
+              "server": "Microsoft-IIS/10.0",
+              "statbankapi-request-id": "ceb59eb1-36ef-4386-b31e-77c809d64f7d",
+              "access-control-expose-headers": "StatbankAPI-Request-Id",
+              "x-aspnet-version": "4.0.30319",
+              "x-powered-by": "ASP.NET",
+              "strict-transport-security": "max-age=31536000",
+              "date": "Thu, 30 Oct 2025 20:45:08 GMT",
+              "content-length": "10342"
+            },
+            "has_rate_limit_headers": false
+          },
+          {
+            "request_num": 20,
+            "status_code": 200,
+            "elapsed_ms": 5091.697931289673,
+            "headers": {
+              "cache-control": "no-cache",
+              "pragma": "no-cache",
+              "content-type": "text/json; charset=utf-8",
+              "expires": "-1",
+              "server": "Microsoft-IIS/10.0",
+              "statbankapi-request-id": "b3a9b138-fc38-4dc1-9d9d-3cfb0f7f28ae",
+              "access-control-expose-headers": "StatbankAPI-Request-Id",
+              "x-aspnet-version": "4.0.30319",
+              "x-powered-by": "ASP.NET",
+              "strict-transport-security": "max-age=31536000",
+              "date": "Thu, 30 Oct 2025 20:45:08 GMT",
+              "content-length": "10342"
+            },
+            "has_rate_limit_headers": false
+          }
+        ],
+        "rate_limit_headers_found": false
+      }
+    },
+    {
+      "timestamp": "2025-10-30T21:45:12.860237",
+      "test": "delayed_requests_500ms",
+      "result": {
+        "status": "completed",
+        "responses": [
+          {
+            "request_num": 1,
+            "status_code": 200
+          },
+          {
+            "request_num": 2,
+            "status_code": 200
+          },
+          {
+            "request_num": 3,
+            "status_code": 200
+          },
+          {
+            "request_num": 4,
+            "status_code": 200
+          },
+          {
+            "request_num": 5,
+            "status_code": 200
+          }
+        ]
+      }
+    }
+  ],
+  "cell_limits": [
+    {
+      "timestamp": "2025-10-30T21:45:13.954369",
+      "test": "folk1a_dimensions",
+      "result": {
+        "status": "analyzed",
+        "dimensions": [
+          {
+            "id": "OMRÅDE",
+            "text": "område",
+            "value_count": 105
+          },
+          {
+            "id": "KØN",
+            "text": "køn",
+            "value_count": 3
+          },
+          {
+            "id": "ALDER",
+            "text": "alder",
+            "value_count": 127
+          },
+          {
+            "id": "CIVILSTAND",
+            "text": "civilstand",
+            "value_count": 5
+          },
+          {
+            "id": "Tid",
+            "text": "tid",
+            "value_count": 71
+          }
+        ],
+        "total_possible_cells": 14201775
+      }
+    },
+    {
+      "timestamp": "2025-10-30T21:45:14.127174",
+      "test": "full_table_json",
+      "result": {
+        "status": 400,
+        "success": false,
+        "response_size_bytes": 88,
+        "error": "{\"errorTypeCode\":\"REQUEST-MISSING\",\"message\":\"Format ikke angivet, eller ikke gyldigt.\"}"
+      }
+    },
+    {
+      "timestamp": "2025-10-30T21:45:14.390957",
+      "test": "full_table_bulk",
+      "result": {
+        "status": 400,
+        "success": false,
+        "response_size_bytes": 98,
+        "first_100_chars": null,
+        "error": "{\"errorTypeCode\":\"EXTRACT-NOTALLOWED\",\"message\":\"Der skal vælges værdier for variabel: OMRÅDE\"}"
+      }
+    },
+    {
+      "timestamp": "2025-10-30T21:45:14.509694",
+      "test": "subset_request",
+      "result": {
+        "status": 400,
+        "success": false,
+        "expected_cells": 9,
+        "actual_rows": 0,
+        "response_size_bytes": 88
+      }
+    }
+  ],
+  "error_types": [
+    {
+      "timestamp": "2025-10-30T21:45:14.646212",
+      "test": "invalid_table_id",
+      "result": {
+        "status_code": 400,
+        "response": "{\"errorTypeCode\":\"EXTRACT-NOTFOUND\",\"message\":\"Tabel findes ikke: INVALIDTABLE999\"}",
+        "json": {
+          "errorTypeCode": "EXTRACT-NOTFOUND",
+          "message": "Tabel findes ikke: INVALIDTABLE999"
+        }
+      }
+    },
+    {
+      "timestamp": "2025-10-30T21:45:14.775667",
+      "test": "invalid_format",
+      "result": {
+        "status_code": 400,
+        "response": "{\"errorTypeCode\":\"REQUEST-MISSING\",\"message\":\"Format ikke angivet, eller ikke gyldigt.\"}"
+      }
+    },
+    {
+      "timestamp": "2025-10-30T21:45:14.909930",
+      "test": "missing_table_param",
+      "result": {
+        "status_code": 400,
+        "response": "{\"errorTypeCode\":\"REQUEST-MISSING\",\"message\":\"Format ikke angivet, eller ikke gyldigt.\"}"
+      }
+    },
+    {
+      "timestamp": "2025-10-30T21:45:15.037530",
+      "test": "invalid_variable_code",
+      "result": {
+        "status_code": 400,
+        "response": "{\"errorTypeCode\":\"REQUEST-MISSING\",\"message\":\"Format ikke angivet, eller ikke gyldigt.\"}"
+      }
+    },
+    {
+      "timestamp": "2025-10-30T21:45:15.150080",
+      "test": "invalid_value_code",
+      "result": {
+        "status_code": 400,
+        "response": "{\"errorTypeCode\":\"REQUEST-MISSING\",\"message\":\"Format ikke angivet, eller ikke gyldigt.\"}"
+      }
+    },
+    {
+      "timestamp": "2025-10-30T21:45:15.282056",
+      "test": "malformed_json",
+      "result": {
+        "status_code": 400,
+        "response": "{\"errorTypeCode\":\"REQUEST-EMPTY\",\"message\":\"Medsend gyldigt JSON-objekt når der postes. / Supply valid JSON-object when posting.\"}"
+      }
+    },
+    {
+      "timestamp": "2025-10-30T21:45:15.423085",
+      "test": "wrong_http_method",
+      "result": {
+        "status_code": 400,
+        "response": "{\"errorTypeCode\":\"REQUEST-MISSING\",\"message\":\"Format ikke angivet, eller ikke gyldigt.\"}"
+      }
+    },
+    {
+      "timestamp": "2025-10-30T21:45:15.572042",
+      "test": "nonexistent_endpoint",
+      "result": {
+        "status_code": 404,
+        "response": "{\"errorTypeCode\":\"REQUEST-NOTFOUND\",\"message\":\"Siden kan ikke findes. / Page not found.\"}"
+      }
+    }
+  ],
+  "timeouts": [
+    {
+      "timestamp": "2025-10-30T21:45:15.707014",
+      "test": "small_request",
+      "result": {
+        "status_code": 400,
+        "elapsed_seconds": 0.13495397567749023,
+        "response_size_bytes": 88,
+        "rows": 0
+      }
+    },
+    {
+      "timestamp": "2025-10-30T21:45:16.096136",
+      "test": "medium_request",
+      "result": {
+        "status_code": 400,
+        "elapsed_seconds": 0.38910627365112305,
+        "response_size_bytes": 95
+      }
+    },
+    {
+      "timestamp": "2025-10-30T21:45:16.387502",
+      "test": "tableinfo_request",
+      "result": {
+        "status_code": 200,
+        "elapsed_seconds": 0.29134392738342285,
+        "response_size_bytes": 10342
+      }
+    }
+  ],
+  "encoding": [
+    {
+      "timestamp": "2025-10-30T21:45:16.513803",
+      "test": "danish_chars_in_subjects",
+      "result": {
+        "status": "analyzed",
+        "total_subjects": 10,
+        "subjects_with_danish": 0,
+        "examples": []
+      }
+    },
+    {
+      "timestamp": "2025-10-30T21:45:16.768071",
+      "test": "danish_chars_in_metadata",
+      "result": {
+        "status": "analyzed",
+        "text_fields": {
+          "title": "Befolkningen den 1. i kvartalet",
+          "description": "Befolkningen den 1. i kvartalet efter område, køn, alder, civilstand og tid",
+          "unit": "Antal"
+        },
+        "has_danish_chars": {
+          "title": false,
+          "description": true,
+          "unit": false
+        }
+      }
+    },
+    {
+      "timestamp": "2025-10-30T21:45:16.912549",
+      "test": "special_chars_in_request",
+      "result": {
+        "status_code": 400,
+        "success": false,
+        "sample_data": null
+      }
+    }
+  ]
+}

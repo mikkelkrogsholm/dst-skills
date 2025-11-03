@@ -1,0 +1,276 @@
+{
+  "metadata": {
+    "test_date": "2025-10-30",
+    "endpoint": "https://api.statbank.dk/v1/subjects",
+    "api_version": "v1",
+    "tester": "Claude Code (Automated Testing)",
+    "total_tests": 16,
+    "documentation_created": [
+      "API_GUIDE_SUBJECTS.md (24KB)",
+      "API_GUIDE_SUBJECTS_CHEATSHEET.md (3.9KB)"
+    ]
+  },
+  "tests": [
+    {
+      "test_id": 1,
+      "name": "GET request (default)",
+      "method": "GET",
+      "url": "https://api.statbank.dk/v1/subjects",
+      "parameters": null,
+      "status": 200,
+      "response_time_ms": 130,
+      "response_size_bytes": 897,
+      "content_type": "text/json; charset=utf-8",
+      "result": "PASS",
+      "notes": "10 top-level subjects returned, Danish language"
+    },
+    {
+      "test_id": 2,
+      "name": "POST with empty body",
+      "method": "POST",
+      "parameters": {},
+      "status": 200,
+      "response_time_ms": 112,
+      "response_size_bytes": 897,
+      "result": "PASS",
+      "notes": "Identical to GET request"
+    },
+    {
+      "test_id": 3,
+      "name": "POST with format JSON",
+      "method": "POST",
+      "parameters": {
+        "format": "JSON"
+      },
+      "status": 200,
+      "response_time_ms": 131,
+      "response_size_bytes": 897,
+      "result": "PASS",
+      "notes": "Default format, no difference"
+    },
+    {
+      "test_id": 4,
+      "name": "POST with lang=en",
+      "method": "POST",
+      "parameters": {
+        "lang": "en"
+      },
+      "status": 200,
+      "response_time_ms": 142,
+      "response_size_bytes": 897,
+      "result": "PASS",
+      "notes": "Descriptions in English (e.g., People vs Borgere)"
+    },
+    {
+      "test_id": 5,
+      "name": "POST with lang=da",
+      "method": "POST",
+      "parameters": {
+        "lang": "da"
+      },
+      "status": 200,
+      "response_time_ms": 120,
+      "response_size_bytes": 897,
+      "result": "PASS",
+      "notes": "Descriptions in Danish (default)"
+    },
+    {
+      "test_id": 6,
+      "name": "POST with recursive=true",
+      "method": "POST",
+      "parameters": {
+        "recursive": true
+      },
+      "status": 200,
+      "response_time_ms": 187,
+      "response_size_bytes": 34555,
+      "result": "PASS",
+      "notes": "Full hierarchy with nested subjects, 3 levels deep"
+    },
+    {
+      "test_id": 7,
+      "name": "POST with recursive=false",
+      "method": "POST",
+      "parameters": {
+        "recursive": false
+      },
+      "status": 200,
+      "response_time_ms": 127,
+      "response_size_bytes": 897,
+      "result": "PASS",
+      "notes": "Top-level only, empty subjects arrays"
+    },
+    {
+      "test_id": 8,
+      "name": "POST with subjects filter",
+      "method": "POST",
+      "parameters": {
+        "subjects": [
+          "02"
+        ]
+      },
+      "status": 400,
+      "result": "ERROR",
+      "notes": "Parameter not supported on /subjects endpoint"
+    },
+    {
+      "test_id": 9,
+      "name": "POST with subjects + includeTables",
+      "method": "POST",
+      "parameters": {
+        "subjects": [
+          "02"
+        ],
+        "includeTables": true
+      },
+      "status": 400,
+      "result": "ERROR",
+      "notes": "subjects parameter not supported"
+    },
+    {
+      "test_id": 10,
+      "name": "POST with recursive + lang",
+      "method": "POST",
+      "parameters": {
+        "recursive": true,
+        "lang": "en"
+      },
+      "status": 200,
+      "response_time_ms": 166,
+      "response_size_bytes": 35127,
+      "result": "PASS",
+      "notes": "Combined parameters work well"
+    },
+    {
+      "test_id": 11,
+      "name": "POST with includeTables",
+      "method": "POST",
+      "parameters": {
+        "includeTables": true
+      },
+      "status": 200,
+      "response_time_ms": 112,
+      "response_size_bytes": 1017,
+      "result": "PASS",
+      "notes": "Tables array added to subjects"
+    },
+    {
+      "test_id": 12,
+      "name": "POST with invalid language",
+      "method": "POST",
+      "parameters": {
+        "lang": "invalid"
+      },
+      "status": 400,
+      "error_code": "REQUEST-LANGUAGE",
+      "result": "ERROR (Expected)",
+      "notes": "Correct error handling for invalid language"
+    },
+    {
+      "test_id": 13,
+      "name": "POST with recursive as string",
+      "method": "POST",
+      "parameters": {
+        "recursive": "yes"
+      },
+      "status": 200,
+      "response_time_ms": 129,
+      "result": "PASS",
+      "notes": "Type coercion - string treated as falsy"
+    },
+    {
+      "test_id": 14,
+      "name": "POST with malformed JSON",
+      "method": "POST",
+      "body": "{invalid json}",
+      "status": 200,
+      "result": "PASS (Lenient)",
+      "notes": "API treats malformed JSON as empty body"
+    },
+    {
+      "test_id": 15,
+      "name": "POST with format=XML",
+      "method": "POST",
+      "parameters": {
+        "format": "XML"
+      },
+      "status": 200,
+      "response_time_ms": 120,
+      "response_size_bytes": 1431,
+      "content_type": "text/xml; charset=utf-8",
+      "result": "PASS",
+      "notes": "XML format works correctly"
+    },
+    {
+      "test_id": 16,
+      "name": "POST with all parameters",
+      "method": "POST",
+      "parameters": {
+        "recursive": true,
+        "lang": "en",
+        "includeTables": true
+      },
+      "status": 200,
+      "response_time_ms": 542,
+      "response_size_bytes": 1317052,
+      "result": "PASS",
+      "notes": "Complete catalog: 5,542 tables across full hierarchy"
+    }
+  ],
+  "statistics": {
+    "hierarchy": {
+      "top_level_subjects": 10,
+      "total_tables": 5542,
+      "max_depth": 3,
+      "example_path": [
+        "People",
+        "Population",
+        "Population figures"
+      ]
+    },
+    "performance": {
+      "min_response_time_ms": 106,
+      "max_response_time_ms": 542,
+      "avg_response_time_ms": 167,
+      "min_response_size_bytes": 897,
+      "max_response_size_bytes": 1317052
+    },
+    "supported_languages": [
+      "da",
+      "en"
+    ],
+    "supported_formats": [
+      "JSON",
+      "XML"
+    ],
+    "unsupported_formats": [
+      "CSV",
+      "JSONP"
+    ],
+    "unsupported_parameters": [
+      "subjects"
+    ]
+  },
+  "response_headers": {
+    "Cache-Control": "no-cache",
+    "Pragma": "no-cache",
+    "Content-Type": "text/json; charset=utf-8",
+    "Expires": "-1",
+    "Server": "Microsoft-IIS/10.0",
+    "StatbankAPI-Request-Id": "<uuid>",
+    "Access-Control-Expose-Headers": "StatbankAPI-Request-Id",
+    "Strict-Transport-Security": "max-age=31536000"
+  },
+  "conclusions": [
+    "Both GET and POST methods are fully functional",
+    "Three main parameters: lang, recursive, includeTables",
+    "Format support: JSON and XML only (CSV/JSONP not functional)",
+    "subjects parameter returns 400 error (not supported)",
+    "Response times are consistent and predictable (100-540ms)",
+    "Full catalog is large (1.3MB) but manageable",
+    "API uses lenient error handling (malformed JSON = empty body)",
+    "No server-side caching (Cache-Control: no-cache)",
+    "Subject taxonomy is stable (good candidate for client caching)",
+    "Tables only appear at leaf nodes of the hierarchy"
+  ]
+}

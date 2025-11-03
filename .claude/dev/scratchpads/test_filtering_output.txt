@@ -1,0 +1,1065 @@
+INFO - Initialized DST API Client with base URL: https://api.statbank.dk/v1
+INFO - Fetching table info for: FOLK1A
+INFO - Making GET request to: https://api.statbank.dk/v1/tableinfo?id=FOLK1A
+INFO - Response status: 200
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 400
+ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+ERROR - Response status code: 400
+ERROR - Response text: {"errorTypeCode":"EXTRACT-NOTALLOWED","message":"Der skal vælges værdier for variabel: CIVILSTAND"}
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 400
+ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+ERROR - Response status code: 400
+ERROR - Response text: {"errorTypeCode":"EXTRACT-NOTALLOWED","message":"Der skal vælges værdier for variabel: CIVILSTAND"}
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 400
+ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+ERROR - Response status code: 400
+ERROR - Response text: {"errorTypeCode":"EXTRACT-NOTALLOWED","message":"Der skal vælges værdier for variabel: CIVILSTAND"}
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 400
+ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+ERROR - Response status code: 400
+ERROR - Response text: {"errorTypeCode":"EXTRACT-NOTALLOWED","message":"Der skal vælges værdier for variabel: CIVILSTAND"}
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 400
+ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+ERROR - Response status code: 400
+ERROR - Response text: {"errorTypeCode":"EXTRACT-NOTALLOWED","message":"Der skal vælges værdier for variabel: CIVILSTAND"}
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 400
+ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+ERROR - Response status code: 400
+ERROR - Response text: {"errorTypeCode":"EXTRACT-NOTALLOWED","message":"Der skal vælges værdier for variabel: CIVILSTAND"}
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 400
+ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+ERROR - Response status code: 400
+ERROR - Response text: {"errorTypeCode":"EXTRACT-NOTALLOWED","message":"Der skal vælges værdier for variabel: CIVILSTAND"}
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 400
+ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+ERROR - Response status code: 400
+ERROR - Response text: {"errorTypeCode":"EXTRACT-NOTALLOWED","message":"Der skal vælges værdier for variabel: CIVILSTAND"}
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 400
+ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+ERROR - Response status code: 400
+ERROR - Response text: {"errorTypeCode":"EXTRACT-NOTALLOWED","message":"Der skal vælges værdier for variabel: CIVILSTAND"}
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 400
+ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+ERROR - Response status code: 400
+ERROR - Response text: {"errorTypeCode":"EXTRACT-NOTALLOWED","message":"Der skal vælges værdier for variabel: CIVILSTAND"}
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 400
+ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+ERROR - Response status code: 400
+ERROR - Response text: {"errorTypeCode":"EXTRACT-NOTALLOWED","message":"Der skal vælges værdier for variabel: CIVILSTAND"}
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 400
+ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+ERROR - Response status code: 400
+ERROR - Response text: {"errorTypeCode":"EXTRACT-NOTALLOWED","message":"Der skal vælges værdier for variabel: CIVILSTAND"}
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 400
+ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+ERROR - Response status code: 400
+ERROR - Response text: {"errorTypeCode":"EXTRACT-NOTALLOWED","message":"Der skal vælges værdier for variabel: CIVILSTAND"}
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 400
+ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+ERROR - Response status code: 400
+ERROR - Response text: {"errorTypeCode":"EXTRACT-NOTALLOWED","message":"Der skal vælges værdier for variabel: CIVILSTAND"}
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 400
+ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+ERROR - Response status code: 400
+ERROR - Response text: {"errorTypeCode":"EXTRACT-NOTALLOWED","message":"Der skal vælges værdier for variabel: CIVILSTAND"}
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 400
+ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+ERROR - Response status code: 400
+ERROR - Response text: {"errorTypeCode":"EXTRACT-NOTALLOWED","message":"Der skal vælges værdier for variabel: CIVILSTAND"}
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 400
+ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+ERROR - Response status code: 400
+ERROR - Response text: {"errorTypeCode":"EXTRACT-NOTALLOWED","message":"Der skal vælges værdier for variabel: OMRÅDE"}
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 400
+ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+ERROR - Response status code: 400
+ERROR - Response text: {"errorTypeCode":"EXTRACT-NOTALLOWED","message":"Der skal vælges værdier for variabel: OMRÅDE"}
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 400
+ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+ERROR - Response status code: 400
+ERROR - Response text: {"errorTypeCode":"EXTRACT-NOTALLOWED","message":"Der skal vælges værdier for variabel: CIVILSTAND"}
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 400
+ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+ERROR - Response status code: 400
+ERROR - Response text: {"errorTypeCode":"EXTRACT-NOTALLOWED","message":"Der skal vælges værdier for variabel: CIVILSTAND"}
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 400
+ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+ERROR - Response status code: 400
+ERROR - Response text: {"errorTypeCode":"EXTRACT-NOTALLOWED","message":"Der skal vælges værdier for variabel: CIVILSTAND"}
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 400
+ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+ERROR - Response status code: 400
+ERROR - Response text: {"errorTypeCode":"EXTRACT-NOTALLOWED","message":"Der skal vælges værdier for variabel: CIVILSTAND"}
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 400
+ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+ERROR - Response status code: 400
+ERROR - Response text: {"errorTypeCode":"EXTRACT-STREAMINGTIMESORT","message":"Der kan ikke vælges sortering af tid for streamede formater."}
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 400
+ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+ERROR - Response status code: 400
+ERROR - Response text: {"errorTypeCode":"EXTRACT-STREAMINGTIMESORT","message":"Der kan ikke vælges sortering af tid for streamede formater."}
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 400
+ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+ERROR - Response status code: 400
+ERROR - Response text: {"errorTypeCode":"EXTRACT-NOTALLOWED","message":"Der skal vælges værdier for variabel: OMRÅDE"}
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 400
+ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+ERROR - Response status code: 400
+ERROR - Response text: {"errorTypeCode":"EXTRACT-NOTALLOWED","message":"Der skal vælges værdier for variabel: KØN"}
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 400
+ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+ERROR - Response status code: 400
+ERROR - Response text: {"errorTypeCode":"EXTRACT-NOTALLOWED","message":"Der skal vælges værdier for variabel: OMRÅDE"}
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 400
+ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+ERROR - Response status code: 400
+ERROR - Response text: {"errorTypeCode":"REQUEST-LIMIT","message":"Forespørgslen på op mod 14.201.775 celler er over begrænsningen på 1.000.000 celler for denne filtype. Anvend BULK eller andet streaming format i stedet."}
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 400
+ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+ERROR - Response status code: 400
+ERROR - Response text: {"errorTypeCode":"EXTRACT-NOTALLOWED","message":"Der skal vælges værdier for variabel: CIVILSTAND"}
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 400
+ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+ERROR - Response status code: 400
+ERROR - Response text: {"errorTypeCode":"EXTRACT-NOTFOUND","message":"Kan ikke finde værdien: IALT (KØN)"}
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 400
+ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+ERROR - Response status code: 400
+ERROR - Response text: {"errorTypeCode":"EXTRACT-NOTFOUND","message":"Kan ikke finde værdien: IALT (KØN)"}
+INFO - API client closed
+================================================================================
+GETTING FOLK1A METADATA
+================================================================================
+
+VARIABLES IN FOLK1A:
+
+OMRÅDE - område
+  Elimination: True
+  Time: False
+  Values: 105 items
+  First 5: ['000', '084', '101', '147', '155']
+  Last 5: ['773', '840', '787', '820', '851']
+
+KØN - køn
+  Elimination: True
+  Time: False
+  Values: 3 items
+  All values: ['TOT', '1', '2']
+
+ALDER - alder
+  Elimination: True
+  Time: False
+  Values: 127 items
+  First 5: ['IALT', '0', '1', '2', '3']
+  Last 5: ['121', '122', '123', '124', '125']
+
+CIVILSTAND - civilstand
+  Elimination: True
+  Time: False
+  Values: 5 items
+  All values: ['TOT', 'U', 'G', 'E', 'F']
+
+Tid - tid
+  Elimination: False
+  Time: True
+  Values: 71 items
+  First 5: ['2008K1', '2008K2', '2008K3', '2008K4', '2009K1']
+  Last 5: ['2024K3', '2024K4', '2025K1', '2025K2', '2025K3']
+
+================================================================================
+TEST: Wildcard Patterns
+================================================================================
+
+Test 1.1: Wildcard '*' for all values
+Variables: [
+  {
+    "code": "OMR\u00c5DE",
+    "values": [
+      "000"
+    ]
+  },
+  {
+    "code": "K\u00d8N",
+    "values": [
+      "*"
+    ]
+  },
+  {
+    "code": "ALDER",
+    "values": [
+      "IALT"
+    ]
+  },
+  {
+    "code": "Tid",
+    "values": [
+      "2024K1"
+    ]
+  }
+]
+✗ ERROR: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+Test 1.2: Prefix wildcard '10*' (ages 10, 100-109)
+Variables: [
+  {
+    "code": "OMR\u00c5DE",
+    "values": [
+      "000"
+    ]
+  },
+  {
+    "code": "K\u00d8N",
+    "values": [
+      "IALT"
+    ]
+  },
+  {
+    "code": "ALDER",
+    "values": [
+      "10*"
+    ]
+  },
+  {
+    "code": "Tid",
+    "values": [
+      "2024K1"
+    ]
+  }
+]
+✗ ERROR: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+Test 1.3: Suffix wildcard '*K1' (all Q1 quarters)
+Variables: [
+  {
+    "code": "OMR\u00c5DE",
+    "values": [
+      "000"
+    ]
+  },
+  {
+    "code": "K\u00d8N",
+    "values": [
+      "IALT"
+    ]
+  },
+  {
+    "code": "ALDER",
+    "values": [
+      "IALT"
+    ]
+  },
+  {
+    "code": "Tid",
+    "values": [
+      "*K1"
+    ]
+  }
+]
+✗ ERROR: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+Test 1.4: Pattern '20*K1' (Q1 in 2000s)
+Variables: [
+  {
+    "code": "OMR\u00c5DE",
+    "values": [
+      "000"
+    ]
+  },
+  {
+    "code": "K\u00d8N",
+    "values": [
+      "IALT"
+    ]
+  },
+  {
+    "code": "ALDER",
+    "values": [
+      "IALT"
+    ]
+  },
+  {
+    "code": "Tid",
+    "values": [
+      "20*K1"
+    ]
+  }
+]
+✗ ERROR: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+================================================================================
+TEST: Time Nth-Rules
+================================================================================
+
+Test 2.1: Latest value '(1)'
+Variables: [
+  {
+    "code": "OMR\u00c5DE",
+    "values": [
+      "000"
+    ]
+  },
+  {
+    "code": "K\u00d8N",
+    "values": [
+      "IALT"
+    ]
+  },
+  {
+    "code": "ALDER",
+    "values": [
+      "IALT"
+    ]
+  },
+  {
+    "code": "Tid",
+    "values": [
+      "(1)"
+    ]
+  }
+]
+✗ ERROR: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+Test 2.2: Last 3 values '(-n+3)'
+Variables: [
+  {
+    "code": "OMR\u00c5DE",
+    "values": [
+      "000"
+    ]
+  },
+  {
+    "code": "K\u00d8N",
+    "values": [
+      "IALT"
+    ]
+  },
+  {
+    "code": "ALDER",
+    "values": [
+      "IALT"
+    ]
+  },
+  {
+    "code": "Tid",
+    "values": [
+      "(-n+3)"
+    ]
+  }
+]
+✗ ERROR: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+Test 2.3: Second newest '(2)'
+Variables: [
+  {
+    "code": "OMR\u00c5DE",
+    "values": [
+      "000"
+    ]
+  },
+  {
+    "code": "K\u00d8N",
+    "values": [
+      "IALT"
+    ]
+  },
+  {
+    "code": "ALDER",
+    "values": [
+      "IALT"
+    ]
+  },
+  {
+    "code": "Tid",
+    "values": [
+      "(2)"
+    ]
+  }
+]
+✗ ERROR: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+Test 2.4: Last 10 values '(-n+10)'
+Variables: [
+  {
+    "code": "OMR\u00c5DE",
+    "values": [
+      "000"
+    ]
+  },
+  {
+    "code": "K\u00d8N",
+    "values": [
+      "IALT"
+    ]
+  },
+  {
+    "code": "ALDER",
+    "values": [
+      "IALT"
+    ]
+  },
+  {
+    "code": "Tid",
+    "values": [
+      "(-n+10)"
+    ]
+  }
+]
+✗ ERROR: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+================================================================================
+TEST: Range Operators
+================================================================================
+
+Test 3.1: Range '>=2024K1'
+Variables: [
+  {
+    "code": "OMR\u00c5DE",
+    "values": [
+      "000"
+    ]
+  },
+  {
+    "code": "K\u00d8N",
+    "values": [
+      "IALT"
+    ]
+  },
+  {
+    "code": "ALDER",
+    "values": [
+      "IALT"
+    ]
+  },
+  {
+    "code": "Tid",
+    "values": [
+      ">=2024K1"
+    ]
+  }
+]
+✗ ERROR: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+Test 3.2: Range '<=2024K2'
+Variables: [
+  {
+    "code": "OMR\u00c5DE",
+    "values": [
+      "000"
+    ]
+  },
+  {
+    "code": "K\u00d8N",
+    "values": [
+      "IALT"
+    ]
+  },
+  {
+    "code": "ALDER",
+    "values": [
+      "IALT"
+    ]
+  },
+  {
+    "code": "Tid",
+    "values": [
+      "<=2024K2"
+    ]
+  }
+]
+✗ ERROR: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+Test 3.3: Range '>=2023K1<=2024K2'
+Variables: [
+  {
+    "code": "OMR\u00c5DE",
+    "values": [
+      "000"
+    ]
+  },
+  {
+    "code": "K\u00d8N",
+    "values": [
+      "IALT"
+    ]
+  },
+  {
+    "code": "ALDER",
+    "values": [
+      "IALT"
+    ]
+  },
+  {
+    "code": "Tid",
+    "values": [
+      ">=2023K1<=2024K2"
+    ]
+  }
+]
+✗ ERROR: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+================================================================================
+TEST: Multiple Specific Values
+================================================================================
+
+Test 4.1: Multiple specific values (arrays)
+Variables: [
+  {
+    "code": "OMR\u00c5DE",
+    "values": [
+      "000",
+      "101",
+      "147"
+    ]
+  },
+  {
+    "code": "K\u00d8N",
+    "values": [
+      "M",
+      "K"
+    ]
+  },
+  {
+    "code": "ALDER",
+    "values": [
+      "IALT"
+    ]
+  },
+  {
+    "code": "Tid",
+    "values": [
+      "2024K1",
+      "2024K2"
+    ]
+  }
+]
+✗ ERROR: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+================================================================================
+TEST: Combined Patterns
+================================================================================
+
+Test 5.1: Mixed patterns (wildcard + nth-rule)
+Variables: [
+  {
+    "code": "OMR\u00c5DE",
+    "values": [
+      "000"
+    ]
+  },
+  {
+    "code": "K\u00d8N",
+    "values": [
+      "*"
+    ]
+  },
+  {
+    "code": "ALDER",
+    "values": [
+      "IALT"
+    ]
+  },
+  {
+    "code": "Tid",
+    "values": [
+      "2024*",
+      "(1)"
+    ]
+  }
+]
+✗ ERROR: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+================================================================================
+TEST: Variable Placement
+================================================================================
+
+Test 6.1: Default placement (no specification)
+Variables: [
+  {
+    "code": "OMR\u00c5DE",
+    "values": [
+      "000"
+    ]
+  },
+  {
+    "code": "K\u00d8N",
+    "values": [
+      "M",
+      "K"
+    ]
+  },
+  {
+    "code": "ALDER",
+    "values": [
+      "IALT"
+    ]
+  },
+  {
+    "code": "Tid",
+    "values": [
+      "2024K1",
+      "2024K2"
+    ]
+  }
+]
+✗ ERROR: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+Test 6.2: Stub placement (rows)
+Variables: [
+  {
+    "code": "OMR\u00c5DE",
+    "values": [
+      "000"
+    ],
+    "placement": "stub"
+  },
+  {
+    "code": "K\u00d8N",
+    "values": [
+      "M",
+      "K"
+    ],
+    "placement": "stub"
+  },
+  {
+    "code": "ALDER",
+    "values": [
+      "IALT"
+    ]
+  },
+  {
+    "code": "Tid",
+    "values": [
+      "2024K1",
+      "2024K2"
+    ]
+  }
+]
+✗ ERROR: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+Test 6.3: Head placement (columns)
+Variables: [
+  {
+    "code": "OMR\u00c5DE",
+    "values": [
+      "000"
+    ]
+  },
+  {
+    "code": "K\u00d8N",
+    "values": [
+      "M",
+      "K"
+    ],
+    "placement": "head"
+  },
+  {
+    "code": "ALDER",
+    "values": [
+      "IALT"
+    ]
+  },
+  {
+    "code": "Tid",
+    "values": [
+      "2024K1",
+      "2024K2"
+    ],
+    "placement": "head"
+  }
+]
+✗ ERROR: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+================================================================================
+TEST: Variable Elimination
+================================================================================
+
+Test 7.1: Minimal variables (time only)
+Variables: [
+  {
+    "code": "Tid",
+    "values": [
+      "2024K1"
+    ]
+  }
+]
+✗ ERROR: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+Test 7.2: Without OMRÅDE (should use default total)
+Variables: [
+  {
+    "code": "K\u00d8N",
+    "values": [
+      "IALT"
+    ]
+  },
+  {
+    "code": "ALDER",
+    "values": [
+      "IALT"
+    ]
+  },
+  {
+    "code": "Tid",
+    "values": [
+      "2024K1"
+    ]
+  }
+]
+✗ ERROR: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+Test 7.3: Without Tid (might fail)
+Variables: [
+  {
+    "code": "OMR\u00c5DE",
+    "values": [
+      "000"
+    ]
+  },
+  {
+    "code": "K\u00d8N",
+    "values": [
+      "IALT"
+    ]
+  },
+  {
+    "code": "ALDER",
+    "values": [
+      "IALT"
+    ]
+  }
+]
+✗ ERROR: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+================================================================================
+TEST: Value Presentation
+================================================================================
+
+Test 8.1: valuePresentation='Code'
+Variables: [
+  {
+    "code": "OMR\u00c5DE",
+    "values": [
+      "000"
+    ],
+    "valuePresentation": "Code"
+  },
+  {
+    "code": "K\u00d8N",
+    "values": [
+      "M",
+      "K"
+    ],
+    "valuePresentation": "Code"
+  },
+  {
+    "code": "ALDER",
+    "values": [
+      "IALT"
+    ]
+  },
+  {
+    "code": "Tid",
+    "values": [
+      "2024K1"
+    ]
+  }
+]
+✗ ERROR: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+Test 8.2: valuePresentation='Value'
+Variables: [
+  {
+    "code": "OMR\u00c5DE",
+    "values": [
+      "000"
+    ],
+    "valuePresentation": "Value"
+  },
+  {
+    "code": "K\u00d8N",
+    "values": [
+      "M",
+      "K"
+    ],
+    "valuePresentation": "Value"
+  },
+  {
+    "code": "ALDER",
+    "values": [
+      "IALT"
+    ]
+  },
+  {
+    "code": "Tid",
+    "values": [
+      "2024K1"
+    ]
+  }
+]
+✗ ERROR: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+Test 8.3: valuePresentation='CodeAndValue'
+Variables: [
+  {
+    "code": "OMR\u00c5DE",
+    "values": [
+      "000"
+    ],
+    "valuePresentation": "CodeAndValue"
+  },
+  {
+    "code": "K\u00d8N",
+    "values": [
+      "M",
+      "K"
+    ],
+    "valuePresentation": "CodeAndValue"
+  },
+  {
+    "code": "ALDER",
+    "values": [
+      "IALT"
+    ]
+  },
+  {
+    "code": "Tid",
+    "values": [
+      "2024K1"
+    ]
+  }
+]
+✗ ERROR: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+================================================================================
+TEST: Time Order
+================================================================================
+
+Test 9.1: timeOrder='Ascending'
+Payload: {
+  "table": "FOLK1A",
+  "format": "BULK",
+  "timeOrder": "Ascending",
+  "variables": [
+    {
+      "code": "OMR\u00c5DE",
+      "values": [
+        "000"
+      ]
+    },
+    {
+      "code": "K\u00d8N",
+      "values": [
+        "IALT"
+      ]
+    },
+    {
+      "code": "ALDER",
+      "values": [
+        "IALT"
+      ]
+    },
+    {
+      "code": "Tid",
+      "values": [
+        "(-n+5)"
+      ]
+    }
+  ]
+}
+✗ ERROR: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+Test 9.2: timeOrder='Descending'
+Payload: {
+  "table": "FOLK1A",
+  "format": "BULK",
+  "timeOrder": "Descending",
+  "variables": [
+    {
+      "code": "OMR\u00c5DE",
+      "values": [
+        "000"
+      ]
+    },
+    {
+      "code": "K\u00d8N",
+      "values": [
+        "IALT"
+      ]
+    },
+    {
+      "code": "ALDER",
+      "values": [
+        "IALT"
+      ]
+    },
+    {
+      "code": "Tid",
+      "values": [
+        "(-n+5)"
+      ]
+    }
+  ]
+}
+✗ ERROR: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+================================================================================
+TEST: Error Scenarios
+================================================================================
+
+Test 10.1: Invalid variable code
+Variables: [
+  {
+    "code": "INVALID_VAR",
+    "values": [
+      "000"
+    ]
+  },
+  {
+    "code": "Tid",
+    "values": [
+      "2024K1"
+    ]
+  }
+]
+✗ ERROR: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+Test 10.2: Invalid value code
+Variables: [
+  {
+    "code": "OMR\u00c5DE",
+    "values": [
+      "INVALID_VALUE"
+    ]
+  },
+  {
+    "code": "Tid",
+    "values": [
+      "2024K1"
+    ]
+  }
+]
+✗ ERROR: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+Test 10.3: Empty values array
+Variables: [
+  {
+    "code": "OMR\u00c5DE",
+    "values": []
+  },
+  {
+    "code": "Tid",
+    "values": [
+      "2024K1"
+    ]
+  }
+]
+✗ ERROR: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+Test 10.4: Too many cells with JSONSTAT format (1M limit)
+✗ Expected error: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+================================================================================
+TEST: Streaming vs Non-Streaming Formats
+================================================================================
+
+Test 11.1: BULK format (streaming)
+✗ ERROR: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+Test 11.2: JSONSTAT format (non-streaming, 1M limit)
+✗ ERROR: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+Test 11.3: CSV format
+✗ ERROR: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400

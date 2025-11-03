@@ -1,25 +1,68 @@
 # DST Skills Project
 
-A research and data retrieval system for Danish statistics using Claude Code agents and DuckDB storage.
+An AI-powered system for fetching and analyzing data from Statistics Denmark using intelligent agents and DuckDB storage.
 
 ## Overview
 
-This project provides a sophisticated system for fetching, storing, and analyzing data from Statistics Denmark (DST) using Claude Code's agent framework. The system uses DuckDB as an embedded analytics database for efficient storage and querying of statistical data.
+DST Skills provides a sophisticated, conversational interface for working with Danish statistical data. Using two specialized AI agents, you can discover, download, and analyze data from Statistics Denmark (DST) without wrestling with API documentation or writing complex queries.
 
 ### Key Features
 
-- Automated data retrieval from DST API
-- DuckDB-based storage for efficient analytics
-- Metadata tracking for data freshness
-- Agent-based architecture for modular functionality
-- Comprehensive error handling and logging
+- **🤖 Intelligent Agents**: Natural language interaction with data
+- **📊 Complete Workflow**: From data discovery to analysis
+- **💾 Local Storage**: Fast DuckDB database for offline analysis
+- **🔄 Freshness Tracking**: Automatic data age monitoring
+- **📈 SQL Analytics**: Powerful querying with simple or complex SQL
+- **🎯 7 Specialized Skills**: Modular, focused capabilities
+- **📝 Comprehensive Logging**: Full audit trail for debugging
+
+## Quick Start
+
+```bash
+# 1. Install dependencies
+pip install -r requirements.txt
+
+# 2. Initialize database
+python scripts/db/init_db.py
+
+# 3. Start using agents!
+# Ask: "Fetch population data from DST"
+# Or: "Analyze employment trends"
+```
+
+**→ See [Getting Started Guide](docs/getting-started.md) for detailed setup**
 
 ## Architecture
 
 The system is built with a two-agent architecture:
 
-1. **Research Agent**: Helps explore available data and find relevant statistics
-2. **Data Agent**: Fetches and stores data in the local DuckDB database
+### 1. dst-fetch-agent
+**Purpose**: Data Acquisition
+
+Discovers and downloads data from the DST API. Activates on keywords like: "fetch", "download", "retrieve", "get data"
+
+**Capabilities**:
+- Browse DST subjects and topics
+- Search for relevant tables
+- Fetch detailed table metadata
+- Download and store data in DuckDB
+- Verify successful storage
+
+**Skills**: dst-subjects, dst-tables, dst-tableinfo, dst-data
+
+### 2. dst-analyze-agent
+**Purpose**: Data Analysis
+
+Queries and analyzes stored data. Activates on keywords like: "analyze", "query", "show", "compare"
+
+**Capabilities**:
+- Check data availability and freshness
+- Execute SQL queries
+- Perform statistical analysis
+- Join multiple tables
+- Present insights clearly
+
+**Skills**: dst-list-tables, dst-check-freshness, dst-query
 
 ### Technology Stack
 
@@ -218,24 +261,67 @@ This project follows:
 - **DRY (Don't Repeat Yourself)**: Reusable utility modules
 - **YAGNI (You Aren't Gonna Need It)**: Only implement what's needed
 
+## Usage Examples
+
+### Example 1: Discover and Fetch Data
+```
+User: "Get me population data from DST"
+
+→ Fetcher Agent activates
+→ Browses DST subjects
+→ Finds population tables
+→ Downloads FOLK1A table
+→ Confirms: "Stored 45,231 records in dst_folk1a"
+```
+
+### Example 2: Analyze Data
+```
+User: "What's the population of Denmark in 2024?"
+
+→ Analyst Agent activates
+→ Checks for population data
+→ Verifies data freshness
+→ Runs SQL query
+→ Reports: "5,932,654 (data from 5 days ago)"
+```
+
+### Example 3: Complex Analysis
+```
+User: "Compare employment rates between regions over last 5 years"
+
+→ Analyst Agent activates
+→ Constructs time series query with regional grouping
+→ Executes analysis
+→ Presents trends with insights
+```
+
+## Documentation
+
+Comprehensive documentation available in the `docs/` directory:
+
+- **[Getting Started](docs/getting-started.md)** - Setup and first steps
+- **[Quick Reference](docs/quick-reference.md)** - One-page cheat sheet
+- **[Workflows](docs/workflows.md)** - Practical examples and patterns
+- **[FAQ](docs/faq.md)** - Frequently asked questions
+- **[Database Schema](docs/database-schema.md)** - Database structure reference
+
 ## Project Status
 
-**Phase 1: Infrastructure Setup** - ✅ Complete
-- Project structure created
-- Database initialized
-- API client implemented
-- Utility modules ready
-- Documentation complete
+**✅ Phase 1: Infrastructure** - Complete
+- Project structure, database, API client, utilities
 
-**Phase 2: Agent Development** - 🔄 In Progress
-- Research Agent implementation
-- Data Agent implementation
-- Agent coordination
+**✅ Phase 2: Component Development** - Complete
+- 9 Python scripts (API + database operations)
+- 7 agent skills (modular capabilities)
 
-**Phase 3: Advanced Features** - ⏳ Planned
-- Data caching strategies
-- Advanced query capabilities
-- Data visualization support
+**✅ Phase 3: Agent Configuration** - Complete
+- dst-fetch-agent (data acquisition)
+- dst-analyze-agent (data analysis)
+
+**✅ Phase 4: Integration & Documentation** - Complete
+- Comprehensive user documentation
+- Usage examples and workflows
+- FAQ and troubleshooting guides
 
 ## API Reference
 

@@ -1,0 +1,1595 @@
+INFO - Initialized DST API Client with base URL: https://api.statbank.dk/v1
+INFO - Fetching table info for: FOLK1A
+INFO - Making GET request to: https://api.statbank.dk/v1/tableinfo?id=FOLK1A
+INFO - Response status: 200
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 200
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 200
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 200
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 200
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 200
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 200
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 200
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 200
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 200
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 200
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 200
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 200
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 200
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 200
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 200
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 200
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 400
+ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+ERROR - Response status code: 400
+ERROR - Response text: {"errorTypeCode":"EXTRACT-NOTALLOWED","message":"Der skal vælges værdier for variabel: OMRÅDE"}
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 400
+ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+ERROR - Response status code: 400
+ERROR - Response text: {"errorTypeCode":"EXTRACT-NOTALLOWED","message":"Der skal vælges værdier for variabel: KØN"}
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 400
+ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+ERROR - Response status code: 400
+ERROR - Response text: {"errorTypeCode":"EXTRACT-NOTALLOWED","message":"Der skal vælges værdier for variabel: ALDER"}
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 400
+ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+ERROR - Response status code: 400
+ERROR - Response text: {"errorTypeCode":"EXTRACT-NOTALLOWED","message":"Der skal vælges værdier for variabel: CIVILSTAND"}
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 400
+ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+ERROR - Response status code: 400
+ERROR - Response text: {"errorTypeCode":"EXTRACT-NOTALLOWED","message":"Der skal vælges værdier for variabel: Tid"}
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 200
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 200
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 200
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 200
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 200
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 400
+ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+ERROR - Response status code: 400
+ERROR - Response text: {"errorTypeCode":"EXTRACT-STREAMINGTIMESORT","message":"Der kan ikke vælges sortering af tid for streamede formater."}
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 400
+ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+ERROR - Response status code: 400
+ERROR - Response text: {"errorTypeCode":"EXTRACT-NOTALLOWED","message":"Der skal vælges værdier for variabel: OMRÅDE"}
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 400
+ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+ERROR - Response status code: 400
+ERROR - Response text: {"errorTypeCode":"EXTRACT-NOTFOUND","message":"Kan ikke finde værdien: INVALID999 (OMRÅDE)"}
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 400
+ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+ERROR - Response status code: 400
+ERROR - Response text: {"errorTypeCode":"EXTRACT-NOTALLOWED","message":"Der skal vælges værdier for variabel: OMRÅDE"}
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 200
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 200
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 200
+INFO - Making POST request to: https://api.statbank.dk/v1/data
+INFO - Response status: 400
+ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+ERROR - Response status code: 400
+ERROR - Response text: {"errorTypeCode":"REQUEST-LIMIT","message":"Forespørgslen på op mod 85.210.650 celler er over begrænsningen på 1.000.000 celler for denne filtype. Anvend BULK eller andet streaming format i stedet."}
+INFO - API client closed
+
+================================================================================
+FOLK1A METADATA
+================================================================================
+
+OMRÅDE       - område               [elimination:    1, time:    0, values:105]
+             Values: 000, 084, 101 ... 787, 820, 851
+KØN          - køn                  [elimination:    1, time:    0, values:3]
+             Values: TOT, 1, 2
+ALDER        - alder                [elimination:    1, time:    0, values:127]
+             Values: IALT, 0, 1 ... 123, 124, 125
+CIVILSTAND   - civilstand           [elimination:    1, time:    0, values:5]
+             Values: TOT, U, G, E, F
+Tid          - tid                  [elimination:    0, time:    1, values:71]
+             Values: 2008K1, 2008K2, 2008K3 ... 2025K1, 2025K2, 2025K3
+
+================================================================================
+TEST 1: Baseline - Specific Values
+================================================================================
+
+TEST: 1.1: Single specific values
+Payload: {
+  "table": "FOLK1A",
+  "format": "BULK",
+  "variables": [
+    {
+      "code": "OMRÅDE",
+      "values": [
+        "000"
+      ]
+    },
+    {
+      "code": "KØN",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "ALDER",
+      "values": [
+        "IALT"
+      ]
+    },
+    {
+      "code": "CIVILSTAND",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "Tid",
+      "values": [
+        "2024K1"
+      ]
+    }
+  ]
+}
+
+✓ SUCCESS: 2 lines
+  Header: OMRÅDE;KØN;ALDER;CIVILSTAND;TID;INDHOLD
+  Row 1:  Hele landet;I alt;Alder i alt;I alt;2024K1;5961249
+TEST: 1.2: Multiple specific values
+Payload: {
+  "table": "FOLK1A",
+  "format": "BULK",
+  "variables": [
+    {
+      "code": "OMRÅDE",
+      "values": [
+        "000",
+        "101",
+        "147"
+      ]
+    },
+    {
+      "code": "KØN",
+      "values": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "code": "ALDER",
+      "values": [
+        "IALT"
+      ]
+    },
+    {
+      "code": "CIVILSTAND",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "Tid",
+      "values": [
+        "2024K1",
+        "2024K2",
+        "2024K3"
+      ]
+    }
+  ]
+}
+
+✓ SUCCESS: 19 lines
+  Header: OMRÅDE;KØN;ALDER;CIVILSTAND;TID;INDHOLD
+  Row 1:  Hele landet;Mænd;Alder i alt;I alt;2024K1;2963691
+  Row 2:  Hele landet;Kvinder;Alder i alt;I alt;2024K1;2997558
+  Last:   Frederiksberg;Kvinder;Alder i alt;I alt;2024K3;55322
+
+================================================================================
+TEST 2: Wildcard Patterns
+================================================================================
+
+TEST: 2.1: Wildcard '*' for all values
+Payload: {
+  "table": "FOLK1A",
+  "format": "BULK",
+  "variables": [
+    {
+      "code": "OMRÅDE",
+      "values": [
+        "000"
+      ]
+    },
+    {
+      "code": "KØN",
+      "values": [
+        "*"
+      ]
+    },
+    {
+      "code": "ALDER",
+      "values": [
+        "IALT"
+      ]
+    },
+    {
+      "code": "CIVILSTAND",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "Tid",
+      "values": [
+        "2024K1"
+      ]
+    }
+  ]
+}
+
+✓ SUCCESS: 4 lines
+  Header: OMRÅDE;KØN;ALDER;CIVILSTAND;TID;INDHOLD
+  Row 1:  Hele landet;Mænd;Alder i alt;I alt;2024K1;2963691
+  Row 2:  Hele landet;Kvinder;Alder i alt;I alt;2024K1;2997558
+  Last:   Hele landet;I alt;Alder i alt;I alt;2024K1;5961249
+TEST: 2.2: Prefix wildcard '1*' for ages
+Payload: {
+  "table": "FOLK1A",
+  "format": "BULK",
+  "variables": [
+    {
+      "code": "OMRÅDE",
+      "values": [
+        "000"
+      ]
+    },
+    {
+      "code": "KØN",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "ALDER",
+      "values": [
+        "1*"
+      ]
+    },
+    {
+      "code": "CIVILSTAND",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "Tid",
+      "values": [
+        "2024K1"
+      ]
+    }
+  ]
+}
+
+✓ SUCCESS: 23 lines
+  Header: OMRÅDE;KØN;ALDER;CIVILSTAND;TID;INDHOLD
+  Row 1:  Hele landet;I alt;1 år;I alt;2024K1;59115
+  Row 2:  Hele landet;I alt;10 år;I alt;2024K1;59666
+  Last:   Hele landet;I alt;19 år;I alt;2024K1;70749
+TEST: 2.3: Suffix wildcard '*K1' for Q1 periods
+Payload: {
+  "table": "FOLK1A",
+  "format": "BULK",
+  "variables": [
+    {
+      "code": "OMRÅDE",
+      "values": [
+        "000"
+      ]
+    },
+    {
+      "code": "KØN",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "ALDER",
+      "values": [
+        "IALT"
+      ]
+    },
+    {
+      "code": "CIVILSTAND",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "Tid",
+      "values": [
+        "*K1"
+      ]
+    }
+  ]
+}
+
+✓ SUCCESS: 19 lines
+  Header: OMRÅDE;KØN;ALDER;CIVILSTAND;TID;INDHOLD
+  Row 1:  Hele landet;I alt;Alder i alt;I alt;2008K1;5475791
+  Row 2:  Hele landet;I alt;Alder i alt;I alt;2009K1;5511451
+  Last:   Hele landet;I alt;Alder i alt;I alt;2025K1;5992734
+TEST: 2.4: Pattern '202*K1' for 2020s Q1
+Payload: {
+  "table": "FOLK1A",
+  "format": "BULK",
+  "variables": [
+    {
+      "code": "OMRÅDE",
+      "values": [
+        "000"
+      ]
+    },
+    {
+      "code": "KØN",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "ALDER",
+      "values": [
+        "IALT"
+      ]
+    },
+    {
+      "code": "CIVILSTAND",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "Tid",
+      "values": [
+        "202*K1"
+      ]
+    }
+  ]
+}
+
+✓ SUCCESS: 7 lines
+  Header: OMRÅDE;KØN;ALDER;CIVILSTAND;TID;INDHOLD
+  Row 1:  Hele landet;I alt;Alder i alt;I alt;2020K1;5822763
+  Row 2:  Hele landet;I alt;Alder i alt;I alt;2021K1;5840045
+  Last:   Hele landet;I alt;Alder i alt;I alt;2025K1;5992734
+
+================================================================================
+TEST 3: Time Nth-Rules
+================================================================================
+
+TEST: 3.1: Latest value with '(1)'
+Payload: {
+  "table": "FOLK1A",
+  "format": "BULK",
+  "variables": [
+    {
+      "code": "OMRÅDE",
+      "values": [
+        "000"
+      ]
+    },
+    {
+      "code": "KØN",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "ALDER",
+      "values": [
+        "IALT"
+      ]
+    },
+    {
+      "code": "CIVILSTAND",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "Tid",
+      "values": [
+        "(1)"
+      ]
+    }
+  ]
+}
+
+✓ SUCCESS: 2 lines
+  Header: OMRÅDE;KØN;ALDER;CIVILSTAND;TID;INDHOLD
+  Row 1:  Hele landet;I alt;Alder i alt;I alt;2025K3;6002420
+TEST: 3.2: Second newest with '(2)'
+Payload: {
+  "table": "FOLK1A",
+  "format": "BULK",
+  "variables": [
+    {
+      "code": "OMRÅDE",
+      "values": [
+        "000"
+      ]
+    },
+    {
+      "code": "KØN",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "ALDER",
+      "values": [
+        "IALT"
+      ]
+    },
+    {
+      "code": "CIVILSTAND",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "Tid",
+      "values": [
+        "(2)"
+      ]
+    }
+  ]
+}
+
+✓ SUCCESS: 2 lines
+  Header: OMRÅDE;KØN;ALDER;CIVILSTAND;TID;INDHOLD
+  Row 1:  Hele landet;I alt;Alder i alt;I alt;2025K2;5999677
+TEST: 3.3: Last 5 with '(-n+5)'
+Payload: {
+  "table": "FOLK1A",
+  "format": "BULK",
+  "variables": [
+    {
+      "code": "OMRÅDE",
+      "values": [
+        "000"
+      ]
+    },
+    {
+      "code": "KØN",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "ALDER",
+      "values": [
+        "IALT"
+      ]
+    },
+    {
+      "code": "CIVILSTAND",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "Tid",
+      "values": [
+        "(-n+5)"
+      ]
+    }
+  ]
+}
+
+✓ SUCCESS: 6 lines
+  Header: OMRÅDE;KØN;ALDER;CIVILSTAND;TID;INDHOLD
+  Row 1:  Hele landet;I alt;Alder i alt;I alt;2024K3;5972420
+  Row 2:  Hele landet;I alt;Alder i alt;I alt;2024K4;5989985
+  Last:   Hele landet;I alt;Alder i alt;I alt;2025K3;6002420
+
+================================================================================
+TEST 4: Range Operators
+================================================================================
+
+TEST: 4.1: Greater than or equal '>=2024K1'
+Payload: {
+  "table": "FOLK1A",
+  "format": "BULK",
+  "variables": [
+    {
+      "code": "OMRÅDE",
+      "values": [
+        "000"
+      ]
+    },
+    {
+      "code": "KØN",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "ALDER",
+      "values": [
+        "IALT"
+      ]
+    },
+    {
+      "code": "CIVILSTAND",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "Tid",
+      "values": [
+        ">=2024K1"
+      ]
+    }
+  ]
+}
+
+✓ SUCCESS: 8 lines
+  Header: OMRÅDE;KØN;ALDER;CIVILSTAND;TID;INDHOLD
+  Row 1:  Hele landet;I alt;Alder i alt;I alt;2024K1;5961249
+  Row 2:  Hele landet;I alt;Alder i alt;I alt;2024K2;5967824
+  Last:   Hele landet;I alt;Alder i alt;I alt;2025K3;6002420
+TEST: 4.2: Less than or equal '<=2020K1'
+Payload: {
+  "table": "FOLK1A",
+  "format": "BULK",
+  "variables": [
+    {
+      "code": "OMRÅDE",
+      "values": [
+        "000"
+      ]
+    },
+    {
+      "code": "KØN",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "ALDER",
+      "values": [
+        "IALT"
+      ]
+    },
+    {
+      "code": "CIVILSTAND",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "Tid",
+      "values": [
+        "<=2020K1"
+      ]
+    }
+  ]
+}
+
+✓ SUCCESS: 50 lines
+  Header: OMRÅDE;KØN;ALDER;CIVILSTAND;TID;INDHOLD
+  Row 1:  Hele landet;I alt;Alder i alt;I alt;2008K1;5475791
+  Row 2:  Hele landet;I alt;Alder i alt;I alt;2008K2;5482266
+  Last:   Hele landet;I alt;Alder i alt;I alt;2020K1;5822763
+TEST: 4.3: Between range '>=2023K1<=2024K2'
+Payload: {
+  "table": "FOLK1A",
+  "format": "BULK",
+  "variables": [
+    {
+      "code": "OMRÅDE",
+      "values": [
+        "000"
+      ]
+    },
+    {
+      "code": "KØN",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "ALDER",
+      "values": [
+        "IALT"
+      ]
+    },
+    {
+      "code": "CIVILSTAND",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "Tid",
+      "values": [
+        ">=2023K1<=2024K2"
+      ]
+    }
+  ]
+}
+
+✓ SUCCESS: 7 lines
+  Header: OMRÅDE;KØN;ALDER;CIVILSTAND;TID;INDHOLD
+  Row 1:  Hele landet;I alt;Alder i alt;I alt;2023K1;5932654
+  Row 2:  Hele landet;I alt;Alder i alt;I alt;2023K2;5941388
+  Last:   Hele landet;I alt;Alder i alt;I alt;2024K2;5967824
+
+================================================================================
+TEST 5: Combined Patterns
+================================================================================
+
+TEST: 5.1: Mix wildcards and nth-rules
+Payload: {
+  "table": "FOLK1A",
+  "format": "BULK",
+  "variables": [
+    {
+      "code": "OMRÅDE",
+      "values": [
+        "000"
+      ]
+    },
+    {
+      "code": "KØN",
+      "values": [
+        "*"
+      ]
+    },
+    {
+      "code": "ALDER",
+      "values": [
+        "IALT"
+      ]
+    },
+    {
+      "code": "CIVILSTAND",
+      "values": [
+        "*"
+      ]
+    },
+    {
+      "code": "Tid",
+      "values": [
+        "(-n+3)"
+      ]
+    }
+  ]
+}
+
+✓ SUCCESS: 46 lines
+  Header: OMRÅDE;KØN;ALDER;CIVILSTAND;TID;INDHOLD
+  Row 1:  Hele landet;Mænd;Alder i alt;Enke/enkemand;2025K1;71656
+  Row 2:  Hele landet;Mænd;Alder i alt;Fraskilt;2025K1;245342
+  Last:   Hele landet;I alt;Alder i alt;Ugift;2025K3;2984659
+TEST: 5.2: Mix specific and wildcard
+Payload: {
+  "table": "FOLK1A",
+  "format": "BULK",
+  "variables": [
+    {
+      "code": "OMRÅDE",
+      "values": [
+        "000",
+        "101"
+      ]
+    },
+    {
+      "code": "KØN",
+      "values": [
+        "*"
+      ]
+    },
+    {
+      "code": "ALDER",
+      "values": [
+        "0",
+        "1*"
+      ]
+    },
+    {
+      "code": "CIVILSTAND",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "Tid",
+      "values": [
+        "2024K1"
+      ]
+    }
+  ]
+}
+
+✓ SUCCESS: 122 lines
+  Header: OMRÅDE;KØN;ALDER;CIVILSTAND;TID;INDHOLD
+  Row 1:  Hele landet;Mænd;0 år;I alt;2024K1;29683
+  Row 2:  Hele landet;Mænd;1 år;I alt;2024K1;30449
+  Last:   København;I alt;19 år;I alt;2024K1;5858
+
+================================================================================
+TEST 6: Variable Placement
+================================================================================
+
+TEST: 6.1: Stub placement (rows)
+Payload: {
+  "table": "FOLK1A",
+  "format": "BULK",
+  "variables": [
+    {
+      "code": "OMRÅDE",
+      "values": [
+        "000"
+      ],
+      "placement": "stub"
+    },
+    {
+      "code": "KØN",
+      "values": [
+        "1",
+        "2"
+      ],
+      "placement": "stub"
+    },
+    {
+      "code": "ALDER",
+      "values": [
+        "IALT"
+      ]
+    },
+    {
+      "code": "CIVILSTAND",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "Tid",
+      "values": [
+        "2024K1",
+        "2024K2"
+      ]
+    }
+  ]
+}
+
+✓ SUCCESS: 5 lines
+  Header: OMRÅDE;KØN;ALDER;CIVILSTAND;TID;INDHOLD
+  Row 1:  Hele landet;Mænd;Alder i alt;I alt;2024K1;2963691
+  Row 2:  Hele landet;Kvinder;Alder i alt;I alt;2024K1;2997558
+  Last:   Hele landet;Kvinder;Alder i alt;I alt;2024K2;3000943
+TEST: 6.2: Head placement (columns)
+Payload: {
+  "table": "FOLK1A",
+  "format": "BULK",
+  "variables": [
+    {
+      "code": "OMRÅDE",
+      "values": [
+        "000"
+      ]
+    },
+    {
+      "code": "KØN",
+      "values": [
+        "1",
+        "2"
+      ],
+      "placement": "head"
+    },
+    {
+      "code": "ALDER",
+      "values": [
+        "IALT"
+      ]
+    },
+    {
+      "code": "CIVILSTAND",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "Tid",
+      "values": [
+        "2024K1",
+        "2024K2"
+      ],
+      "placement": "head"
+    }
+  ]
+}
+
+✓ SUCCESS: 5 lines
+  Header: OMRÅDE;ALDER;CIVILSTAND;KØN;TID;INDHOLD
+  Row 1:  Hele landet;Alder i alt;I alt;Mænd;2024K1;2963691
+  Row 2:  Hele landet;Alder i alt;I alt;Kvinder;2024K1;2997558
+  Last:   Hele landet;Alder i alt;I alt;Kvinder;2024K2;3000943
+
+================================================================================
+TEST 7: Variable Elimination (Testing Which Are Required)
+================================================================================
+
+TEST: 7.1: Try without OMRÅDE
+Payload: {
+  "table": "FOLK1A",
+  "format": "BULK",
+  "variables": [
+    {
+      "code": "KØN",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "ALDER",
+      "values": [
+        "IALT"
+      ]
+    },
+    {
+      "code": "CIVILSTAND",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "Tid",
+      "values": [
+        "2024K1"
+      ]
+    }
+  ]
+}
+
+✗ ERROR: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+TEST: 7.2: Try without KØN
+Payload: {
+  "table": "FOLK1A",
+  "format": "BULK",
+  "variables": [
+    {
+      "code": "OMRÅDE",
+      "values": [
+        "000"
+      ]
+    },
+    {
+      "code": "ALDER",
+      "values": [
+        "IALT"
+      ]
+    },
+    {
+      "code": "CIVILSTAND",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "Tid",
+      "values": [
+        "2024K1"
+      ]
+    }
+  ]
+}
+
+✗ ERROR: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+TEST: 7.3: Try without ALDER
+Payload: {
+  "table": "FOLK1A",
+  "format": "BULK",
+  "variables": [
+    {
+      "code": "OMRÅDE",
+      "values": [
+        "000"
+      ]
+    },
+    {
+      "code": "KØN",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "CIVILSTAND",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "Tid",
+      "values": [
+        "2024K1"
+      ]
+    }
+  ]
+}
+
+✗ ERROR: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+TEST: 7.4: Try without CIVILSTAND
+Payload: {
+  "table": "FOLK1A",
+  "format": "BULK",
+  "variables": [
+    {
+      "code": "OMRÅDE",
+      "values": [
+        "000"
+      ]
+    },
+    {
+      "code": "KØN",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "ALDER",
+      "values": [
+        "IALT"
+      ]
+    },
+    {
+      "code": "Tid",
+      "values": [
+        "2024K1"
+      ]
+    }
+  ]
+}
+
+✗ ERROR: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+TEST: 7.5: Try without Tid
+Payload: {
+  "table": "FOLK1A",
+  "format": "BULK",
+  "variables": [
+    {
+      "code": "OMRÅDE",
+      "values": [
+        "000"
+      ]
+    },
+    {
+      "code": "KØN",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "ALDER",
+      "values": [
+        "IALT"
+      ]
+    },
+    {
+      "code": "CIVILSTAND",
+      "values": [
+        "TOT"
+      ]
+    }
+  ]
+}
+
+✗ ERROR: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+
+================================================================================
+TEST 8: Value Presentation
+================================================================================
+
+TEST: 8.1: valuePresentation='Code'
+Payload: {
+  "table": "FOLK1A",
+  "format": "BULK",
+  "variables": [
+    {
+      "code": "OMRÅDE",
+      "values": [
+        "000"
+      ],
+      "valuePresentation": "Code"
+    },
+    {
+      "code": "KØN",
+      "values": [
+        "1",
+        "2"
+      ],
+      "valuePresentation": "Code"
+    },
+    {
+      "code": "ALDER",
+      "values": [
+        "IALT"
+      ]
+    },
+    {
+      "code": "CIVILSTAND",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "Tid",
+      "values": [
+        "2024K1"
+      ]
+    }
+  ]
+}
+
+✓ SUCCESS: 3 lines
+  Header: OMRÅDE;KØN;ALDER;CIVILSTAND;TID;INDHOLD
+  Row 1:  Hele landet;Mænd;Alder i alt;I alt;2024K1;2963691
+  Row 2:  Hele landet;Kvinder;Alder i alt;I alt;2024K1;2997558
+TEST: 8.2: valuePresentation='Value'
+Payload: {
+  "table": "FOLK1A",
+  "format": "BULK",
+  "variables": [
+    {
+      "code": "OMRÅDE",
+      "values": [
+        "000"
+      ],
+      "valuePresentation": "Value"
+    },
+    {
+      "code": "KØN",
+      "values": [
+        "1",
+        "2"
+      ],
+      "valuePresentation": "Value"
+    },
+    {
+      "code": "ALDER",
+      "values": [
+        "IALT"
+      ]
+    },
+    {
+      "code": "CIVILSTAND",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "Tid",
+      "values": [
+        "2024K1"
+      ]
+    }
+  ]
+}
+
+✓ SUCCESS: 3 lines
+  Header: OMRÅDE;KØN;ALDER;CIVILSTAND;TID;INDHOLD
+  Row 1:  Hele landet;Mænd;Alder i alt;I alt;2024K1;2963691
+  Row 2:  Hele landet;Kvinder;Alder i alt;I alt;2024K1;2997558
+TEST: 8.3: valuePresentation='CodeAndValue'
+Payload: {
+  "table": "FOLK1A",
+  "format": "BULK",
+  "variables": [
+    {
+      "code": "OMRÅDE",
+      "values": [
+        "000"
+      ],
+      "valuePresentation": "CodeAndValue"
+    },
+    {
+      "code": "KØN",
+      "values": [
+        "1",
+        "2"
+      ],
+      "valuePresentation": "CodeAndValue"
+    },
+    {
+      "code": "ALDER",
+      "values": [
+        "IALT"
+      ]
+    },
+    {
+      "code": "CIVILSTAND",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "Tid",
+      "values": [
+        "2024K1"
+      ]
+    }
+  ]
+}
+
+✓ SUCCESS: 3 lines
+  Header: OMRÅDE;KØN;ALDER;CIVILSTAND;TID;INDHOLD
+  Row 1:  Hele landet;Mænd;Alder i alt;I alt;2024K1;2963691
+  Row 2:  Hele landet;Kvinder;Alder i alt;I alt;2024K1;2997558
+
+================================================================================
+TEST 9: Time Order (Non-Streaming Formats Only)
+================================================================================
+
+TEST: 9.1: CSV with timeOrder='Ascending'
+Payload: {
+  "table": "FOLK1A",
+  "format": "CSV",
+  "timeOrder": "Ascending",
+  "variables": [
+    {
+      "code": "OMRÅDE",
+      "values": [
+        "000"
+      ]
+    },
+    {
+      "code": "KØN",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "ALDER",
+      "values": [
+        "IALT"
+      ]
+    },
+    {
+      "code": "CIVILSTAND",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "Tid",
+      "values": [
+        "2024K1",
+        "2024K2",
+        "2024K3"
+      ]
+    }
+  ]
+}
+
+✓ SUCCESS: 4 lines
+  Header: ﻿OMRÅDE;KØN;ALDER;CIVILSTAND;TID;INDHOLD
+  Row 1:  Hele landet;I alt;Alder i alt;I alt;2024K1;5961249
+  Row 2:  Hele landet;I alt;Alder i alt;I alt;2024K2;5967824
+  Last:   Hele landet;I alt;Alder i alt;I alt;2024K3;5972420
+TEST: 9.2: CSV with timeOrder='Descending'
+Payload: {
+  "table": "FOLK1A",
+  "format": "CSV",
+  "timeOrder": "Descending",
+  "variables": [
+    {
+      "code": "OMRÅDE",
+      "values": [
+        "000"
+      ]
+    },
+    {
+      "code": "KØN",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "ALDER",
+      "values": [
+        "IALT"
+      ]
+    },
+    {
+      "code": "CIVILSTAND",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "Tid",
+      "values": [
+        "2024K1",
+        "2024K2",
+        "2024K3"
+      ]
+    }
+  ]
+}
+
+✓ SUCCESS: 4 lines
+  Header: ﻿OMRÅDE;KØN;ALDER;CIVILSTAND;TID;INDHOLD
+  Row 1:  Hele landet;I alt;Alder i alt;I alt;2024K3;5972420
+  Row 2:  Hele landet;I alt;Alder i alt;I alt;2024K2;5967824
+  Last:   Hele landet;I alt;Alder i alt;I alt;2024K1;5961249
+TEST: 9.3: BULK with timeOrder (should fail)
+Payload: {
+  "table": "FOLK1A",
+  "format": "BULK",
+  "timeOrder": "Ascending",
+  "variables": [
+    {
+      "code": "OMRÅDE",
+      "values": [
+        "000"
+      ]
+    },
+    {
+      "code": "KØN",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "ALDER",
+      "values": [
+        "IALT"
+      ]
+    },
+    {
+      "code": "CIVILSTAND",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "Tid",
+      "values": [
+        "2024K1",
+        "2024K2"
+      ]
+    }
+  ]
+}
+
+✗ ERROR: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+
+================================================================================
+TEST 10: Error Scenarios
+================================================================================
+
+TEST: 10.1: Invalid variable code
+Payload: {
+  "table": "FOLK1A",
+  "format": "BULK",
+  "variables": [
+    {
+      "code": "INVALID_VAR",
+      "values": [
+        "000"
+      ]
+    },
+    {
+      "code": "Tid",
+      "values": [
+        "2024K1"
+      ]
+    }
+  ]
+}
+
+✗ ERROR: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+TEST: 10.2: Invalid value code
+Payload: {
+  "table": "FOLK1A",
+  "format": "BULK",
+  "variables": [
+    {
+      "code": "OMRÅDE",
+      "values": [
+        "INVALID999"
+      ]
+    },
+    {
+      "code": "KØN",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "ALDER",
+      "values": [
+        "IALT"
+      ]
+    },
+    {
+      "code": "CIVILSTAND",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "Tid",
+      "values": [
+        "2024K1"
+      ]
+    }
+  ]
+}
+
+✗ ERROR: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+TEST: 10.3: Empty values array
+Payload: {
+  "table": "FOLK1A",
+  "format": "BULK",
+  "variables": [
+    {
+      "code": "OMRÅDE",
+      "values": []
+    },
+    {
+      "code": "KØN",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "ALDER",
+      "values": [
+        "IALT"
+      ]
+    },
+    {
+      "code": "CIVILSTAND",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "Tid",
+      "values": [
+        "2024K1"
+      ]
+    }
+  ]
+}
+
+✗ ERROR: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+
+================================================================================
+TEST 11: Format Comparison
+================================================================================
+
+TEST: 11.1: BULK format (streaming, no limit)
+Payload: {
+  "table": "FOLK1A",
+  "format": "BULK",
+  "variables": [
+    {
+      "code": "OMRÅDE",
+      "values": [
+        "000"
+      ]
+    },
+    {
+      "code": "KØN",
+      "values": [
+        "*"
+      ]
+    },
+    {
+      "code": "ALDER",
+      "values": [
+        "*"
+      ]
+    },
+    {
+      "code": "CIVILSTAND",
+      "values": [
+        "*"
+      ]
+    },
+    {
+      "code": "Tid",
+      "values": [
+        "(-n+5)"
+      ]
+    }
+  ]
+}
+
+✓ SUCCESS: 7224 lines
+  Header: OMRÅDE;KØN;ALDER;CIVILSTAND;TID;INDHOLD
+  Row 1:  Hele landet;Mænd;0 år;I alt;2024K3;29627
+  Row 2:  Hele landet;Mænd;0 år;Ugift;2024K3;29627
+  Last:   Hele landet;I alt;Alder i alt;Ugift;2025K3;2984659
+TEST: 11.2: CSV format
+Payload: {
+  "table": "FOLK1A",
+  "format": "CSV",
+  "variables": [
+    {
+      "code": "OMRÅDE",
+      "values": [
+        "000"
+      ]
+    },
+    {
+      "code": "KØN",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "ALDER",
+      "values": [
+        "IALT"
+      ]
+    },
+    {
+      "code": "CIVILSTAND",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "Tid",
+      "values": [
+        "2024K1",
+        "2024K2"
+      ]
+    }
+  ]
+}
+
+✓ SUCCESS: 3 lines
+  Header: ﻿OMRÅDE;KØN;ALDER;CIVILSTAND;TID;INDHOLD
+  Row 1:  Hele landet;I alt;Alder i alt;I alt;2024K1;5961249
+  Row 2:  Hele landet;I alt;Alder i alt;I alt;2024K2;5967824
+TEST: 11.3: JSONSTAT format (1M cell limit)
+Payload: {
+  "table": "FOLK1A",
+  "format": "JSONSTAT",
+  "variables": [
+    {
+      "code": "OMRÅDE",
+      "values": [
+        "000"
+      ]
+    },
+    {
+      "code": "KØN",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "ALDER",
+      "values": [
+        "IALT"
+      ]
+    },
+    {
+      "code": "CIVILSTAND",
+      "values": [
+        "TOT"
+      ]
+    },
+    {
+      "code": "Tid",
+      "values": [
+        "2024K1"
+      ]
+    }
+  ]
+}
+
+✓ SUCCESS: 1 lines
+  Header: {"dataset":{"dimension":{"OMRÅDE":{"label":"område","category":{"index":{"000":0},"label":{"000":"Hele landet"}}},"KØN":
+TEST: 11.4: JSONSTAT exceeding 1M cells (should fail)
+Payload: {
+  "table": "FOLK1A",
+  "format": "JSONSTAT",
+  "variables": [
+    {
+      "code": "OMRÅDE",
+      "values": [
+        "*"
+      ]
+    },
+    {
+      "code": "KØN",
+      "values": [
+        "*"
+      ]
+    },
+    {
+      "code": "ALDER",
+      "values": [
+        "*"
+      ]
+    },
+    {
+      "code": "CIVILSTAND",
+      "values": [
+        "*"
+      ]
+    },
+    {
+      "code": "Tid",
+      "values": [
+        "*"
+      ]
+    }
+  ]
+}
+
+✗ ERROR: Client error '400 Bad Request' for url 'https://api.statbank.dk/v1/data'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
