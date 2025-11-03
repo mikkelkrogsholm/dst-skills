@@ -1,5 +1,5 @@
 ---
-name: DST Subjects
+name: dst-subjects
 description: Browse Danmarks Statistik subject hierarchy to explore available data topics and categories. Use when user wants to discover what data is available or explore DST's organizational structure.
 ---
 

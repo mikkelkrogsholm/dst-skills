@@ -1,5 +1,5 @@
 ---
-name: dst-report
+name: dst-report-template
 description: |
   Generate HTML research reports with embedded data, charts, and analysis.
   Use when creating final research deliverables. Supports single comprehensive
@@ -285,14 +285,14 @@ When dst-research-analyst invokes you:
    - Executive summary
    - Section content (text analysis)
    - Data tables (from SQL queries)
-   - Charts (from dst-visualize skill)
+   - Charts (from dst-visualization skill)
    - Data sources (table IDs and descriptions)
 
 2. **Assemble report**:
    - Fill main template with metadata
    - Add executive summary
    - Insert content sections
-   - Embed charts from dst-visualize
+   - Embed charts from dst-visualization
    - List data sources
 
 3. **Generate filename**:
@@ -344,4 +344,4 @@ import os
 os.makedirs('/Users/mikkelfreltoftkrogsholm/Projekter/dst_skills/reports', exist_ok=True)
 ```
 
-Remember: You create the HTML structure, dst-visualize provides the chart HTML, agent provides the analysis text.
+Remember: You create the HTML structure, dst-visualization provides the chart HTML, agent provides the analysis text.

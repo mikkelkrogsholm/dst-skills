@@ -51,7 +51,7 @@ Agents activate based on your request. Simply phrase your question to match what
 - "Fetch population data" → Activates Fetcher
 - "Analyze population trends" → Activates Analyst
 
-Or explicitly say: "Switch to DST Fetcher Agent" or "Switch to DST Analyst Agent"
+Or explicitly say: "Switch to dst-fetch-agent" or "Switch to dst-analyze-agent"
 
 ### Can I use natural language?
 Yes! The agents understand natural language requests like:
@@ -107,23 +107,24 @@ Several options:
 - Persist data to DuckDB
 - Write directly to the reports/ directory
 
-The DST Analyst and DST Research Analyst agents can generate and save report files.
+The dst-analyze-agent and dst-report-agent can generate and save report files.
 
-### When should I use DST Research Analyst vs DST Analyst?
+### When should I use /dst-research vs individual commands?
 
-**DST Research Analyst**: Use for comprehensive, multi-table research workflows:
+**/dst-research command**: Use for comprehensive research workflows:
+- Orchestrates discovery, fetch, analysis, visualization, and reporting
 - Analyzing relationships between multiple datasets
 - Comparative analysis across time/regions
-- Research questions requiring data from 3+ tables
-- Generating HTML reports with interactive visualizations
+- Generates complete HTML reports with interactive visualizations
+- Automatically coordinates dst-fetch-agent, dst-analyze-agent, dst-visualize-agent, and dst-report-agent
 
-**DST Analyst**: Use for focused, single-table analysis:
-- Exploring data already fetched from one table
-- Quick insights and queries
-- Statistical analysis on a specific dataset
-- Text-based analysis and summaries
+**Individual commands** (/dst-discover, /dst-analyze, etc.): Use for focused tasks:
+- Working with specific tables you already know
+- Quick insights and queries on fetched data
+- Step-by-step control over the workflow
+- When you only need part of the workflow (e.g., just fetch or just analyze)
 
-Think: Research Analyst = breadth, Analyst = depth.
+Think: /dst-research = complete workflow, individual commands = targeted steps.
 
 ## Technical Questions
 

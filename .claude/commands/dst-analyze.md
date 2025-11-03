@@ -3,7 +3,7 @@ name: dst-analyze
 description: Analyze DST data with SQL queries
 ---
 
-Use the Task tool to invoke the DST Analyst agent with this prompt:
+Use the Task tool to invoke the dst-analyze-agent with this prompt:
 
 "Analyze the following research question: {{research_question}}
 Using these DST tables: {{table_ids}}

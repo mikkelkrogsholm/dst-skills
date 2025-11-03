@@ -3,7 +3,7 @@ name: dst-fetch
 description: Fetch DST data and validate
 ---
 
-Use the Task tool to invoke the DST Fetcher agent with this prompt:
+Use the Task tool to invoke the dst-fetch-agent with this prompt:
 
 "Fetch Danmarks Statistik data for tables: {{table_ids}}
 

@@ -36,7 +36,7 @@ python scripts/db/init_db.py
 
 The system is built with a two-agent architecture:
 
-### 1. DST Fetcher Agent
+### 1. dst-fetch-agent
 **Purpose**: Data Acquisition
 
 Discovers and downloads data from the DST API. Activates on keywords like: "fetch", "download", "retrieve", "get data"
@@ -50,7 +50,7 @@ Discovers and downloads data from the DST API. Activates on keywords like: "fetc
 
 **Skills**: dst-subjects, dst-tables, dst-tableinfo, dst-data
 
-### 2. DST Analyst Agent
+### 2. dst-analyze-agent
 **Purpose**: Data Analysis
 
 Queries and analyzes stored data. Activates on keywords like: "analyze", "query", "show", "compare"
@@ -315,8 +315,8 @@ Comprehensive documentation available in the `docs/` directory:
 - 7 agent skills (modular capabilities)
 
 **✅ Phase 3: Agent Configuration** - Complete
-- DST Fetcher Agent (data acquisition)
-- DST Analyst Agent (data analysis)
+- dst-fetch-agent (data acquisition)
+- dst-analyze-agent (data analysis)
 
 **✅ Phase 4: Integration & Documentation** - Complete
 - Comprehensive user documentation

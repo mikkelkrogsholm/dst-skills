@@ -52,10 +52,10 @@ Output: reports/{topic}_{timestamp}/report.html
 
 Commands invoke agents via Task tool:
 
-- **DST Fetcher** - Data discovery and acquisition
-- **DST Analyst** - SQL queries and statistical analysis
-- **DST Visualizer** - Chart.js visualization creation
-- **DST Reporter** - HTML report generation
+- **dst-fetch-agent** - Data discovery and acquisition
+- **dst-analyze-agent** - SQL queries and statistical analysis
+- **dst-visualize-agent** - Chart.js visualization creation
+- **dst-report-agent** - HTML report generation
 
 ## Available Skills
 
@@ -66,8 +66,8 @@ Skills provide documentation and templates:
 - `dst-tableinfo` - Get table metadata
 - `dst-data` - API quirks (BULK format, suppressed values)
 - `dst-query` - SQL patterns for DST data
-- `dst-visualize` - Chart.js templates
-- `dst-report` - HTML report templates
+- `dst-visualization` - Chart.js templates
+- `dst-report-template` - HTML report templates
 - `dst-list-tables` - List local data
 - `dst-check-freshness` - Validate data age
 

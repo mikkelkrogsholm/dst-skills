@@ -1,5 +1,5 @@
 ---
-name: DST Fetcher
+name: dst-fetch-agent
 description: Use when discovering DST tables or fetching data. Expert in browsing DST subject hierarchy, searching tables, and downloading data with validation.
 ---
 

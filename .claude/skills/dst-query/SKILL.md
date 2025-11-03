@@ -1,5 +1,5 @@
 ---
-name: DST Query
+name: dst-query
 description: Execute SQL queries on Danmarks Statistik data stored in DuckDB. Use when user needs specific data analysis, filtering, aggregation, or joins. Also includes table summary functionality.
 ---
 

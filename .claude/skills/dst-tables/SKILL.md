@@ -1,5 +1,5 @@
 ---
-name: DST Tables
+name: dst-tables
 description: Search and list Danmarks Statistik tables by subject or keyword. Use when user needs to find specific tables or browse tables within a subject area.
 ---
 

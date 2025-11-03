@@ -3,7 +3,7 @@ name: dst-discover
 description: Discover relevant DST tables for a topic
 ---
 
-Use the Task tool to invoke the DST Fetcher agent with this prompt:
+Use the Task tool to invoke the dst-fetch-agent with this prompt:
 
 "Find relevant DST tables for research topic: {{query}}
 

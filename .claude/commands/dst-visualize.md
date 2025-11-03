@@ -3,7 +3,7 @@ name: dst-visualize
 description: Create Chart.js visualizations
 ---
 
-Use the Task tool to invoke the DST Visualizer agent with this prompt:
+Use the Task tool to invoke the dst-visualize-agent with this prompt:
 
 "Create visualizations for topic: {{topic}}
 Using these analysis results: {{data_summary}}

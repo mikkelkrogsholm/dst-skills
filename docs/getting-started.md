@@ -6,8 +6,8 @@ Welcome to the DST Skills project! This guide will get you up and running in abo
 
 DST Skills is an AI-powered system for fetching and analyzing data from Statistics Denmark (Danmarks Statistik). It uses two intelligent agents:
 
-- **DST Fetcher Agent**: Downloads data from the DST API
-- **DST Analyst Agent**: Queries and analyzes stored data
+- **dst-fetch-agent**: Downloads data from the DST API
+- **dst-analyze-agent**: Queries and analyzes stored data
 
 All data is stored locally in DuckDB for fast, SQL-based analysis.
 
@@ -77,22 +77,23 @@ You should see 7 skills: dst-subjects, dst-tables, dst-tableinfo, dst-data, dst-
 
 The DST Skills system provides specialized agents for different workflows:
 
-#### Quick Data Access
+#### Quick Data Discovery
 ```
-# Let DST Fetcher find and download data for you
-"Find me population data by region"
+# Use /dst-discover to find relevant tables
+/dst-discover "population data by region"
 ```
 
-#### Single-Table Analysis
+#### Data Fetch and Analysis
 ```
-# Let DST Analyst explore data already in DuckDB
-"Analyze population trends in dst_folk1a"
+# Use /dst-fetch to download data and /dst-analyze for insights
+/dst-fetch "FOLK1A"
+/dst-analyze "population trends" --tables "FOLK1A"
 ```
 
 #### Comprehensive Research
 ```
-# Let DST Research Analyst handle multi-table workflows
-/dst-research electric vehicle adoption trends
+# Use /dst-research for complete workflow
+/dst-research "electric vehicle adoption trends"
 ```
 
 Agents can now fetch data, create reports, and persist files directly—no workarounds needed!

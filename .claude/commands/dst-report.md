@@ -3,7 +3,7 @@ name: dst-report
 description: Generate comprehensive HTML report
 ---
 
-Use the Task tool to invoke the DST Reporter agent with this prompt:
+Use the Task tool to invoke the dst-report-agent with this prompt:
 
 "Generate comprehensive HTML report for topic: {{topic}}
 Using these inputs:

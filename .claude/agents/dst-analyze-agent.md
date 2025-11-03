@@ -1,5 +1,5 @@
 ---
-name: DST Analyst
+name: dst-analyze-agent
 description: Use when analyzing DST data stored in DuckDB. Expert in SQL queries, statistical analysis, and extracting insights from Danmarks Statistik tables.
 ---
 

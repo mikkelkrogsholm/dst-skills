@@ -32,10 +32,10 @@ Commands can invoke other commands, enabling:
 
 Each agent has a focused responsibility:
 
-- **DST Fetcher** - Discovery and acquisition only
-- **DST Analyst** - Querying and analysis only
-- **DST Visualizer** - Chart creation only
-- **DST Reporter** - Report assembly only
+- **dst-fetch-agent** - Discovery and acquisition only
+- **dst-analyze-agent** - Querying and analysis only
+- **dst-visualize-agent** - Chart creation only
+- **dst-report-agent** - Report assembly only
 
 **Benefits:**
 - Clear separation of concerns
@@ -48,7 +48,7 @@ Skills provide just-in-time knowledge:
 
 - **dst-data** - When fetching, load API quirks
 - **dst-query** - When analyzing, load SQL patterns
-- **dst-visualize** - When charting, load templates
+- **dst-visualization** - When charting, load templates
 
 **NOT executable code** - just reference material.
 
@@ -59,7 +59,7 @@ Commands use the Task tool to invoke agents:
 ```markdown
 # In /dst-fetch command
 
-Invoke the DST Fetcher agent via Task tool to:
+Invoke the dst-fetch-agent via Task tool to:
 1. Check existing data
 2. Fetch missing tables
 3. Validate results
@@ -78,7 +78,7 @@ User
   ↓
 Command (/dst-research)
   ↓ Task tool
-Agent (DST Fetcher)
+Agent (dst-fetch-agent)
   ↓ Bash tool
 Python Script (fetch_and_store.py)
   ↓ HTTP
@@ -86,15 +86,15 @@ DST API
   ↓
 DuckDB (dst.db)
   ↓
-Agent (DST Analyst)
+Agent (dst-analyze-agent)
   ↓ SQL
 Analysis Results
   ↓
-Agent (DST Visualizer)
+Agent (dst-visualize-agent)
   ↓ Write
 HTML Charts
   ↓
-Agent (DST Reporter)
+Agent (dst-report-agent)
   ↓ Write
 Final Report (reports/{topic}_{timestamp}/)
 ```

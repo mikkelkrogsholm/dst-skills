@@ -1,5 +1,5 @@
 ---
-name: DST Table Info
+name: dst-tableinfo
 description: Get detailed metadata for a specific Danmarks Statistik table including variables, dimensions, and structure. Use before fetching data to understand table schema.
 ---
 

@@ -4,7 +4,7 @@ A one-page reference for working with DST Skills.
 
 ## Agent Activation
 
-### DST Fetcher Agent
+### dst-fetch-agent
 **Activates on**: fetch, download, retrieve, get data from DST
 
 **Examples**:
@@ -12,7 +12,7 @@ A one-page reference for working with DST Skills.
 - "Download table FOLK1A"
 - "Get me employment statistics"
 
-### DST Analyst Agent
+### dst-analyze-agent
 **Activates on**: analyze, query, explore, show insights
 
 **Examples**:

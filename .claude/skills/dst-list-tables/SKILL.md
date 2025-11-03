@@ -1,5 +1,5 @@
 ---
-name: DST List Tables
+name: dst-list-tables
 description: List all Danmarks Statistik tables currently stored in DuckDB with metadata. Use when user wants to know what data is available locally or explore stored tables.
 ---
 

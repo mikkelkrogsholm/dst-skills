@@ -1,5 +1,5 @@
 ---
-name: DST Data
+name: dst-data
 description: Fetch actual data from Danmarks Statistik API and store in DuckDB. Use when user wants to download and store specific DST table data for analysis.
 ---
 

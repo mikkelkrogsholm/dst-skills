@@ -1,5 +1,5 @@
 ---
-name: DST Visualize
+name: dst-visualization
 description: Create interactive Chart.js visualizations for DST data analysis. Use when generating charts, creating visual reports, building dashboards, or displaying trends from database tables.
 ---
 

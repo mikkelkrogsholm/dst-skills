@@ -1,5 +1,5 @@
 ---
-name: DST Check Freshness
+name: dst-check-freshness
 description: Check data freshness and age for DST tables in DuckDB. Use when determining if data needs refreshing or validating data currency before analysis.
 ---
 
